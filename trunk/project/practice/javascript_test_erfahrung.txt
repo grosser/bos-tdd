@@ -1,0 +1,3 @@
+keine Ergebnisse, nur sinnfreier output
+hängt sich gern und oft auf wenn irgend einer der dependencies nicht richtig installiert ist
+kann nicht abgebrochen werden(Ctrl+C) -> console schließen

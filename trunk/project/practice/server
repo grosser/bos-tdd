@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+#sudo mongrel_rails start -umongrel --group web -a192.168.0.2
+script/server -b192.168.0.2 $1 $2 $3 $4

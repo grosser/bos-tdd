@@ -1,0 +1,8 @@
+#!/bin/sh
+sudo chmod 770 -R .
+sudo chgrp -R web .
+
+#make plublic readable
+sudo chmod 775 .
+sudo chmod 775 -R public
+sudo chmod 775 -R coverage

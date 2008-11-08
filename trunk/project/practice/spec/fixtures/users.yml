@@ -1,0 +1,8 @@
+one:
+  login: me
+  email: me@no.mail
+
+deactivated:
+  login: deac
+  email: deacc@acc.de
+  activated: false

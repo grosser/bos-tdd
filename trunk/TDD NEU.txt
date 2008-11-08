@@ -1,0 +1,58 @@
+Testing: have to think about the ways it can break/wrong data can be inserted/handled
+
+
+Tests failing/succeeding(wrong) and you cant figure out, try using the direct way to debug (browser)
+
+
+if !File.exists? @options.config || @options.config =~ /^\/\// || @options.config.blank? 
+--> if !File.exists? @options.config all tests satisfied
+
+
+if !@options.aws_access_key || @options.aws_access_key.blank? || !@options.aws_secret_access_key || @options.aws_secret_access_key.blank?
+blank fields where ignored
+--> if !@options.aws_access_key || !@options.aws_secret_access_key
+
+
+if it does not work the first few times with testing, go to the console and make it work
+
+
+Allgemein http://manuals.rubyonrails.com/read/chapter/28
+
+Test comments assert_equal 1, payment.result, "incorrect price calculated"
+
+composed_of -> einzeln testen
+
+use save! + create! if you are sure "warnig sign is a blank line movie.save" for this always use save!
+
+
+
+
+Uploading files
+To simulate file upload, we simply place our testfile in test/fixtures/files/NAME.jpg, where name should be the name of the fixture we use or something like "Too big image".
+Then we can submit our form like normal with 
+submit_form :file => fixture_file_upload('files/NAME.jpg','image/jpeg')
+Where :file is the name of our file_field_tag.
+
+
+http://www.misuse.org/science/2007/07/24/firing-rails-controller-actions-from-command-line-console/
+
+http://ryandaigle.com/articles/2006/5/24/continuous-integration-w-rails
+
+run a single test http://209.85.135.104/search?q=cache:aw6DOhlq2EkJ:snippets.dzone.com/tag/TDD+zentest+%22run+a+single+test%22&hl=en&ct=clnk&cd=3
+
+
+submit form -> anderer controller geht nicht!!!
+	<% form_tag "/rating/rate/#{@movie.rating.id}" do -%>
+	
+	
+assert_equal 4 Movie.find :all <- problem! muss bei jedem neuen fixture geupdated werden -> scenario pluging ?
+
+
+
+wichtigstes zuerst:
+      post :upload_from_ftp, :id=>movies(:one).id
+      assert_response :redirect
+      assert flash[:notice]
+      
+      
+build test helper for everything that is repetitive, and if you need a helper, maybe refactoring to one test (testing the same more than once) or moving the test a layer deeper(unit>model) can help

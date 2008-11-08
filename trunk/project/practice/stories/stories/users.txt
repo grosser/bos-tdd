@@ -1,0 +1,19 @@
+Story: User interaction
+  Scenario: protect from creating a user without email
+    When i go to users/new
+    And i enter valid attributes except email
+    And i submit
+    Then i should stay at new
+    And the user should have an error on email
+    
+  Scenario: create a new user
+    When i go to users/new
+    And i enter valid attributes
+    And i submit
+    Then i should be redirected to the user
+    
+  Scenario: deactivating a user
+    When i go to users
+    When i change the first to activated = false
+    And i go to users
+    Then i do not see the first

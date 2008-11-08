@@ -1,0 +1,9 @@
+  def assert_valid_upload
+    uploaded_file = "#{RAILS_ROOT}/var/in/#{movies(:one).filename}"
+    system("rm #{uploaded_file}")
+    get :upload, :id => movies(:one).id    
+
+    yield
+    
+    assert File.exists?(uploaded_file)
+  end
