@@ -1,0 +1,1183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="WordPress 2.7"> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="codahale.com | Feed" href="http://blog.codahale.com/feed/">
+
+<link rel="openid.server" href="http://openid.claimid.com/server">
+<link rel="openid.delegate" href="http://openid.claimid.com/codahale">
+
+<title>Rails Plugin: rails_rcov | Archives | codablog | Coda Hale</title>
+
+<link rel="pingback" href="http://blog.codahale.com/xmlrpc.php">
+
+<link rel="shortcut icon" href="http://blog.codahale.com/favicon.ico">
+<link rel="icon" href="http://blog.codahale.com/favicon.ico">
+
+<style type="text/css" media="screen">
+	body { background: url("http://blog.codahale.com/wp-content/themes/justacog/images/background-cogs.jpg") no-repeat top left; }
+  blockquote { background: #E6E9DC url("http://blog.codahale.com/wp-content/themes/justacog/images/blockquote.png") no-repeat 5px top; }
+	a.post-comments { background: url("http://blog.codahale.com/wp-content/themes/justacog/images/comments.gif") no-repeat; display: inline; padding-left: 25px;	}
+	div.sideitem ul li {	list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/arrow.png"); }
+	div.sideitem ul.categories li { list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/post.png"); }
+	div.sideitem ul.archives li { list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/archive.png"); }
+	div.sideitem ul.comments li { list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/comment.png"); }
+	div.sideitem ul.posts li {	list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/post.png"); }
+	div.sideitem ul.categories li { list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/category.png"); }
+  div.sideitem ul.links li { list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/link.png"); }
+  div.sideitem ul.pages li { list-style-image: url("http://blog.codahale.com/wp-content/themes/justacog/images/page.png"); }
+  
+  #goals-list { width: 150px; }
+  #goals-list h3 { margin-top: 5px; margin-left: 5px; }
+  #goals { list-style: none; padding-left: 0; }
+  #goals li { text-align: center; padding-left: 0; list-style-image: none; }
+  #goals li a { border-bottom: none; }
+  #wesabe-link { font-size: 80%; }
+</style>
+
+<script src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-248257-1";
+urchinTracker();
+</script>
+
+	<link rel="archives" title="July 2008" href="http://blog.codahale.com/2008/07/">
+	<link rel="archives" title="December 2007" href="http://blog.codahale.com/2007/12/">
+	<link rel="archives" title="July 2007" href="http://blog.codahale.com/2007/07/">
+	<link rel="archives" title="June 2007" href="http://blog.codahale.com/2007/06/">
+	<link rel="archives" title="May 2007" href="http://blog.codahale.com/2007/05/">
+	<link rel="archives" title="April 2007" href="http://blog.codahale.com/2007/04/">
+	<link rel="archives" title="March 2007" href="http://blog.codahale.com/2007/03/">
+	<link rel="archives" title="February 2007" href="http://blog.codahale.com/2007/02/">
+	<link rel="archives" title="January 2007" href="http://blog.codahale.com/2007/01/">
+	<link rel="archives" title="December 2006" href="http://blog.codahale.com/2006/12/">
+	<link rel="archives" title="November 2006" href="http://blog.codahale.com/2006/11/">
+	<link rel="archives" title="August 2006" href="http://blog.codahale.com/2006/08/">
+	<link rel="archives" title="July 2006" href="http://blog.codahale.com/2006/07/">
+	<link rel="archives" title="June 2006" href="http://blog.codahale.com/2006/06/">
+	<link rel="archives" title="May 2006" href="http://blog.codahale.com/2006/05/">
+	<link rel="archives" title="April 2006" href="http://blog.codahale.com/2006/04/">
+	<link rel="archives" title="March 2006" href="http://blog.codahale.com/2006/03/">
+	<link rel="archives" title="February 2006" href="http://blog.codahale.com/2006/02/">
+	<link rel="archives" title="January 2006" href="http://blog.codahale.com/2006/01/">
+	<link rel="archives" title="December 2005" href="http://blog.codahale.com/2005/12/">
+	<link rel="archives" title="November 2005" href="http://blog.codahale.com/2005/11/">
+	<link rel="archives" title="October 2005" href="http://blog.codahale.com/2005/10/">
+	<link rel="archives" title="September 2005" href="http://blog.codahale.com/2005/09/">
+<link rel="stylesheet" href="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/defensio_2.htm" type="text/css" media="">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blog.codahale.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://blog.codahale.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 2.7">
+
+<script src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/a" type="text/javascript" language="javascript"></script></head><body><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/a.htm" alt="" style="position: absolute; left: -9999px;" onload="this.parentNode.removeChild(this);">
+
+
+<!-- ukey="75092103" -->
+	<h1 id="title"><a href="http://blog.codahale.com/"><span class="titlefirst">coda</span><span class="titlelast">hale.com</span><span class="titlediddle">٭</span><span class="titlename">blog</span></a></h1>
+	
+<div id="description">Coda Hale lives in Berkeley, CA, where he writes
+about Ruby on Rails, usability, web design and development, and the
+occasional bit about bicycles.</div>
+<div style="display: none;"><a href="http://blog.codahale.com/page.php?id=valium-phentermine-viagra-cialis-xanax-tramadol">Valium phentermine viagra cialis xanax tramadol</a>&nbsp;<a href="http://blog.codahale.com/page.php?id=casino-game-online">Casino game online</a>&nbsp;<a href="http://youngamericancomics.com/page.php?id=valium-phentermine-viagra-cialis-xanax-tramadol">Valium phentermine viagra cialis xanax tramadol</a>&nbsp;<a href="http://mediageek.net/page.php?id=buy-xenical">Buy xenical</a>&nbsp;<a href="http://atlantajones.com/page.php?id=slot-machine-gambling">Slot machine gambling</a>&nbsp;<a href="http://dearcali.com/page.php?id=Ambien">Ambien</a>&nbsp;<a href="http://atexansblog.com/page.php?id=auto-insurance-rate">Auto insurance rate</a>&nbsp;<a href="http://sirgt.chapinware.com/page.php?id=Nexium">Nexium</a>&nbsp;<a href="http://sjarvis.com/page.php?id=tramadol-hcl-50mg">Tramadol hcl 50mg</a>&nbsp;<a href="http://honestape.net/page.php?id=home-health">Home health</a>&nbsp;<a href="http://howtotuts.com/page.php?id=order-xenical">Order xenical</a>&nbsp;<a href="http://blogajuda.com.br/page.php?id=party-poker-bonus">Party poker bonus</a>&nbsp;<a href="http://armorgraphics.org/page.php?id=oncology">Oncology</a>&nbsp;<a href="http://jessicacorry.com/page.php?id=order-cialis">Order cialis</a>&nbsp;<a href="http://quasilaur.net/page.php?id=buy-acyclovir">Buy acyclovir</a>&nbsp;<a href="http://yusufasyari.com/page.php?id=cialis-generic-viagra">Cialis generic viagra</a>&nbsp;<a href="http://blog.frogmedias.com/page.php?id=football-pick">Football pick</a>&nbsp;<a href="http://waltermignolo.com/page.php?id=atenolol">Atenolol</a>&nbsp;<a href="http://mamidelux.com/page.php?id=tramadol-without-prescription">Tramadol without prescription</a>&nbsp;<a href="http://bombenglish.com/page.php?id=auto-owner-insurance">Auto owner insurance</a>&nbsp;</div>
+	<div id="body">
+
+      <div class="post" id="post-108">
+        <div class="post-body">
+          <h2 class="post-title"><a href="http://blog.codahale.com/2006/05/26/rails-plugin-rails_rcov/" rel="bookmark" title="Permanent Link to Rails Plugin: rails_rcov">Rails Plugin: rails_rcov</a></h2>
+          <p>Been paying attention to <a href="http://eigenclass.org/hiki.rb">Mauricio Fernandez</a>’s <a href="http://eigenclass.org/hiki.rb?rcov">rcov</a>, but have no idea how to easily integrate it into your Rails application? Well, you <em>had</em> no idea how to do that. In about 15 seconds, you’ll be all over the code-coverage bandwagon. Ready? GO!</p>
+<h3>First, Install Rcov</h3>
+<p>I shouldn’t need to say this. <a href="http://eigenclass.org/hiki.rb?rcov">Go here</a>, download, untar, and <code>ruby setup.rb &amp;&amp; sudo ruby setup.rb install</code>. Go! Go! Go!</p>
+<h3>Second, Install rails_rcov</h3>
+<p>Using SVN?</p>
+<pre><code>./script/plugin install -x http://svn.codahale.com/rails_rcov</code></pre>
+<p>Still partying like it’s 1995?</p>
+<pre><code>./script/plugin install http://svn.codahale.com/rails_rcov</code></pre>
+<h3>Third, Bask In The Joy Of Rake Magic</h3>
+<p>For each <tt>test:blah</tt> task you have for your Rails project, rails_rcov adds two more: <tt>test:blah:rcov</tt> and <tt>test:blah:clobber_rcov</tt>.</p>
+<p>Running <tt>rake test:units:rcov</tt>, for example, will run your unit tests through rcov and write the code coverage reports to <tt>your_rails_app/coverage/units</tt>. Running <tt>test:units:clobber_rcov</tt> will erase the generated report for the unit tests.</p>
+<p>Each rcov task can take two optional arguments: <code>RCOV_PARAMS</code>, whose argument is passed along to rcov, and <code>SHOW_ONLY</code>, which limits the files displayed in the report. Here are some examples:</p>
+<pre><code># sort by coverage
+rake test:units:rcov RCOV_PARAMS="--sort=coverage"
+
+# show callsites and hide fully covered files
+rake test:units:rcov RCOV_PARAMS="--callsites --only-uncovered"
+
+# only show files which begin with "app/models"
+rake test:units:rcov SHOW_ONLY="app/models"</code></pre>
+<p>Check the rcov documentation for more details.</p>
+<p>Please note that rails_rcov has only been tested with a Bash shell, and any other environment could well explode in your face.</p>
+<h3>Fourth, Marvel At How You Ever Survived Without Mauricio’s Crazy Metaprogramming Robot Watching Your Back</h3>
+<p>Is that cool or what? All that red in the report is work you haven’t
+done yet, so get crackin’! Don’t stop shooting until everything’s
+green! Hup hup hup!</p>
+          <p class="postmetadata alt">
+          <small>
+            This entry was posted
+                        on Friday, May 26th, 2006 at 9:21pm            and is filed under <a href="http://blog.codahale.com/category/programming/" title="View all posts in Programming" rel="category tag">Programming</a>,  <a href="http://blog.codahale.com/category/programming/ruby-and-rails/" title="View all posts in Ruby and Rails" rel="category tag">Ruby and Rails</a>.
+            You can follow any responses to this entry through the <a href="http://blog.codahale.com/2006/05/26/rails-plugin-rails_rcov/feed/">RSS 2.0</a> feed.
+
+                          Both comments and pings are currently closed.
+
+            
+          </small>
+        </p>
+        </div> <!-- end div.post-body -->
+        <div class="post-meta">
+          <span class="post-day">26th</span>
+          <span class="post-monthyear">May 2006</span>
+          <span class="post-time">9:21pm</span>
+                    <span class="post-categories"><a href="http://blog.codahale.com/category/programming/" title="View all posts in Programming" rel="category tag">Programming</a>  <a href="http://blog.codahale.com/category/programming/ruby-and-rails/" title="View all posts in Ruby and Rails" rel="category tag">Ruby and Rails</a></span><br>
+          <span class="post-tags"></span>
+        </div> <!-- end div.post-meta -->
+        <div class="post-footer">&nbsp;</div>
+      </div> <!-- end div.post -->
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">50 Responses to “Rails Plugin: rails_rcov”</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-634">
+    <a href="http://www.karmacrash.com/" title="Visit Tim Case"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_008.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.karmacrash.com/" rel="external nofollow" class="url">Tim Case</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-634" title="">May 27th, 2006 at 7:43pm</a> </small>
+
+			<p>Dude this is amazing, I love it!  Green bars are my heroin.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-636">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-636" title="">May 29th, 2006 at 12:11am</a> </small>
+
+			<p>This
+seems super swank. Trouble is I cant get rcov to install on WinXP SP2.
+Just says rcov is not a valid command and rake test:units:rcov crashes
+with an unspecified error.</p>
+<p>Although, rcov 0.5 will be installable via gems so maybe that will help.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-637">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-637" title="">May 30th, 2006 at 10:02am</a> </small>
+
+			<p>rcov 0.5 is not installed via gems and all seems well since I can run rcov directly on a single file with “rcov some_test.rb”.</p>
+<p>however the rake task crashes when I try to use it</p>
+<p>  rake test:units:rcov –trace</p>
+<p>yields the following:</p>
+<pre><code>rake aborted!
+You have a nil object when you didn't expect it!
+The error occured while evaluating nil.exitstatus
+(See full trace by running task with --trace)
+rake aborted!
+Command failed with status (1): [c:/ruby/bin/ruby ./vendor/plugins/rails_rc...]
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:722:in `sh'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:729:in `sh'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:812:in `sh'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:807:in `sh'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:747:in `ruby'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:812:in `ruby'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:807:in `ruby'
+./vendor/plugins/rails_rcov/tasks/rails_rcov.rake:74:in `new_rcov_task'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:387:in `execute'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:387:in `execute'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:357:in `invoke'
+c:/ruby/lib/ruby/1.8/thread.rb:135:in `synchronize'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:350:in `invoke'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:1906:in `run'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake.rb:1906:in `run'
+c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/bin/rake:7
+c:/ruby/bin/rake.bat:25</code></pre>
+<p>Not once in the callstack does it execute any part of my app so I don’t its my code that’s crashing it.</p>
+<p>Any ideas on how to fix this?</p>
+
+		</li>
+
+	
+	
+		<li class="official" id="comment-638">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-638" title="">May 30th, 2006 at 10:29am</a> </small>
+
+			<p>Alex,
+this may be one of those Win32-specific problems. The problem seems to
+be around line 74, in which the Rake task runs the Ruby script which
+actually executes rcov. That said, the error doesn’t seem to be in my
+code; it seems to be a shell error of some sort which Rake chokes on,
+and since it runs like a charm on my Linux boxen I can only assume it’s
+something in the difference between Linux and Win32.</p>
+<p>I don’t have any Windows machines available to check this on,
+though, so unless you want to debug it, I’m not sure what I can do.</p>
+<p>One thing to try: on line 54, change it to this:</p>
+<pre><code>run_code = File.expand_path(__FILE__)</code></pre>
+<p>It may be that Rake/Win32 doesn’t handle relative file paths.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-639">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-639" title="">May 30th, 2006 at 10:40am</a> </small>
+
+			<p>Sadly that change made no difference.  Although the following does work:</p>
+<p>cd test/unit<br>
+rcov *</p>
+<p>So rcov seems to be working fine.</p>
+
+		</li>
+
+	
+	
+		<li class="official" id="comment-640">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-640" title="">May 30th, 2006 at 11:40am</a> </small>
+
+			<p>Uninstall the plugin, then install it again.</p>
+<p>I wasn’t escaping paths with spaces in them, which probably caused your problem.</p>
+<p>Hopefully this will work.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-641">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-641" title="">May 30th, 2006 at 11:59am</a> </small>
+
+			<p>No
+luck. Although my path doesn’t actually contain any spaces at all.
+Heres the excerpt from my console, from the uninstall to the reinstall
+to the rake task.</p>
+<p><a href="http://rafb.net/paste/results/dXFOCE57.html" rel="nofollow">http://rafb.net/paste/results/dXFOCE57.html</a></p>
+
+		</li>
+
+	
+	
+		<li class="official" id="comment-642">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-642" title="">May 30th, 2006 at 12:07pm</a> </small>
+
+			<p>Hmm. Try running this and let me know what happens:</p>
+<pre><code>rcov -o "C:/Projects/MagneticWorld/MagneticWorld/coverage/units" -T -x rubygems/*,rcov* --rails  -Ilib;test "c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake/rake_test_loader.rb" "test/unit/address_test.rb" "test/unit/blog_article_test.rb" "test/unit/cart_test.rb" "test/unit/comment_test.rb" "test/unit/content_test.rb" "test/unit/faq_section_test.rb" "test/unit/faq_test.rb" "test/unit/gift_certificate_test.rb" "test/unit/line_item_test.rb" "test/unit/mailer_test.rb" "test/unit/order_test.rb" "test/unit/person_test.rb" "test/unit/product_image_test.rb" "test/unit/product_test.rb" "test/unit/review_test.rb" "test/unit/sale_test.rb" "test/unit/tag_test.rb" "test/unit/ups_api_test.rb" "test/unit/user_test.rb" "test/unit/wishlist_product_test.rb"</code></pre>
+<p>This is the command that Rake is choking on.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-643">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-643" title="">May 30th, 2006 at 12:13pm</a> </small>
+
+			<p>Success!</p>
+<p><a href="http://rafb.net/paste/results/Bp1E3k42.html" rel="nofollow">http://rafb.net/paste/results/Bp1E3k42.html</a></p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-644">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_009.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Brian</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-644" title="">May 30th, 2006 at 10:31pm</a> </small>
+
+			<p>‘rake
+test:rcov’ as mentioned above doesn’t exist, and running ‘rake
+test:test:rcov’ seems to clobber the report for each type of test
+(unit/functional/integration) with the previous type, instead of
+putting each in its own directory. Is this an API change or a bug?</p>
+
+		</li>
+
+	
+	
+		<li class="alt official" id="comment-645">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-645" title="">May 30th, 2006 at 10:38pm</a> </small>
+
+			<p><code>rake test:rcov</code>
+was a bit I forgot to excise from the README, Brian. Sorry about that.
+There’s currently no way to run all three types of tests through the
+same rcov process, since the units/functionals load a stubbed version
+of ActionController, and integration tests depend on the real deal.
+I’ll make those changes.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-646">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_009.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Brian</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-646" title="">May 30th, 2006 at 10:51pm</a> </small>
+
+			<p>Are you sure it can’t be done? It seems to work for me from the command-line with this:</p>
+<p>rcov -o coverage -T -x rubygems/*,rcov*,db/* –rails –callsites test/**/*.rb</p>
+<p>But I haven’t tested it except on one app, so maybe I just got lucky.</p>
+
+		</li>
+
+	
+	
+		<li class="alt official" id="comment-647">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-647" title="">May 30th, 2006 at 10:56pm</a> </small>
+
+			<p>If
+it can be done, I’d love to hear about it. The two apps I tested the
+original approach with (which looked a lot like what you posted) both
+had fairly extensive collections of tests, and both ate flaming death
+when all tests were run at the same time. It may depend on what your
+integration tests are actually doing, I don’t know.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-653">
+    <a href="http://www.franzens.org/" title="Visit Nils Franzen"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.franzens.org/" rel="external nofollow" class="url">Nils Franzen</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-653" title="">June 5th, 2006 at 12:01am</a> </small>
+
+			<p>As
+Alex above, I couldn’t get rails_rcov to work correctly on WinXP. For
+me, the problem lies in how the arguments to -x are passed:</p>
+<p>By default, it looks something like this:  </p>
+<p>-x rubygems/*,rcov*</p>
+<p>But if you change it by quoting the value, so it looks like this:  </p>
+<p>-x “rubygems/*,rcov*”</p>
+<p>… it works without problems for me. Alex, you only need to update
+line 58 in the file vendor/plugins/rails_rcov/tasks/rails_rcov.rake</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-654">
+    <a href="http://www.franzens.org/" title="Visit Nils Franzen"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.franzens.org/" rel="external nofollow" class="url">Nils Franzen</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-654" title="">June 5th, 2006 at 1:32pm</a> </small>
+
+			<p>… I was too quick in my response above, you’ll also need to change line 111. From:</p>
+<p>status = sh(”rcov #{RcovTestSettings.to_params} #{args}”, {}, &amp;block)</p>
+<p>To:</p>
+<p>status = sh(”rcov.cmd #{RcovTestSettings.to_params} #{args}”, {}, &amp;block)</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-655">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-655" title="">June 5th, 2006 at 4:37pm</a> </small>
+
+			<p>Awesome,
+thanks for the tip Nils. This should be rolled into the code ASAP.
+Although it should probably be wrapped in some sort of “if win32″
+block, especially for the second change.</p>
+
+		</li>
+
+	
+	
+		<li class="alt official" id="comment-656">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-656" title="">June 5th, 2006 at 5:02pm</a> </small>
+
+			<p>Okey doke–the Rubygems exclusion is quoted now, and on win32 it calls rcov.cmd. Keep ‘em coming! ;-)</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-662">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-662" title="">June 9th, 2006 at 10:14am</a> </small>
+
+			<p>SHOW_ONLY option does not appear to work.  The output is unchanged and still shows all files including helpers and models.</p>
+<p>This command:</p>
+<p>  rake test:functionals:rcov SHOW_ONLY=”app/controllers”</p>
+<p>generates rcov command:</p>
+<p>rcov.cmd -o
+“C:/Projects/MagneticWorld/MagneticWorld/coverage/functionals” -T -x
+“rubygems/*,rcov*” –rails -x ^\(\?\!\app/controllers\) -Ilib;test
+“c:/ruby/lib/ruby/gems/1.8/gems/rake-0.7.1/lib/rake/rake_test_loader.rb”
+“test/functional/account_controller_test.rb”
+“test/functional/blog_controller_test.rb”
+“test/functional/faq_controller_test.rb”
+“test/functional/home_controller_test.rb”
+“test/functional/person_controller_test.rb”
+“test/functional/products_controller_test.rb”
+“test/functional/store_controller_test.rb”
+“test/functional/admin/admin_controller_test.rb”
+“test/functional/admin/blog_controller_test.rb”
+“test/functional/admin/content_controller_test.rb”
+“test/functional/admin/homepage_controller_test.rb”
+“test/functional/admin/home_controller_test.rb”
+“test/functional/admin/inventory_controller_test.rb”
+“test/functional/admin/orders_controller_test.rb”
+“test/functional/admin/products_controller_test.rb”
+“test/functional/admin/reviews_controller_test.rb”
+“test/functional/admin/sales_controller_test.rb”
+“test/functional/admin/tags_controller_test.rb”</p>
+
+		</li>
+
+	
+	
+		<li class="alt official" id="comment-663">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-663" title="">June 9th, 2006 at 11:11am</a> </small>
+
+			<p>Alex: it works like a charm in a bash shell. The key part there is <code>-x ^\(\?\!\app/controllers\)</code>. If you can figure out how to escape <code>^(?!app/controllers)</code> for the Windows shell, I’ll add it in. I don’t have access to a Windows machine, so I can’t do it myself.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-664">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-664" title="">June 9th, 2006 at 11:15am</a> </small>
+
+			<p>calling the -x parameter twice doesn’t cause a problem?</p>
+<p>(…snipped..) -x “rubygems/*,rcov*” –rails -x ^\(\?\!\app/controllers\)</p>
+
+		</li>
+
+	
+	
+		<li class="alt official" id="comment-665">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-665" title="">June 9th, 2006 at 11:30am</a> </small>
+
+			<p>No, it doesn’t, unless Mauricio is shipping a totally different version for Win32, which I doubt. <code>SHOW_ONLY</code> works fine for me on GNU/Linux/bash, so the problem must be in the way I’m escaping the exclusion regular expression.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-666">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-666" title="">June 9th, 2006 at 12:01pm</a> </small>
+
+			<p>line 58 should be:</p>
+<p>params</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-693">
+    <a href="http://www.verticalexpressionsoftware.com/blog/" title="Visit Eric Nielsen"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_005.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.verticalexpressionsoftware.com/blog/" rel="external nofollow" class="url">Eric Nielsen</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-693" title="">June 17th, 2006 at 11:05am</a> </small>
+
+			<p>I’m
+trying to use your plug-in in conjunction with ZenTest/Test::Rails.
+Test::Rails splits functional tests to controller and view tests (among
+other things). Rake –tasks shows<br>
+…<br>
+rake test:controllers<br>
+rake test:functionals<br>
+rake test:functionals:clobber_rcov<br>
+rake test:functionals:rcov<br>
+…</p>
+<p>So it look like your plug-in is correctly doing its magic on the
+built in rails tasks (and rake test:units:rcov SHOW_ONLY=”app/model”
+works beautifully). However it looks like its not detecting the added
+tasks from Test::Rails.</p>
+<p>The Test::Rails instructions for hooking up its tasks is simply to add<br>
+“require test/rails/rake_index’ to the Rakefile. I suppose that your
+method for searching for .rake’s doesn’t actually follow links from
+within the found files. If I copy the rake_tasks.rb from gem to my
+lib/tasks and rename to a .rake, everything works. So the two add-ons
+aren’t intrinsically incompatible. </p>
+<p>So from a best practices view point, what’s the preferred way to
+make sure your plugin finds new tests tasks? (Ie I don’t think my
+hackish copy/rename is the “right” way, but not sure what’s more
+correct)</p>
+
+		</li>
+
+	
+	
+		<li class="official" id="comment-694">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-694" title="">June 17th, 2006 at 11:24am</a> </small>
+
+			<p>Eric,
+there isn’t a good way to do that, mainly since I don’t think Rake is
+really built to do what I’m doing. The Test::Rails rake file appears to
+be loading after rails_rcov, and so rails_rcov is blissfully unaware of
+its presence. If you can get Test::Rails to load before rails_rcov,
+you’re good to go.</p>
+<p>rails_rcov is not complicated in the way it looks for new tasks. It
+doesn’t parse any files, since Rake already does that. Instead it
+iterates through the tasks Rake has already loaded, and looks for tasks
+which start out with “test”.</p>
+<p>I’d suggest perhaps making a new rake task in your lib directory,
+and requiring Test::Rails from there. That would probably work.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-695">
+    <a href="http://www.verticalexpressionsoftware.com/blog/" title="Visit Eric Nielsen"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_005.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.verticalexpressionsoftware.com/blog/" rel="external nofollow" class="url">Eric Nielsen</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-695" title="">June 17th, 2006 at 1:18pm</a> </small>
+
+			<p>That worked, and is substantially cleaner.  Thanks.</p>
+<p>I don’t suppose you’ve put any thought into how one could create a
+rake task to run each of rake test:foos:rcov SHOW_ONLY=’app/foos’ and
+extract information for each to generate summary index for each test
+suites? ;)</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-993">
+    <a href="http://http//justaddwater.dk/" title="Visit Jesper Rønn-Jensen (justaddwater.dk)"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_005.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://http//justaddwater.dk/" rel="external nofollow" class="url">Jesper Rønn-Jensen (justaddwater.dk)</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-993" title="">July 23rd, 2006 at 2:01pm</a> </small>
+
+			<p>Hey this is great. I just ran this on a commercial project I’m working on. Thanks for making this plugin!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1209">
+    <a href="http://beautifulpixel.com/" title="Visit Alex Wayne"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://beautifulpixel.com/" rel="external nofollow" class="url">Alex Wayne</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1209" title="">August 14th, 2006 at 3:58pm</a> </small>
+
+			<p>Although
+your plugin rocks my socks, it recently became totally incompatible
+with edge rails, at least on linux. It crashes any rake task
+mysteriously.</p>
+<p>More info here:<br>
+<a href="http://www.ruby-forum.com/topic/76723#120940" rel="nofollow">http://www.ruby-forum.com/topic/76723#120940</a></p>
+<p>Just an FYI.</p>
+
+		</li>
+
+	
+	
+		<li class="official" id="comment-1210">
+    <a href="http://blog.codahale.com/" title="Visit Coda"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_007.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.codahale.com/" rel="external nofollow" class="url">Coda</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1210" title="">August 14th, 2006 at 4:01pm</a> </small>
+
+			<p>Alex–I’ve
+gotten reports of that, but it’s nothing I can reproduce at all, and no
+one’s been able to pin it down for me. I’m open to suggestions, but
+I’ve got several Edge projects, none of which exhibit this behavior.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1225">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_003.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>JGeiger</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1225" title="">August 15th, 2006 at 1:59pm</a> </small>
+
+			<p>I’m
+using the plugin with RadRails 0.7 on windows, and it works and creates
+the coverage directories and the coverage percentages, but when I look
+at the code itself, it doesn’t highlite the missed coverage. Only the
+top line (Class definition) is the green for “Code reported as executed
+by Ruby looks like this…”</p>
+<p>Seems odd that everything but that part works.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-1248">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_003.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>JGeiger</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1248" title="">August 17th, 2006 at 9:57am</a> </small>
+
+			<p>Well, blame eclipse and it’s built-in web browser.</p>
+<p>It seems that it can render some of the html code, but not all of it
+properly. I opened the file in firefox, and it’s showing the un-tested
+code.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1290">
+    <a href="http://blog.labratz.net/articles/2006/08/22/how-much-is-too-much-with-tests" title="Visit How much is too much with tests?"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_003.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.labratz.net/articles/2006/08/22/how-much-is-too-much-with-tests" rel="external nofollow" class="url">How much is too much with tests?</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1290" title="">August 22nd, 2006 at 7:53am</a> </small>
+
+			<p>[...]
+I’ve been having fun with tests lately now that I’ve overcome my
+initial allergy (more like trepidation actually). So naturally my
+curiosity leads me to new toys like the rails rcov plugin based on
+(surprise!) rcov that gives you a rough estimate of your code coverage.
+The you start thinking about testing your helpers. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-1310">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_010.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Don Park</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1310" title="">August 25th, 2006 at 10:14am</a> </small>
+
+			<p>oh this is really really great. thank you for the plugin. its just what I was looking for.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1431">
+    <a href="http://blog.labratz.net/" title="Visit Labrat"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_003.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://blog.labratz.net/" rel="external nofollow" class="url">Labrat</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1431" title="">September 16th, 2006 at 6:17pm</a> </small>
+
+			<p>Regarding the rcov plugin breaking edge rails, I’ve confirmed and reproduced this.</p>
+<p>The problem is not the rcov_plugin itself but having the plugin
+without the rcov gem installed (this happens when you don’t have the
+same gems in your deployment servers or whatever other environment).</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-1476">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_006.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Goynang</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1476" title="">September 24th, 2006 at 4:28pm</a> </small>
+
+			<p>Good stuff. </p>
+<p>Question: how can you turn off the filter that stops it reporting on
+code within vendor? I’m trying to test some plugins within an app
+(engines to be exact) and can’t get it to report on them. Would be
+extra cool if I could somehow get it to ignore all of vendor/plugins
+except for *_engines folders. I’ve tried passing in extra params for
+–include-file and –exclude-only but to no avail. </p>
+<p>Is this possible?</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1870">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_013.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Casper</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1870" title="">October 26th, 2006 at 12:30am</a> </small>
+
+			<p>Also
+want to know if you can configure rcov to test engines and other
+plugins. I have become dependent on rcov and my current project
+involves alot of engines and plugins. Please let me know if there is a
+solution thanks.</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-2791">
+    <a href="http://www.ambethia.com/?p=5" title="Visit Ambethia.com » Blog Archive » More Rails Testing SQLite Woes"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_008.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.ambethia.com/?p=5" rel="external nofollow" class="url">Ambethia.com » Blog Archive » More Rails Testing SQLite Woes</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-2791" title="">November 24th, 2006 at 1:21pm</a> </small>
+
+			<p>[...]
+Choose the most recent “ruby” version, in this case I chose “2”. And
+that’s it you should be good to go. Some more about using RCOV with
+Rails. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-3480">
+    <a href="http://www.matthewbass.com/blog/2007/01/02/introduction-to-rcov-code-coverage-for-ruby/" title="Visit Pelargir - Musings on software and life from Matthew Bass. » Introduction to rcov, code coverage for Ruby"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_008.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.matthewbass.com/blog/2007/01/02/introduction-to-rcov-code-coverage-for-ruby/" rel="external nofollow" class="url">Pelargir - Musings on software and life from Matthew Bass. » Introduction to rcov, code coverage for Ruby</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-3480" title="">January 2nd, 2007 at 8:10pm</a> </small>
+
+			<p>[...]
+Introduction to rcov, code coverage for Ruby By Matthew Bass Do you
+routinely test your code? Are you using rcov to run code coverage
+reports for your tests? If you aren’t, you should be. rcov is a code
+coverage tool for Ruby that is available as a Gem or a Rails plugin. It
+can generate text or HTML reports outlining what percentage of your
+code base is being exercised by your tests. The HTML reports even allow
+you to drill down and see exactly which lines in your code are being
+touched. If you’ve ever used a tool like Cobertura for Java, you’ll
+know exactly what to expect with rcov. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-3843">
+    <a href="http://www.jeroenvandoorn.nl/index.php/2007/01/17/rake-fails-on-tasks-when-gems-are-missing/" title="Visit Jeroen van Doorn » Blog Archive » Rake fails on tasks when gems are missing"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_008.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.jeroenvandoorn.nl/index.php/2007/01/17/rake-fails-on-tasks-when-gems-are-missing/" rel="external nofollow" class="url">Jeroen van Doorn » Blog Archive » Rake fails on tasks when gems are missing</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-3843" title="">January 17th, 2007 at 8:19am</a> </small>
+
+			<p>[...]
+The exact same repository checkout works perfectly fine on my
+development machine. After much head scratching and hair pulling, I
+found out by accident what caused the problem: I had the rails-rcov
+plugin installed (which I highly recommend!), which requires the gem
+rcov to be installed, but Rake doesn’t error out when it can’t load the
+gem. It doesn’t even squeek at you to let you know something’s wrong.
+It simply stops processing tasks and continues on its merry way, trying
+to execute the task which it didn’t load. [...]</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-3875">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_006.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>MatthewRudy</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-3875" title="">January 18th, 2007 at 2:56am</a> </small>
+
+			<p>I was just wondering if there’s a way to get coverage data on Views?<br>
+Is that possible?</p>
+<p>It seems like it would be really useful<br>
+(although presumably it would make the report much longer.</p>
+<p>Mj</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-4338">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_010.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Ravi</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-4338" title="">February 8th, 2007 at 11:17pm</a> </small>
+
+			<p>Hi,</p>
+<p>I installed ruby and gem install rcov also.<br>
+Rcov is working properly . But Now i installed RCOV plugin also.<br>
+How can i use it??? Please describe me.  Awaiting Reply</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-4909">
+    <a href="http://shifteleven.com/articles/2007/03/05/customize-your-rake-files" title="Visit Customize Your Rake Files"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_008.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://shifteleven.com/articles/2007/03/05/customize-your-rake-files" rel="external nofollow" class="url">Customize Your Rake Files</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-4909" title="">March 5th, 2007 at 7:33pm</a> </small>
+
+			<p>[...]
+a method, you forgot to test a conditional statement. Because I find
+this handy, I incorporate the rcov plugin in my rails [...]</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-10385">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_012.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Doktah Hahpah</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-10385" title="">May 18th, 2007 at 12:32pm</a> </small>
+
+			<p>Thanks for the quick commands, Man — up and running and covering in minutes!!!</p>
+<p>H</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-10612">
+    <a href="http://fluctisonous.com/" title="Visit James McCarthy"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_009.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://fluctisonous.com/" rel="external nofollow" class="url">James McCarthy</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-10612" title="">May 25th, 2007 at 3:34pm</a> </small>
+
+			<p>Damn that’s a time saver… damn I have a lot to do now. :)</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-10683">
+    <a href="http://keegan.sniz.net/" title="Visit Keegan Quinn"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_002.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://keegan.sniz.net/" rel="external nofollow" class="url">Keegan Quinn</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-10683" title="">May 27th, 2007 at 12:05am</a> </small>
+
+			<p>Hello Coda.  Lovely little plugin you’ve got here.  Powerful minimalism at it’s finest.</p>
+<p>I have a couple of patches to <code>rails_rcov.rake</code>.  The first adds a working <code>test:rcov</code>
+task, which invokes rcov separately for each of the other test:*:rcov
+tasks. This avoids the ActionController stub issues mentioned
+previously.</p>
+<p>The second patch is less interesting, focusing on making the task
+consistent with practices used in Rake and Rails core tasks. Both are
+now <a href="http://keegan.sniz.net/articles/2007/05/27/showin-love-for-rails_rcov" rel="nofollow">posted on my blog</a>.  I’d appreciate if you (or anyone) would review them and maybe consider applying them in the plugin.</p>
+<p>Thanks very much for a fine piece of code!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-15429">
+    <a href="http://www.frederico-araujo.com/" title="Visit Frederico"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://www.frederico-araujo.com/" rel="external nofollow" class="url">Frederico</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-15429" title="">June 29th, 2007 at 10:52pm</a> </small>
+
+			<p>what an awesome plugin it is.<br>
+Congratulations!</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-15680">
+    <a href="http://toddpinkerton.com/" title="Visit Todd"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_002.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://toddpinkerton.com/" rel="external nofollow" class="url">Todd</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-15680" title="">July 6th, 2007 at 10:37am</a> </small>
+
+			<p>hi Coda, </p>
+<p>great plugin!  Seeing code coverage and green bars actually makes me want to write tests — I need that kind of motivation.  </p>
+<p>However, I’ve noticed a discrepancy in the code coverage results
+when I run rake test:test:rcov and when I run rake test:units:rcov. The
+former claims that I’m not covering code that i know I am; the latter
+reports coverage that I agree with (and can verify). </p>
+<p>I’ve patched my rakefile with Keegan’s patch (comment #44, above),
+which adds a rake test:rcov task. This task runs each of the units,
+functionals, etc tasks in sequence, and it generates the correct
+output. </p>
+<p>This may be what you were referring to with the ActionController
+issue earlier, but I thought I’d mention it anyway just in case.</p>
+<p>thanks again for a nice piece of work.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-19456">
+    <a href="http://myhep.com/" title="Visit Paul Hepworth"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_004.jpg" alt="" class="gravatar" width="40" height="40"></a>
+			<cite><a href="http://myhep.com/" rel="external nofollow" class="url">Paul Hepworth</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-19456" title="">October 13th, 2007 at 8:19pm</a> </small>
+
+			<p>This plugin no longer works with ruby 1.8.6 due to bugs in rexml.</p>
+<p>Also, if you fix the bugs in rexml, rcov decides to output empty html files. :(</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-32318">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_011.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>jhernandez</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-32318" title="">February 13th, 2008 at 3:46am</a> </small>
+
+			<p>Argg, I can’t access to comment #44 patches. Why are not they integrated??</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-45020">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar.png" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>Denis</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-45020" title="">April 18th, 2008 at 9:56am</a> </small>
+
+			<p>Anybody have the patch mentioned by Keegan in post 44 above?  His web site seems to be gone…</p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-46525">
+    <a href="http://www.gravatar.com/" title="Create your own gravatar at gravatar.com!"><img src="Rails%20Plugin%20%20rails_rcov%20_%20Archives%20_%20codablog%20_%20Coda%20Hale_files/avatar_004.htm" alt="" class="gravatar" width="40" height="40"></a>
+			<cite>frank</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-46525" title="">April 22nd, 2008 at 5:26am</a> </small>
+
+			<p>To
+make the rcov-rake-tasks run in a Windows-environment I had to change
+‘rcov.cmd’ to rcov.bat’ in file rails_rcov.rake /line 134</p>
+<p>cmd = (is_windows? ? ‘rcov.bat’ : ‘rcov’) &lt;&lt; ” #{RcovTestSettings.to_params} #{args}”</p>
+<p>Obviously rcov has renamed its Windows batch file… I am using gem installed version 0.8.1.2.0 of rcov</p>
+<p>Good luck everyone!</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+	
+	</div>
+	
+		<div id="sidebar">
+
+      <div class="sideitem">
+      <h2>email me</h2>
+      <p><strong><em>coda dot hale at gmail dot com</em></strong></p>
+    </div>
+    <div class="sideitem">
+      <h2>search</h2>
+      <form method="get" id="searchform" action="/index.php">
+<div><input value="" name="s" id="s" type="text">
+<input id="searchsubmit" value="Search" type="submit">
+</div>
+</form>    </div>
+    <div class="sideitem">
+      <h2>last few posts</h2>
+      <ul class="posts">
+              <li><a href="http://blog.codahale.com/2008/07/16/libxml-ruby-is-back/">libxml-ruby is back!</a></li>
+              <li><a href="http://blog.codahale.com/2007/12/20/rake-vs-rspec-fight/">Rake vs. RSpec! Fight!</a></li>
+              <li><a href="http://blog.codahale.com/2007/12/17/nilclass-devourer-of-errors/">NilClass, Devourer Of Errors</a></li>
+              <li><a href="http://blog.codahale.com/2007/07/18/rails-plugin-easier-indexes/">Rails Plugin: easier-indexes</a></li>
+              <li><a href="http://blog.codahale.com/2007/07/12/wesabe-api-vs-quicksilver/">Wesabe API vs. Quicksilver</a></li>
+            </ul>
+    </div>
+<div class="sideitem">
+      <h2>last few comments</h2>
+      <ul class="comments">
+<li><a href="http://www.bendalton.com/technology/twitter-quicksilver-sweet/" rel="external nofollow" class="url">Twitter + Quicksilver = Sweet. | Thoughts and Ideas</a> on <a href="http://blog.codahale.com/2007/01/15/tweet-twitter-quicksilver/#comment-58807">Tweet = Twitter + Quicksilver</a></li><li>anne on <a href="http://blog.codahale.com/2007/01/15/tweet-twitter-quicksilver/#comment-57143">Tweet = Twitter + Quicksilver</a></li><li>johny b bad on <a href="http://blog.codahale.com/2006/11/07/pound-vs-pen-because-you-need-a-load-balancing-proxy/#comment-56594">Pound vs. Pen: Because You Need A Load-Balancing Proxy</a></li><li><a href="http://thebalance.metautonomo.us/2008/05/30/the-local_request-that-isnt/" rel="external nofollow" class="url">thebalance » Blog Archive » The local_request That Isn’t</a> on <a href="http://blog.codahale.com/2006/06/19/time-for-a-grown-up-server-rails-mongrel-apache-capistrano-and-you/#comment-56544">Time For A Grown-Up Server: Rails, Mongrel, Apache, Capistrano and You</a></li><li><a href="http://aikidev.com/blog/?p=11" rel="external nofollow" class="url">Aikidev.com » Amazon EC2 - Configuring web server</a> on <a href="http://blog.codahale.com/2006/06/19/time-for-a-grown-up-server-rails-mongrel-apache-capistrano-and-you/#comment-55940">Time For A Grown-Up Server: Rails, Mongrel, Apache, Capistrano and You</a></li></ul>
+</div>
+    <div class="sideitem">
+      <h2>archives</h2>
+      <div><table id="wp-calendar" summary="Calendar">
+	<caption>May 2006</caption>
+	<thead>
+	<tr>
+		<th abbr="Sunday" scope="col" title="Sunday">S</th>
+		<th abbr="Monday" scope="col" title="Monday">M</th>
+		<th abbr="Tuesday" scope="col" title="Tuesday">T</th>
+		<th abbr="Wednesday" scope="col" title="Wednesday">W</th>
+		<th abbr="Thursday" scope="col" title="Thursday">T</th>
+		<th abbr="Friday" scope="col" title="Friday">F</th>
+		<th abbr="Saturday" scope="col" title="Saturday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td abbr="April" colspan="3" id="prev"><a href="http://blog.codahale.com/2006/04/" title="View posts for April 2006">« Apr</a></td>
+		<td class="pad">&nbsp;</td>
+		<td abbr="June" colspan="3" id="next"><a href="http://blog.codahale.com/2006/06/" title="View posts for June 2006">Jun »</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="1" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	</tr>
+	<tr>
+		<td>7</td><td>8</td><td>9</td><td>10</td><td><a href="http://blog.codahale.com/2006/05/11/" title="Basic HTTP Authentication with Rails &amp; simple_http_auth">11</a></td><td>12</td><td>13</td>
+	</tr>
+	<tr>
+		<td>14</td><td>15</td><td>16</td><td>17</td><td><a href="http://blog.codahale.com/2006/05/18/" title="dollars_and_cents: a Rails plugin">18</a></td><td><a href="http://blog.codahale.com/2006/05/19/" title="I fought the law and…">19</a></td><td>20</td>
+	</tr>
+	<tr>
+		<td>21</td><td>22</td><td><a href="http://blog.codahale.com/2006/05/23/" title="Rails Plugin: xhtml_content_type, Rails Plugin: http_caching">23</a></td><td>24</td><td>25</td><td><a href="http://blog.codahale.com/2006/05/26/" title="Rails Plugin: rails_rcov">26</a></td><td>27</td>
+	</tr>
+	<tr>
+		<td>28</td><td>29</td><td>30</td><td>31</td>
+		<td class="pad" colspan="3">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div>
+      <ul class="archives">
+        	<li><a href="http://blog.codahale.com/2008/07/" title="July 2008">July 2008</a></li>
+	<li><a href="http://blog.codahale.com/2007/12/" title="December 2007">December 2007</a></li>
+	<li><a href="http://blog.codahale.com/2007/07/" title="July 2007">July 2007</a></li>
+	<li><a href="http://blog.codahale.com/2007/06/" title="June 2007">June 2007</a></li>
+	<li><a href="http://blog.codahale.com/2007/05/" title="May 2007">May 2007</a></li>
+	<li><a href="http://blog.codahale.com/2007/04/" title="April 2007">April 2007</a></li>
+	<li><a href="http://blog.codahale.com/2007/03/" title="March 2007">March 2007</a></li>
+	<li><a href="http://blog.codahale.com/2007/02/" title="February 2007">February 2007</a></li>
+	<li><a href="http://blog.codahale.com/2007/01/" title="January 2007">January 2007</a></li>
+	<li><a href="http://blog.codahale.com/2006/12/" title="December 2006">December 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/11/" title="November 2006">November 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/08/" title="August 2006">August 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/07/" title="July 2006">July 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/06/" title="June 2006">June 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/05/" title="May 2006">May 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/04/" title="April 2006">April 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/03/" title="March 2006">March 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/02/" title="February 2006">February 2006</a></li>
+	<li><a href="http://blog.codahale.com/2006/01/" title="January 2006">January 2006</a></li>
+	<li><a href="http://blog.codahale.com/2005/12/" title="December 2005">December 2005</a></li>
+	<li><a href="http://blog.codahale.com/2005/11/" title="November 2005">November 2005</a></li>
+	<li><a href="http://blog.codahale.com/2005/10/" title="October 2005">October 2005</a></li>
+	<li><a href="http://blog.codahale.com/2005/09/" title="September 2005">September 2005</a></li>
+      </ul>
+    </div>
+    <div class="sideitem">
+      <h2>categories</h2>
+      <ul class="categories">
+        	<li class="cat-item cat-item-6"><a href="http://blog.codahale.com/category/bicycles/" title="Everything to do with the two-wheeled wonders">Bicycles</a> (11)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://blog.codahale.com/category/misc/" title="...and, like, stuff and things">Miscellany</a> (36)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://blog.codahale.com/category/programming/" title="View all posts filed under Programming">Programming</a> (64)
+<ul class="children">
+	<li class="cat-item cat-item-14"><a href="http://blog.codahale.com/category/programming/applescript/" title="Byzantine glue code for your Mac and mine.">Applescript</a> (3)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://blog.codahale.com/category/programming/ruby-and-rails/" title="Regarding the wonderful language Ruby and its best friend, Rails">Ruby and Rails</a> (49)
+	<ul class="children">
+	<li class="cat-item cat-item-13"><a href="http://blog.codahale.com/category/programming/ruby-and-rails/ruby-quiz/" title="My answers to the Ruby Quiz question of the week">Ruby Quiz</a> (1)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://blog.codahale.com/category/programming/wordpress/" title="View all posts filed under WordPress">WordPress</a> (2)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://blog.codahale.com/category/web-design/" title="View all posts filed under Web Design">Web Design</a> (15)
+</li>
+      </ul>
+    </div>
+      </div>
+ 
+
+  <div id="footer">
+    <p>Copyright © 2005-2006 Coda Hale.</p>
+
+
+
+
+</div></body></html>

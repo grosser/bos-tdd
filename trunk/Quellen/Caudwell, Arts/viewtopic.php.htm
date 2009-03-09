@@ -1,0 +1,453 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr"><head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Testing RJS with ARTS - Rails Forum - Ruby on Rails Help and Discussion Forum</title>
+<link rel="stylesheet" type="text/css" href="viewtopic.php_files/RailsForum.css">
+</head><body>
+
+<div id="punwrap">
+<div id="punviewtopic" class="pun">
+
+<div id="brdheader" class="block">
+	<div class="box">
+		<div id="brdtitle" class="inbox">
+			<a href="http://www.railsforum.com/" title="Rails Forum"><img src="viewtopic.php_files/logo.jpg" alt="Rails Forum" title="Rails Forum" style="float: left;" border="0" width="300" height="68"></a>
+			<div class="railsbook">
+			<a href="http://railswork.com/"><img src="viewtopic.php_files/RW_banner.gif" alt="Rails Work - the best place to post and find great Ruby on Rails jobs." width="402" height="59"></a></div>
+		</div>
+
+		<div id="brdmenu" class="inbox">
+			<ul>
+				<li id="navindex"><a href="http://www.railsforum.com/index.php">Index</a></li>
+				<li id="navuserlist"><a href="http://www.railsforum.com/userlist.php">User list</a></li>
+				<li id="navregister"><a href="http://www.railsforum.com/register.php">Register</a></li>
+				<li id="navlogin"><a href="http://www.railsforum.com/login.php">Login</a></li>
+			</ul>
+		</div>
+		<div id="brdwelcome" class="inbox">
+			<form style="margin: 0pt; padding: 0pt; width: 400px; text-align: left; float: left;" method="post" action="login.php?action=in" onsubmit="return process_form(this)"><input name="form_sent" value="1" type="hidden">	<input name="redirect_url" value="http://railsforum.com/index.php" type="hidden"><strong>Username</strong> <input name="req_username" size="25" maxlength="25" tabindex="1" type="text"><br>	<strong>Password</strong> <input phnomarkers="true" name="req_password" size="16" maxlength="16" tabindex="2" type="password"><br><table style="margin: 0pt; padding: 0pt; width: 30px;"><tr style="margin: 0pt; padding: 0pt;"><td title="Click for Password Hasher" class="passhash_marker" id="req_password_passhash_marker_1" style="border: thin solid rgb(128, 192, 128); margin: 0pt 1px; padding: 0pt; background-color: rgb(238, 255, 238); font-family: serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; color: rgb(96, 144, 96); cursor: pointer; min-width: 12px; text-align: center; vertical-align: middle;">#</td></tr></table>	<input name="login" value="Login" tabindex="3" type="submit">	</form>	<p style="width: 200px; float: right;">You are not logged in.</p>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="linkst">
+	<div class="inbox">
+		<p class="pagelink conl">Pages: <strong>1</strong></p>
+		<p class="postlink conr">&nbsp;</p>
+		<div class="clearb" style="float: right; width: 100px; text-align: right; padding-right: 10px;"><a href="http://www.railsforum.com/rss.php?tid=16100" title="New Posts in this thread"><img src="viewtopic.php_files/rss_new_posts.jpg" alt="New Posts in this thread" border="0"></a></div>
+				<ul><li><a href="http://www.railsforum.com/index.php">Index</a></li><li>&nbsp;»&nbsp;<a href="http://www.railsforum.com/viewforum.php?id=6">Test/Behavior Driven Development</a></li><li>&nbsp;»&nbsp;Testing RJS with ARTS</li></ul>		<div class="clearer"></div>
+	</div>
+</div>
+
+<div id="p55797" class="blockpost rowodd firstpost">
+	<h2><span><span class="conr">#1 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55797#p55797">2008-02-29 16:50:47</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=3350">Neil</a></strong></dt>
+					<dd class="usertitle"><strong>Mechanic</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>From: UK</dd>
+					<dd>Registered: 2007-04-01</dd>
+					<dd>Posts: 298</dd>
+					<dd class="usercontacts"><a href="http://dotneil.com/">Website</a></dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3>Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>I'm
+testing my first practice app, a mini-blogging app which has ajax
+create/edit of posts from the index template. I've installed the ARTS
+RJS testing plugin (and read Kevin Clark's post and watched the San
+Diego Ruby group podcast), but still need some help writing a test and
+getting it to pass;<br><br><br></p><div class="code_foldbox"><b>Code : &nbsp; </b> - 
+<a href="#" onclick="document.getElementById('code_1').className='folded'; return false;">fold</a>
+-
+<a href="#" onclick="document.getElementById('code_1').className='unfolded'; return false;">unfold</a>
+<div class="unfolded" id="code_1">
+<div class="code-box"><ol class="pretty-code"><li class="orow">#posts_controller_test.rb</li><li class="erow">&nbsp;</li><li class="orow">def test_should_get_edit_rjs</li><li class="erow">&nbsp;&nbsp;xhr :post, :edit, :post =&gt; {:id =&gt; 5, :body =&gt; "This is yet another post"}</li><li class="orow">&nbsp;&nbsp;assert_rjs :replace_html, "post_body_#{@post.id}"</li><li class="erow">end</li></ol></div>
+</div>
+</div>
+<span class="puntext">But that gives the following error;<br><br></span><br><div class="code_foldbox"><b>Code : &nbsp; </b> - 
+<a href="#" onclick="document.getElementById('code_2').className='folded'; return false;">fold</a>
+-
+<a href="#" onclick="document.getElementById('code_2').className='unfolded'; return false;">unfold</a>
+<div class="unfolded" id="code_2">
+<div class="code-box"><ol class="pretty-code"><li class="orow">test_should_get_edit_rjs(PostsControllerTest):</li><li class="erow">ActiveRecord::RecordNotFound: Couldn't find Post without an ID</li></ol></div>
+</div>
+</div>
+<span class="puntext">Obviously I haven't done it right - so how do I
+correctly include the post id in the test? And should I be looking to
+include the user id (a post belongs to a user) to make sure that only
+those with the right permissions are able to delete the post? <p class="postedit"><em>Last edited by Neil (2008-02-29 16:51:03)</em></p>
+				</span></div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55878" class="blockpost roweven">
+	<h2><span><span class="conr">#2 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55878#p55878">2008-03-01 10:05:04</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=6729">lucky</a></strong></dt>
+					<dd class="usertitle"><strong>Coach Class</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>Registered: 2007-09-28</dd>
+					<dd>Posts: 90</dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>Hi Neil,try with this once<br>assert_rjs :replace_html, "post_body_5"<br>it will work. pass the value of id instead of object</p>
+					<p class="postedit"><em>Last edited by lucky (2008-03-01 10:12:35)</em></p>
+				</div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55879" class="blockpost rowodd">
+	<h2><span><span class="conr">#3 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55879#p55879">2008-03-01 10:16:39</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=3350">Neil</a></strong></dt>
+					<dd class="usertitle"><strong>Mechanic</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>From: UK</dd>
+					<dd>Registered: 2007-04-01</dd>
+					<dd>Posts: 298</dd>
+					<dd class="usercontacts"><a href="http://dotneil.com/">Website</a></dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>Thanks Lucky. I managed to fix the Post ID issue with the following;<br><br></p><div class="code_foldbox"><b>Code : &nbsp; </b> - 
+<a href="#" onclick="document.getElementById('code_3').className='folded'; return false;">fold</a>
+-
+<a href="#" onclick="document.getElementById('code_3').className='unfolded'; return false;">unfold</a>
+<div class="unfolded" id="code_3">
+<div class="code-box"><ol class="pretty-code"><li class="orow">&nbsp;&nbsp;def test_should_get_edit_rjs</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;xhr :post, :edit, :id =&gt; 2, :login =&gt; 'quentin', :password =&gt; 'test'</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;assert_rjs :replace_html, "post_body_#{@post.id}"</li><li class="erow">&nbsp;&nbsp;end</li></ol></div>
+</div>
+</div>
+<span class="puntext">That means my tests know how to get to a post, but that brings up another error - I can't get them past a nil.login issue;<br><br></span><br><div class="code_foldbox"><b>Code : &nbsp; </b> - 
+<a href="#" onclick="document.getElementById('code_4').className='folded'; return false;">fold</a>
+-
+<a href="#" onclick="document.getElementById('code_4').className='unfolded'; return false;">unfold</a>
+<div class="unfolded" id="code_4">
+<div class="code-box"><ol class="pretty-code"><li class="orow">&nbsp;&nbsp;1) Error:</li><li class="erow">test_should_get_edit_rjs(PostsControllerTest):</li><li class="orow">ActionView::TemplateError: You have a nil object when you didn't expect it!</li><li class="erow">The error occurred while evaluating nil.login</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;On line #4 of posts/_edit.html.erb</li><li class="erow">&nbsp;</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;1: &lt;% remote_form_for(@post) do |f| %&gt;</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;2: </li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div
+class="post_body" id="edit_post_body_&lt;%= @post.id %&gt;"&gt;</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;%=
+link_to "#{@post.user.login}", @post.user %&gt; &lt;%=h
+@post.created_at.to_s(:short) %&gt;&lt;/p&gt;</li></ol></div>
+</div>
+</div>
+<span class="puntext">I'm not sure whether I should be adding an
+'unless nil?' to the link_to in the view, or if I should be changing
+something in the tests so that they have a 'user.login'. Do you know
+how I fix this? </span></div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55881" class="blockpost roweven">
+	<h2><span><span class="conr">#4 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55881#p55881">2008-03-01 10:58:07</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=6729">lucky</a></strong></dt>
+					<dd class="usertitle"><strong>Coach Class</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>Registered: 2007-09-28</dd>
+					<dd>Posts: 90</dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>can u send u r controller code</p>
+				</div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55882" class="blockpost rowodd">
+	<h2><span><span class="conr">#5 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55882#p55882">2008-03-01 11:05:30</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=3350">Neil</a></strong></dt>
+					<dd class="usertitle"><strong>Mechanic</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>From: UK</dd>
+					<dd>Registered: 2007-04-01</dd>
+					<dd>Posts: 298</dd>
+					<dd class="usercontacts"><a href="http://dotneil.com/">Website</a></dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>I'm
+only really using the index and partial templates; the edit, update,
+and destroy use rjs. Sorry if there's any weirdness in this - I've been
+using this as my learning app.<br><br><br></p><div class="code_foldbox"><b>Code : &nbsp; </b> - 
+<a href="#" onclick="document.getElementById('code_5').className='folded'; return false;">fold</a>
+-
+<a href="#" onclick="document.getElementById('code_5').className='unfolded'; return false;">unfold</a>
+<div class="unfolded" id="code_5">
+<div class="code-box"><ol class="pretty-code"><li class="orow">class PostsController &lt; ApplicationController</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp; </li><li class="orow">&nbsp;def index</li><li class="erow">&nbsp;&nbsp; @posts = Post.list(params[:page])</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;respond_to do |format|</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.html # index.html.erb</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.xml&nbsp;&nbsp;{ render :xml =&gt; @posts }</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.rss&nbsp;&nbsp;{ render :rss =&gt; @posts }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.js</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="erow">&nbsp;&nbsp;end</li><li class="orow">&nbsp;</li><li class="erow">&nbsp;&nbsp;# GET /posts/1</li><li class="orow">&nbsp;&nbsp;# GET /posts/1.xml</li><li class="erow">&nbsp;&nbsp;def show</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;@post = Post.find(params[:id])</li><li class="erow">&nbsp;</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;respond_to do |format|</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.html # show.html.erb</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.xml&nbsp;&nbsp;{ render :xml =&gt; @post }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="orow">&nbsp;&nbsp;end</li><li class="erow">&nbsp;</li><li class="orow">&nbsp;&nbsp;# GET /posts/new</li><li class="erow">&nbsp;&nbsp;# GET /posts/new.xml</li><li class="orow">&nbsp;&nbsp;def new</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;@post = Post.new</li><li class="orow">&nbsp;</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;respond_to do |format|</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.html # new.html.erb</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.xml&nbsp;&nbsp;{ render :xml =&gt; @post }</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="erow">&nbsp;&nbsp;end</li><li class="orow">&nbsp;</li><li class="erow">&nbsp;&nbsp;# GET /posts/1/edit</li><li class="orow">&nbsp;&nbsp;def edit</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;@post = Post.find(params[:id])</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp; respond_to do |format|</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; format.html</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; format.js</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="erow">&nbsp;&nbsp;end</li><li class="orow">&nbsp;</li><li class="erow">&nbsp;&nbsp;# POST /posts</li><li class="orow">&nbsp;&nbsp;# POST /posts.xml</li><li class="erow">&nbsp;&nbsp;def create</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;@post = Post.new(params[:post])</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;current_user.posts &lt;&lt; @post</li><li class="orow">&nbsp;</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;respond_to do |format|</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if @post.save</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flash[:notice] = 'Post was successfully created.'</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.html { redirect_to posts_path }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.js</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.xml&nbsp;&nbsp;{
+render :xml =&gt; @post, :status =&gt; :created, :location =&gt; @post }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.html { redirect_to posts_path }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.xml&nbsp;&nbsp;{
+render :xml =&gt; @post.errors, :status =&gt; :unprocessable_entity }</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="orow">&nbsp;&nbsp;end</li><li class="erow">&nbsp;</li><li class="orow">&nbsp;&nbsp;# PUT /posts/1</li><li class="erow">&nbsp;&nbsp;# PUT /posts/1.xml</li><li class="orow">&nbsp;&nbsp;def update</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;params[:post][:category_ids] ||= []</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;@post = Post.find(params[:id])</li><li class="erow">&nbsp;</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;respond_to do |format|</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if @post.update_attributes(params[:post])</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # flash[:notice] = 'Post was successfully updated.'</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # format.html { redirect_to(@post) }</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # format.xml&nbsp;&nbsp;{ head :ok }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.js</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.html { render :action =&gt; "edit" }</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.xml&nbsp;&nbsp;{
+render :xml =&gt; @post.errors, :status =&gt; :unprocessable_entity }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.js { render :nothing =&gt; true }</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="orow">&nbsp;&nbsp;end</li><li class="erow">&nbsp;</li><li class="orow">&nbsp;&nbsp;# DELETE /posts/1</li><li class="erow">&nbsp;&nbsp;# DELETE /posts/1.xml</li><li class="orow">&nbsp;&nbsp;def destroy</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;@post = Post.find(params[:id])</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;@post.destroy</li><li class="erow">&nbsp;</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;respond_to do |format|</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.html { redirect_to(posts_url) }</li><li class="orow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;format.xml&nbsp;&nbsp;{ head :ok }</li><li class="erow">&nbsp;&nbsp;&nbsp;&nbsp;end</li><li class="orow">&nbsp;&nbsp;end</li><li class="erow">end</li></ol></div>
+</div>
+</div>
+<span class="puntext">
+				</span></div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55883" class="blockpost roweven">
+	<h2><span><span class="conr">#6 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55883#p55883">2008-03-01 11:21:00</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=6729">lucky</a></strong></dt>
+					<dd class="usertitle"><strong>Coach Class</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>Registered: 2007-09-28</dd>
+					<dd>Posts: 90</dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>ok
+Neil i dont have much knowledge on RESTFUL applications .in general
+just enough to pass the params(i.e params[:id]) which in edit action in
+testcase.<br>In edit view u mentioned @post.user.login.whats the value in user.where u mentioned user</p>
+				</div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55884" class="blockpost rowodd">
+	<h2><span><span class="conr">#7 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55884#p55884">2008-03-01 11:25:51</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=3350">Neil</a></strong></dt>
+					<dd class="usertitle"><strong>Mechanic</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>From: UK</dd>
+					<dd>Registered: 2007-04-01</dd>
+					<dd>Posts: 298</dd>
+					<dd class="usercontacts"><a href="http://dotneil.com/">Website</a></dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<blockquote><div class="incqbox"><h4>lucky wrote:</h4><p>In edit view u mentioned @post.user.login.whats the value in user.where u mentioned user</p></div></blockquote><p>I'm
+not 100% sure what you mean by this - do you mean the view, i.e. _post
+partial? Or do you mean the posts_contoller.rb/posts_controller_test.rb?</p>
+				</div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55885" class="blockpost roweven">
+	<h2><span><span class="conr">#8 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55885#p55885">2008-03-01 11:28:13</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=6729">lucky</a></strong></dt>
+					<dd class="usertitle"><strong>Coach Class</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>Registered: 2007-09-28</dd>
+					<dd>Posts: 90</dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>partail&nbsp; _edit.html.erb</p>
+				</div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="p55887" class="blockpost rowodd">
+	<h2><span><span class="conr">#9 </span><a href="http://www.railsforum.com/viewtopic.php?pid=55887#p55887">2008-03-01 11:57:22</a></span></h2>
+		
+	<div class="box">
+		<div class="inbox">
+			<div class="postleft">
+				<dl>
+					<dt><strong><a href="http://www.railsforum.com/profile.php?id=3350">Neil</a></strong></dt>
+					<dd class="usertitle"><strong>Mechanic</strong></dd>
+					<dd class="postavatar"></dd>
+					<dd>From: UK</dd>
+					<dd>Registered: 2007-04-01</dd>
+					<dd>Posts: 298</dd>
+					<dd class="usercontacts"><a href="http://dotneil.com/">Website</a></dd>
+				</dl>
+			</div>
+			<div class="postright">
+				<h3> Re: Testing RJS with ARTS</h3>
+				<div class="postmsg">
+					<p>Editing/updating uses RJS partials in to the index.html.erb.<br><br>This is the _edit partial;<br><br><br></p><div class="code_foldbox"><b>Code : &nbsp; </b> - 
+<a href="#" onclick="document.getElementById('code_6').className='folded'; return false;">fold</a>
+-
+<a href="#" onclick="document.getElementById('code_6').className='unfolded'; return false;">unfold</a>
+<div class="unfolded" id="code_6">
+<div class="code-box"><ol class="pretty-code"><li class="orow">&lt;% remote_form_for(@post) do |f| %&gt;</li><li class="erow">&nbsp;</li><li class="orow">&nbsp; &nbsp; &lt;div class="post_body" id="edit_post_body_&lt;%= @post.id %&gt;"&gt;</li><li class="erow">&nbsp;
+&nbsp; &nbsp; &lt;p&gt;&lt;%= link_to "#{@post.user.login}", @post.user
+%&gt; &lt;%=h @post.created_at.to_s(:short)
+%&gt;&lt;/p&gt;&nbsp;&nbsp;&nbsp;&nbsp;</li><li class="orow">&nbsp; &nbsp;&nbsp;&nbsp; &lt;p&gt;</li><li class="erow">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;%= f.text_area :body, :class =&gt; 'post_input', :rows =&gt; 4 %&gt;</li><li class="orow">&nbsp; &nbsp;&nbsp;&nbsp; &lt;/p&gt;</li><li class="erow">&nbsp;&nbsp;&lt;p&gt;</li><li class="orow">&nbsp;&nbsp; &lt;%= submit_tag 'Update' %&gt;</li><li class="erow">&nbsp;&nbsp;&lt;/p&gt;</li><li class="orow">&lt;% end %&gt;</li><li class="erow">&nbsp; &nbsp; &lt;/div&gt;</li></ol></div>
+</div>
+</div>
+<span class="puntext">It works just fine in the browser. My only
+problem is getting the test to work past user.login. Do I need to
+define the @post.user.login in the test or using fixtures? </span></div>
+			</div>
+			<div class="clearer"></div>
+			<div class="postfootleft"><p>Offline</p></div>
+			<div class="postfootright"><div>&nbsp;</div></div>
+		</div>
+	</div>
+</div>
+
+<div class="postlinksb">
+	<div class="inbox">
+		<p class="postlink conr">&nbsp;</p>
+		<p class="pagelink conl">Pages: <strong>1</strong></p>
+				<ul><li><a href="http://www.railsforum.com/index.php">Index</a></li><li>&nbsp;»&nbsp;<a href="http://www.railsforum.com/viewforum.php?id=6">Test/Behavior Driven Development</a></li><li>&nbsp;»&nbsp;Testing RJS with ARTS</li></ul>		<div class="clearer"></div>
+	</div>
+</div>
+
+<div id="brdfooter" class="block">
+	<h2><span>Board footer</span></h2>
+	<div class="box">
+		<div class="inbox">
+
+			<div class="conl">
+				<form id="qjump" method="get" action="viewforum.php">
+					<div><label>Jump to
+					<br><select name="id" onchange="window.location=('viewforum.php?id='+this.options[this.selectedIndex].value)">
+						<optgroup label="News and Rules">
+							<option value="2">Forum News</option>
+						</optgroup>
+						<optgroup label="Starting Out">
+							<option value="3">Setup and Configuration</option>
+							<option value="23">Tools</option>
+							<option value="20">Tutorials</option>
+						</optgroup>
+						<optgroup label="Planning">
+							<option value="17">Application Theory &amp; Strategy</option>
+							<option value="6" selected="selected">Test/Behavior Driven Development</option>
+							<option value="28">Refactoring</option>
+						</optgroup>
+						<optgroup label="Programming Rails">
+							<option value="29">Models and Database</option>
+							<option value="30">Controllers and Views</option>
+							<option value="5">Other Rails Programming</option>
+						</optgroup>
+						<optgroup label="Extending Rails">
+							<option value="32">AJAX and RJS</option>
+							<option value="27">Plugin/Gem Usage and Development</option>
+							<option value="34">Railsify Plugin Directory &gt;&gt;&gt;</option>
+							<option value="25">Ruby Programming</option>
+						</optgroup>
+						<optgroup label="Production">
+							<option value="26">Deployment</option>
+							<option value="31">Performance</option>
+						</optgroup>
+						<optgroup label="Web Development">
+							<option value="19">Graphic Design and Flash</option>
+							<option value="16">XHTML/CSS/JavaScript</option>
+							<option value="12">Server-side programming</option>
+						</optgroup>
+						<optgroup label="Discussion">
+							<option value="33">Rails Work &gt;&gt;&gt;</option>
+							<option value="13">General</option>
+							<option value="21">Forum Support &amp; Suggestions</option>
+					</optgroup>
+					</select>
+					<input value=" Go " accesskey="g" type="submit">
+					</label></div>
+				</form>
+			</div>
+			
+<p class="conr">Powered by <a href="http://www.punbb.org/">PunBB</a><br>© Copyright 2002&#8211;2005 Rickard Andersson</p>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+</div>
+<script src="viewtopic.php_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-247671-13";
+urchinTracker();
+</script>
+</body></html>

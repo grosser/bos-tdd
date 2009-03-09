@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+    <title>Selenium on Rails</title>
+    <link href="Selenium%20on%20Rails_files/seleniumhq.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://seleniumhq.org/selenium-favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="icon" href="http://seleniumhq.org/selenium-favicon.ico" type="image/vnd.microsoft.icon">
+    <script src="Selenium%20on%20Rails_files/page-tools.js" type="text/javascript"></script>
+    
+</head><body class="sectionProjects">
+<div id="container">
+<div id="header">
+    <h1><a href="http://seleniumhq.org/" title="Return to Selenium home page">Selenium</a></h1>
+    <ul>
+        <li id="menu_about"><a href="http://seleniumhq.org/about/" title="Overview of Selenium">About</a></li>
+        <li id="menu_support"><a href="http://seleniumhq.org/support/" title="Get help with Selenium">Support</a></li>
+        <li id="menu_documentation"><a href="http://seleniumhq.org/documentation/" title="Technical references and guides">Documentation</a></li>
+        <li id="menu_download"><a href="http://seleniumhq.org/download/" title="Get Selenium">Download</a></li>
+        <li id="menu_projects"><a href="http://seleniumhq.org/projects/" title="Selenium Projects">Projects</a></li>
+    </ul>
+    <form id="searchbox_016909259827549404702:hzru01fldsm" action="http://www.google.com/cse" title="seleniumhq.org Selenium Search">
+        <div>
+            <label for="q" title="Search SeleniumHQ.org's sites for selenium content">search selenium:</label>
+            <input name="cx" value="016909259827549404702:hzru01fldsm" type="hidden">
+            <input name="cof" value="FORID:" type="hidden">
+            <input id="q" name="q" accesskey="s" size="30" type="text">
+            <input id="submit" value="Go" type="submit">
+        </div>
+    </form>
+
+</div>
+<div id="userStatus">
+    Note: To use the OpenQA <a href="http://clearspace.openqa.org/community/selenium">forums</a>, <a href="http://jira.openqa.org/">bug tracker</a>, and <a href="http://wiki.openqa.org/">wiki</a> you need an <a id="create_account" href="http://openqa.org/sass/index.action">OpenQA account</a>.
+</div>
+<div id="mBody">
+    
+    <div id="sidebar">
+        <img alt="Selenium Logo" src="Selenium%20on%20Rails_files/big-logo.png">
+
+        <p>
+            <strong>Selenium is a suite of tools</strong> to automate web app testing across many platforms.
+        </p>
+
+        <p>Selenium...</p>
+        <ul>
+            <li>runs in <a href="http://seleniumhq.org/about/platforms.html#browsers">many browsers</a> and <a href="http://seleniumhq.org/about/platforms.html#operating-systems">operating systems</a></li>
+            <li>can be controlled by many <a href="http://seleniumhq.org/about/platforms.html#programming-languages">programming
+                languages</a> and <a href="http://seleniumhq.org/about/platforms.html#testing-frameworks">testing frameworks</a>.
+            </li>
+        </ul>
+        <div class="downloadBox"><a href="http://seleniumhq.org/download/">Download Selenium</a>1.0 beta-2</div>
+        <div class="ads">
+            <script type="text/javascript"><!--
+            google_ad_client = "pub-6291771388053870";
+            /* 160x600, created 7/31/08 */
+            google_ad_slot = "9920140235";
+            google_ad_width = 160;
+            google_ad_height = 600;
+            //--> </script>
+            <script style="display: none;" type="text/javascript" src="Selenium%20on%20Rails_files/show_ads.js"></script>
+        </div>
+    </div>
+    
+
+    <div id="mainContent">
+        <h2>Selenium on Rails</h2>
+
+    <p>Selenium on Rails provides an easy way to test Rails application with Selenium.</p>
+
+    <p>This plugin does four things: </p>
+    <ol>
+        <li>The Selenium Core files don‘t have to pollute <tt>/public</tt>.</li>
+        <li>No need to create suite files, they are generated on the fly — one suite per directory in <tt>/test/selenium</tt> (suites can be nested).</li>
+        <li>Instead of writing the test cases in HTML you can use a number of better formats (see <tt>Formats</tt>).</li>
+        <li>Loading of fixtures and wiping of session (<tt>/selenium/setup</tt>).</li>
+    </ol>
+
+    <h2>Installation for Rails 2.1</h2>
+    <ol>
+        <li>Install Selenium on Rails: <tt>script/plugin install
+            <a href="http://svn.openqa.org/svn/selenium-on-rails/current/selenium-on-rails">http://svn.openqa.org/svn/selenium-on-rails/current/selenium-on-rails</a></tt>
+        </li>
+
+        <li>If you‘re on Windows, <tt>gem install win32-open3</tt></li>
+        <li><em>If the RedCloth gem is available the Selenese test cases can use it for better markup.</em></li>
+
+        <li>Run
+the Rakefile in the plugin‘s directory to run the tests in order to see
+that everything works. (If RedCloth isn‘t installed a few tests will
+fail since they assume RedCloth is installed.)</li>
+        <li>Create a test case: <tt>script/generate selenium login</tt></li>
+        <li>Start the server: <tt>script/server -e test</tt></li>
+        <li>Point your browser to <tt><a href="http://localhost:3000/selenium">localhost:3000/selenium</a></tt></li>
+
+        <li>If
+everything works as expected you should see the Selenium test runner.
+The north east frame contains all your test cases (just one for now),
+and the north frame contains your test case.</li>
+    </ol>
+
+    <h2>Installation for rails versions before Rails 2.1</h2>
+    <p>Rails
+has been changed in ways that break the original versions of Selenium
+on Rails. If you're using versions before Rails 2.1 you need to use
+this release. There are no plans to update this release with new
+changes or bug fixes unless there is sufficient demand, so if you can
+update then do so. </p><ol>
+        <li>Install Selenium on Rails: <tt>script/plugin install
+            <a href="http://svn.openqa.org/svn/selenium-on-rails/tags/pre-rails-2-1/selenium-on-rails">http://svn.openqa.org/svn/selenium-on-rails/tags/pre-rails-2-1/selenium-on-rails</a></tt>
+        </li>
+
+        <li>If you‘re on Windows, <tt>gem install win32-open3</tt></li>
+        <li><em>If the RedCloth gem is available the Selenese test cases can use it for better markup.</em></li>
+
+        <li>Run
+the Rakefile in the plugin‘s directory to run the tests in order to see
+that everything works. (If RedCloth isn‘t installed a few tests will
+fail since they assume RedCloth is installed.)</li>
+        <li>Create a test case: <tt>script/generate selenium login</tt></li>
+        <li>Start the server: <tt>script/server -e test</tt></li>
+        <li>Point your browser to <tt><a href="http://localhost:3000/selenium">localhost:3000/selenium</a></tt></li>
+
+        <li>If
+everything works as expected you should see the Selenium test runner.
+The north east frame contains all your test cases (just one for now),
+and the north frame contains your test case.</li>
+    </ol>
+
+    <h2>Formats</h2>
+    <p>
+The test cases can be written in a number of formats. Which one you
+choose is a matter of taste. You can generate your test files by
+running <tt>script/generate selenium</tt> or by creating them manually in your <tt>/test/selenium</tt> directory.</p>
+
+    <h3>RSelenese, .rsel</h3>
+
+    <p>RSelenese enable you to write your tests in Ruby. This is my favorite format.</p>
+    <pre>     setup :fixtures =&gt; :all
+     open '/'
+     assert_title 'Home'
+     ('a'..'z').each {|c| open :controller =&gt; 'user', :action =&gt; 'create', :name =&gt; c }
+    </pre>
+
+    <p> See
+    <a href="http://svn.openqa.org/fisheye/browse/%7Eraw,r=1000/selenium-on-rails/selenium-on-rails/doc/classes/SeleniumOnRails/TestBuilder.html">SeleniumOnRails::TestBuilder		</a>
+    for available commands.  This is also available in the <a href="http://www.openqa.org/selenium-ide/">SeleniumIDE</a>, using the format <a href="http://wiki.openqa.org/download/attachments/408/rselenese.js?version=1">here</a>.
+IMPORTANT NOTE: RSelenese generates the HTML tables for Selenium behind
+the scenes when the page is loaded - ONCE. That means code like this: </p><pre>        (1..10).each do |index|
+            do something
+        end
+    </pre>
+Will only be executed when the test is loaded, not when the test is
+run. This is a common error and leads to tests that work the first time
+and fail the second time. <h3>Selenese, .sel</h3>
+    <p> Selenese is the dumbest format (in a good way). You just write your commands delimited by | characters.</p>
+    <pre>     |open|/selenium/setup|
+     |open|/|
+     |goBack|
+    </pre>
+
+    <p>If you don‘t want to write Selenese tests by hand you can use <a href="http://www.openqa.org/selenium-ide/">SeleniumIDE</a> which has <ahref="http: wiki.openqa.org="" display="" side="" seleniumonrails="">support for Selenese.</ahref="http:></p>
+
+    <p> SeleniumIDE makes it super easy to record test and edit them. </p>
+
+    <h3>HTML/RHTML</h3>
+    <p>
+    You can write your tests in HTML/RHTML but that‘s mostly useful if you have existing tests you want to reuse.
+    </p>
+
+    <h3>Partial test cases</h3>
+    <p>If
+you have some common actions you want to do in several test cases you
+can put them in a separate partial test case and include them in your
+other test cases. This is highly recommended, just as small functions
+would be recommended in structured programming.</p>
+
+    <p> A partial test case is just like a normal test case besides that its filename has to start with _: </p>
+    <pre>     #_login.rsel
+     open '/login'
+     type 'name', name
+     type 'password', password
+     click 'submit', :wait=&gt;true
+    </pre>
+
+    <p>To include a partial test case in a RSelenese test case: </p>
+    <pre>     include_partial 'login', :name =&gt; 'Jane Doe', :password =&gt; 'Jane Doe'.reverse
+    </pre>
+
+    <p>in a Selenese test case: </p>
+    <pre>     |includePartial|login|name=John Doe|password=eoD nhoJ|
+    </pre>
+    <p>and in a RHTML test case:</p>
+    <pre>     &lt;%= render :partial =&gt; 'login', :locals =&gt; {:name = 'Joe Schmo', :password =&gt; 'Joe Schmo'.reverse} %&gt;
+    </pre>
+
+    <h2>Configuration</h2>
+    <p>There are a number of settings available. You make them by copying <tt>config.yml.example</tt> to <tt>config/selenium.yml</tt> in your application and make your changes in that file.</p>
+
+    <h3>Environments</h3>
+    <p>Per default this plugin is only available in test environment. You can change this by setting <tt>environments</tt>, such as:</p>
+    <pre>     #config.yml
+     environments:
+       - test
+       - development
+    </pre>
+
+    <h3>Selenium Core path</h3>
+    <p> If you don‘t want to use the bundled Selenium Core version you can set <tt>selenium_path</tt> to the directory where Selenium Core is stored.</p>
+
+    <pre>     #config.yml
+     selenium_path: 'c:\selenium'
+    </pre>
+
+    <h2><tt>test:acceptance</tt></h2>
+    <p>You
+can run all your Selenium tests as a Rake task. If you're using a
+continuous builder this is a great way to integrate selenium into your
+build process.</p>
+
+    <p>First, if you‘re on Windows, you have to
+make sure win32-open3 is installed. Then you have to configure which
+browsers you want to run, like this:</p>
+
+    <pre>     #config.yml
+     browsers:
+       firefox: 'c:\Program Files\Mozilla Firefox\firefox.exe'
+       ie: 'c:\Program Files\Internet Explorer\iexplore.exe'
+    </pre>
+
+    <p>Now you‘re all set. First start a server:</p>
+
+    <pre>     script/server -e test
+    </pre>
+
+    <p>Then run the tests:</p>
+
+    <pre>        rake test:acceptance
+    </pre>
+
+    <p>Now it should work, otherwise let me know!</p>
+
+    <h3>Store results</h3>
+    <p>If you want to store the results from a <tt>test:acceptance</tt> you just need to set in which directory they should be stored:</p>
+
+    <pre>     #config.yml
+     result_dir: 'c:\result'
+    </pre>
+
+    <p>So when you run <tt>rake test:acceptance</tt> the tables with the results will be stored as <tt>.html</tt> files in that directory.</p>
+    <p>This can be useful especially for continous integration.</p>
+    </div>
+</div>
+<div id="footer">
+    <ul id="sitemap">
+        <li><a href="http://seleniumhq.org/projects/">Selenium Projects</a>
+            <ul>
+                <li><a href="http://seleniumhq.org/projects/ide/">Selenium IDE</a></li>
+                <li><a href="http://seleniumhq.org/projects/remote-control/">Selenium Remote Control</a></li>
+                <li><a href="http://selenium-grid.seleniumhq.org/">Selenium Grid</a></li>
+                <li><a href="http://seleniumhq.org/projects/core/">Selenium Core</a></li>
+                <li><a href="http://seleniumhq.org/projects/on-rails/">Selenium on Rails</a></li>
+                <li><a href="http://seleniumhq.org/projects/ruby/">Selenium on Ruby</a></li>
+                <li><a href="http://cubictest.seleniumhq.org/">CubicTest (for Eclipse)</a></li>
+            </ul>
+        </li>
+        <li><a href="http://seleniumhq.org/documentation/">Documentation</a>
+            <ul>
+                <li><a href="http://seleniumhq.org/documentation/examples/">Examples</a></li>
+                <li><a href="http://seleniumhq.org/documentation/screencasts/">Screencasts</a></li>
+                <li><a href="http://seleniumhq.org/documentation/tutorials/">Tutorials/Labs</a></li>
+                <li><a href="http://wiki.openqa.org/">Wiki</a></li>
+                <li><a href="http://seleniumhq.org/documentation/core/reference.html">Selenium API</a></li>
+            </ul>
+        </li>
+        <li><a href="http://seleniumhq.org/support/">Support</a>
+            <ul>
+                <li><a href="http://clearspace.openqa.org/community/selenium">Forums</a></li>
+                <li><a href="http://jira.openqa.org/">Bug Tracker</a></li>
+                <li><a href="http://seleniumhq.org/support/index.html#CommercialSupport">Commercial Support</a></li>
+                <li><a href="http://seleniumhq.org/support/index.html#IRC">IRC</a></li>
+            </ul>
+        </li>
+        <li><a href="http://seleniumhq.org/about/">About Selenium</a>
+            <ul>
+                <li><a href="http://seleniumhq.org/about/how.html">How it Works</a></li>
+                <li><a href="http://seleniumhq.org/about/platforms.html">Supported Platforms</a></li>
+                <li><a href="http://seleniumhq.org/about/contributors.html">Who made Selenium</a>
+                </li><li><a href="http://seleniumhq.org/about/news.jsp">News/Blogs</a></li>
+                <li><a href="http://seleniumhq.org/about/roadmap.html">Roadmap</a></li>
+                <li><a href="http://seleniumhq.org/about/getting-involved.html">Getting Involved</a></li>
+                <li><a href="http://clearspace.openqa.org/community/jobs_board">Jobs Board</a></li>
+            </ul>
+        </li>
+        <li><a href="http://openqa.org/">OpenQA.org</a>
+            <ul>
+                <li><a href="http://openqa.org/sass/index.action">Create an account</a></li>
+                <li><a href="http://openqa.org/sass/index.action">Account management</a></li>
+                <li><a href="http://openqa.org/sponsors.action">Sponsors</a></li>
+            </ul>
+        </li>
+    </ul>
+    <a href="http://openqa.org/"><img alt="openqa.org logo" id="footerLogo" src="Selenium%20on%20Rails_files/openqa-logo.png"></a>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Selenium%20on%20Rails_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7221039-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body></html>

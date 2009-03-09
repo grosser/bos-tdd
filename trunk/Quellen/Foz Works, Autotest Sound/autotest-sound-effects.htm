@@ -1,0 +1,737 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+  <title>FozWorks: Autotest: Now, With Sound Effects!</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <!-- Use this RSS link if you are using FeedBurner (recommended) -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/fozworks">
+  <!-- Include Mephisto's default RSS feed -->
+  <link href="http://www.fozworks.com/feed/atom.xml" rel="alternate" type="application/atom+xml">
+
+  <script src="autotest-sound-effects_files/prototype.js" type="text/javascript"></script>
+  <script src="autotest-sound-effects_files/scribbish.js" type="text/javascript"></script>
+  <script src="autotest-sound-effects_files/code_highlighter.htm" type="text/javascript"></script>
+  <script src="autotest-sound-effects_files/ruby.htm" type="text/javascript"></script>
+  <script src="autotest-sound-effects_files/javascript.htm" type="text/javascript"></script>
+
+  <link href="autotest-sound-effects_files/application.css" rel="stylesheet" type="text/css">
+  <link href="autotest-sound-effects_files/local.css" rel="stylesheet" type="text/css">
+</head><body>
+<div id="container">
+  <div id="header">
+    <h1><span><a href="http://www.fozworks.com/"><img src="autotest-sound-effects_files/fozworks.gif"></a></span></h1>
+    <h2></h2>
+  </div>
+
+  <div id="page">
+    <div id="content">
+      
+  
+<!--
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+  rdf:about=""
+  trackback:ping=""
+  dc:title="Autotest: Now, With Sound Effects!"
+  dc:identifier="/2007/7/28/autotest-sound-effects"
+  dc:description="<p style="padding: 6px;background-color: rgb(255, 255, 153);" >Update April 9, 2008: Ken Collins has released a <a href="http://www.metaskills.net/2008/4/6/autotest-playlist-for-red-green-feedback">new version of the sound plugin with playlist sup..."
+  dc:creator="foz"
+  dc:date="July 28, 2007 15:32" />
+</rdf:RDF>
+-->
+
+<div class="hentry" id="article-40">
+  <h2 class="entry-title">
+    <a href="http://www.fozworks.com/2007/7/28/autotest-sound-effects" title="Autotest: Now, With Sound Effects!">Autotest: Now, With Sound Effects!</a>
+    
+    <span class="comment_count">24
+          
+                Comments
+           
+           </span>
+    
+  </h2>
+  <!--
+<div class="vcard">
+  Posted by <span class="fn">foz</span> 
+</div>
+<abbr class="published" title="2007-07-28T15:32:00+00:00"></abbr>
+-->
+<abbr class="published" title="2007-07-28T15:32:00+00:00">Jul 28, 2007</abbr>
+<br class="clear">
+
+  <div class="entry-content">
+  <p style="padding: 6px; background-color: rgb(255, 255, 153);">Update April 9, 2008: Ken Collins has released a <a href="http://www.metaskills.net/2008/4/6/autotest-playlist-for-red-green-feedback">new version of the sound plugin with playlist support</a>!</p>
+
+	<p>We’ve all been enjoying <strong>autotest</strong>, part of the <a href="http://www.zenspider.com/ZSS/Products/ZenTest">ZenTest</a> gem. If you’ve tricked out your kit, then you have <a href="http://ph7spot.com/articles/getting_started_with_autotest">plugins</a> configured, so at minimum you’re <a href="http://www.ridaalbarazi.com/blog/2007/04/05/autotest-growling-in-red-green/">red, green and growling</a>.
+Now, things get really fun.</p>
+
+
+<blockquote><a href="http://www.fozworks.com/static/autotest-sound10.html">Watch a screencast of autotest running with sound effects</a></blockquote>
+
+	<p>I’m stoked to announce the <strong>sound plugin for autotest</strong>.
+This simple chunk of code will fire off sounds for different events in
+autotest. I’ve provided a set of custom-made sounds, produced with my
+trusty <a href="http://www.clavia.se/products/nordmodular/models.htm">Nord Modular</a>
+synthesizer and fine-tuned for an optimal testing experience. You
+should be able to use these all day without annoying your neighbors too
+much.</p>
+
+
+	<p>Here’s what you need to do:</p>
+
+
+	<h3>1. Install mgp321</h3>
+
+
+in <span class="caps">OS X</span>:
+<pre>$ sudo port install mpg321</pre>
+
+for Linux:
+<pre>$ sudo apt-get install mpg321</pre>
+
+	<h3>2. Download and extract the plugin</h3>
+
+
+	<p>The starter sound fx are in the zip file. Extract it in your home directory, it will create ~/autotest/sound.</p>
+
+
+	<p><img src="autotest-sound-effects_files/pdf.gif" alt=""> <a href="http://www.fozworks.com/static/autotest-sound-1_2.zip">autotest-sound-1_2.zip</a> (86k)</p>
+
+
+	<h3>3. Configure your ~/.autotest file:</h3>
+
+
+<pre>require '~/autotest/sound/sound.rb'
+Autotest::Sound.sound_path = "~/autotest/sound/sound_fx/" 
+</pre>
+
+	<h3>Enjoy <a href="http://en.wikipedia.org/wiki/Test-driven_development"><span class="caps">TDD</span></a> with audio feedback!</h3>
+
+
+	<p>I’ve
+been using this setup for several weeks now. I initially wrote it as a
+gag, but I have since found it to be incredibly useful. It’s nice know
+what your testing status via audio – you don’t have to switch windows
+or take your eyes off the code. I’ve even turned off Growl, I don’t
+need it any more. audio makes testing more fun. :)</p>
+
+
+	<p>If there are any problems or feedback, please post a comment here.</p>
+
+
+	<p><strong><span class="caps">UPDATE</span>:</strong>Plugin instructions and zip file updated, now with Windows support. Thanks, John and Jamie.</p>
+
+
+	<p><strong><span class="caps">UPDATE</span> #2:</strong>Fixed bad path in instructions and doc fixes in zip file. (thanks, Matt)</p>
+  
+</div>
+  <ul class="meta">
+  
+  
+  <li>
+    Tags: <a href="http://www.fozworks.com/tags/code" rel="tag" title="code">code</a>&nbsp;<a href="http://www.fozworks.com/tags/ruby" rel="tag" title="ruby">ruby</a>&nbsp;<a href="http://www.fozworks.com/tags/sound" rel="tag" title="sound">sound</a>&nbsp;<a href="http://www.fozworks.com/tags/testing" rel="tag" title="testing">testing</a>&nbsp;
+  </li>
+  
+  <li>
+    Meta: 
+    
+    <a href="http://www.fozworks.com/2007/7/28/autotest-sound-effects#comments" title="24 comments">24 comments</a>, 
+    
+    <a href="http://www.fozworks.com/2007/7/28/autotest-sound-effects" title="permalink">permalink</a>
+    
+  </li>
+</ul>
+</div>
+
+<h5><a name="comments">Comments</a></h5>
+<p><a href="#comment-form">Leave a response</a></p>
+<div id="comments_div">
+  <ol id="comments" class="comments">
+    
+    <li class="comment" id="comment-41">
+      <div class="author">
+        <cite><span class="author"><a href="http://jerryr.com/">jerry richardson</a></span></cite> – 
+        <abbr title="July 31, 2007 20:33"><span class="date">July 31, 2007 @ 08:33 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>i
+tried the port command is osx and got the error messsage: Error: Unable
+to execute port: invalid command name “configure.universal_args”</p>
+
+
+	<p>Is that something you ran into during your development?</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-42">
+      <div class="author">
+        <cite><span class="author"><a href="http://fozworks.com/">foz</a></span></cite> – 
+        <abbr title="July 31, 2007 20:44"><span class="date">July 31, 2007 @ 08:44 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>You probably have an older version of ports, try ‘sudo port selfupdate’ and see if that fixes it…</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-43">
+      <div class="author">
+        <cite><span class="author"><span>john</span></span></cite> – 
+        <abbr title="July 31, 2007 21:51"><span class="date">July 31, 2007 @ 09:51 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Hi Foz,</p>
+This is great, though it doesn’t quite work out of the box in Windows.
+What helped was a few more configuration options in the sound.rb file. <pre>module Autotest::Sound
+  @@sound_path = ''
+  @@sound_app = 'mpg321'
+  @@process_devnull = '&gt; /dev/null 2&gt;&amp;1'
+  @@process_bg = '&amp;'
+
+  def self.sound_path= o
+    @@sound_path = o
+  end
+
+  def self.sound_app= o
+    @@sound_app = o
+  end
+
+  def self.process_devnull= o
+    @@process_devnull = o
+  end
+
+  def self.process_bg= o
+    @@process_bg = o
+  end
+
+  def self.playsound file
+    cmd = "#{@@sound_app} #{@@sound_path + file} #{@@process_devnull} #{@@process_bg}" 
+    # puts cmd
+    system cmd
+  end
+
+  [:run, :red, :green, :quit, :run_command, :ran_command].each do |hook|
+    Autotest.add_hook hook do  |at|
+      playsound "#{hook.to_s}.mp3" unless $TESTING
+    end
+  end
+end
+</pre>
+
+	<p>And then a few additions in the .autotest file.</p>
+
+
+<pre>  Autotest::Sound.process_devnull = "&gt; c:/Windows/Temp/_mplayer_tmp.txt" 
+  Autotest::Sound.process_bg = "" 
+</pre>
+
+	<p>Lastly, for Windows users looking for a command line
+audio player, I’m using mplayer, which is doing nicely for this job. I
+found it here:</p>
+
+
+	<pre><code>http://www.mplayerhq.hu/design7/dload.html</code></pre>
+
+
+	<p>And have this line my .autotest file:</p>
+
+
+<pre> Autotest::Sound.sound_app = "call c:/mplayer/mplayer.exe -really-quiet"</pre>
+
+	<p>I
+believe that this preserves your original behavior in OS/X, but I
+wasn’t able to test it. It does work in my system. Thanks for putting
+this together.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-44">
+      <div class="author">
+        <cite><span class="author"><a href="http://www.pervasivecode.com/">Jamie Flournoy</a></span></cite> – 
+        <abbr title="July 31, 2007 23:08"><span class="date">July 31, 2007 @ 11:08 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Cool! One note: your config instructions on this page don’t match the zip file layout:</p>
+
+
+	<p>Autotest::Sound.sound_path = “<sub>/autotest/sound_fx/”</sub></p>
+
+
+<sub>	</sub><p><sub>should be:
+Autotest::Sound.sound_path = “</sub>/autotest/sound/sound_fx/”</p>
+
+
+	<p>Cuz the zip file has the sound_fx dir inside autotest/sound.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-45">
+      <div class="author">
+        <cite><span class="author"><a href="http://fozworks.com/">foz</a></span></cite> – 
+        <abbr title="July 31, 2007 23:59"><span class="date">July 31, 2007 @ 11:59 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>John, thanks for getting this working on Windows! I incorporated your changes back into the release.</p>
+
+
+	<p>Jamie, thanks for catching that bug, instructions updated!</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-46">
+      <div class="author">
+        <cite><span class="author"><a href="http://railsontherun.com/">Matt Aimonetti</a></span></cite> – 
+        <abbr title="August 01, 2007 10:28"><span class="date">August 01, 2007 @ 10:28 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Cool
+stuff, not that with the latest package the sound.rb file is in the
+wrong directory. So. or you move it one level up, or you change your
+.autotest code to</p>
+
+
+	<pre><code>require '~/autotest/sound/sound.rb'</code></pre>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-47">
+      <div class="author">
+        <cite><span class="author"><span>jinjing</span></span></cite> – 
+        <abbr title="August 01, 2007 12:49"><span class="date">August 01, 2007 @ 12:49 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Tip For fink users</p>
+
+
+	<p>“mpg321” is probably not in the default tree, try “madplay” :D</p>
+
+
+	<p>Thanks for the plugin foz, love it !</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-48">
+      <div class="author">
+        <cite><span class="author"><a href="http://fozworks.com/">foz</a></span></cite> – 
+        <abbr title="August 01, 2007 17:32"><span class="date">August 01, 2007 @ 05:32 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>@matt: Agh! sound.rb was in the right place, the instructions were wrong! Fixed…</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-49">
+      <div class="author">
+        <cite><span class="author"><span>Don Parish</span></span></cite> – 
+        <abbr title="August 02, 2007 00:10"><span class="date">August 02, 2007 @ 12:10 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Thanks, I just got it working in Windows using the instructions in the updated <span class="caps">ZIP</span> file, and the mplayer program.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-50">
+      <div class="author">
+        <cite><span class="author"><a href="http://www.zepho.com/">Bala Paranj</a></span></cite> – 
+        <abbr title="August 05, 2007 00:47"><span class="date">August 05, 2007 @ 12:47 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I installed this on my Mac. The sound is the same whether the test fails or passes. Is it supposed to be different?</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-51">
+      <div class="author">
+        <cite><span class="author"><a href="http://fozworks.com/">foz</a></span></cite> – 
+        <abbr title="August 06, 2007 02:45"><span class="date">August 06, 2007 @ 02:45 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>@Bala: The sounds are definitely supposed to be different… make sure you have the latest ZenTest gem installed?</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-52">
+      <div class="author">
+        <cite><span class="author"><a href="http://internautdesign.com/">David Lowenfels</a></span></cite> – 
+        <abbr title="August 07, 2007 04:06"><span class="date">August 07, 2007 @ 04:06 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I had this idea last year… http://blog.internautdesign.com/2006/12/18/adding-sound-to-your-autotest</p>
+
+
+	<p>but it’s nice to have extra stuff like a sound every time autotest (re)starts
+your sounds are cool too. I love synthesizers.. used to program audio <span class="caps">DSP</span> before I got into ruby/rails.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-54">
+      <div class="author">
+        <cite><span class="author"><a href="http://nubyonrails.com/">topfunky</a></span></cite> – 
+        <abbr title="August 11, 2007 08:05"><span class="date">August 11, 2007 @ 08:05 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I think we need a recording of Ryan Davis saying “FAIL!” and “Pass” for the audio.</p>
+
+
+	<p>I’ll try to acquire that.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-55">
+      <div class="author">
+        <cite><span class="author"><a href="http://priidu.com/">Priit Tamboom</a></span></cite> – 
+        <abbr title="August 13, 2007 09:27"><span class="date">August 13, 2007 @ 09:27 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Thanks for sound!</p>
+
+
+	<p>I’m getting “pass” sound when there is actually SyntaxError. It looks like a bug?</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-57">
+      <div class="author">
+        <cite><span class="author"><a href="http://log.zuwiki.net/">zuwiki</a></span></cite> – 
+        <abbr title="August 18, 2007 20:24"><span class="date">August 18, 2007 @ 08:24 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>That’s pretty sweet. And I thought autotest was fun before! :D</p>
+
+
+	<p>That recording of Ryan Davis would make it even more awesome.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-193">
+      <div class="author">
+        <cite><span class="author"><a href="http://www.masone.ch/">masone</a></span></cite> – 
+        <abbr title="March 15, 2008 08:31"><span class="date">March 15, 2008 @ 08:31 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I
+have the same problem as Priit. It worked great when I installed it,
+but suddenly it started playing the wrong sound. I’ll get the pass
+sound even when something went bad.</p>
+
+
+	<p>Maybe it’s because I
+somewhen updated the Zentest gem or rspec? I’m really missing the
+benefit of your script I had. It would be great if there were a
+solution!</p>
+
+
+	<p>Thanks :)</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-194">
+      <div class="author">
+        <cite><span class="author"><a href="http://www.masone.ch/">masone</a></span></cite> – 
+        <abbr title="March 15, 2008 08:56"><span class="date">March 15, 2008 @ 08:56 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Got it. rspec_on_rails 1.1.3 was the culprit. Installing 1.1.4 from the trunk solves the problem.</p>
+
+
+	<p>See: http://rspec.lighthouseapp.com/projects/5645/tickets/279-autotest-never-calls-the-red-hook</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-316">
+      <div class="author">
+        <cite><span class="author"><a href="http://www.metaskills.net/">Ken Collins</a></span></cite> – 
+        <abbr title="April 06, 2008 23:12"><span class="date">April 06, 2008 @ 11:12 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Thanks
+for the idea… just wanted you to know I put together a total rework of
+your autotest sounds. In my version I have the ability to linearly loop
+thru a red/green playlist.</p>
+
+
+	<p>http://www.metaskills.net/2008/4/6/autotest-playlist-for-red-green-feedback</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-335">
+      <div class="author">
+        <cite><span class="author"><a href="http://fozworks.com/">foz</a></span></cite> – 
+        <abbr title="April 09, 2008 22:31"><span class="date">April 09, 2008 @ 10:31 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>@Ken – awesome!!! I’m honored and inspired that you took it to the next level :)</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-540">
+      <div class="author">
+        <cite><span class="author"><a href="http://www.pervasivecode.com/">Jamie Flournoy</a></span></cite> – 
+        <abbr title="May 18, 2008 06:52"><span class="date">May 18, 2008 @ 06:52 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>Probably obvious but this might as well make it into the distributed code…</p>
+To get rid of the complaint from Autotest about the deprecated :run
+hook, change :run to :initialize in sound.rb and rename your run.mp3
+sound to initialize.mp3.
+<code>
+29c29
+&lt;   [:run, :red, :green, :quit, :run_command, :ran_command].each do |hook|
+---
+&gt;   [:initialize, :red, :green, :quit, :run_command, :ran_command].each do |hook|
+</code>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-548">
+      <div class="author">
+        <cite><span class="author"><a href="http://blog.zenspider.com/">Ryan Davis</a></span></cite> – 
+        <abbr title="May 20, 2008 00:51"><span class="date">May 20, 2008 @ 12:51 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I’m adding Autotest::ALL_HOOKS to the next release to make it easier for you to stay up to date with the hook list.</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-2400">
+      <div class="author">
+        <cite><span class="author"><a href="http://phpqa.blogspot.com/">j0ban</a></span></cite> – 
+        <abbr title="December 31, 2008 11:17"><span class="date">December 31, 2008 @ 11:17 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>cool topic .. really helpful !!</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-2406">
+      <div class="author">
+        <cite><span class="author"><span>JackVandaL</span></span></cite> – 
+        <abbr title="January 14, 2009 00:20"><span class="date">January 14, 2009 @ 12:20 AM</span></abbr>
+      </div>
+      <div class="content">
+        <p>So
+this is great stuff and I love the sounds, but for some reason I can’t
+get the red and green sounds to play. initialize, run_cammand, and
+ran_command work just fine and my snarls come up correctly, but red and
+green (the sounds I need the most) don’t make a peep.</p>
+
+
+	<p>Any help?</p>
+      </div>
+    </li>
+    
+    <li class="comment" id="comment-2427">
+      <div class="author">
+        <cite><span class="author"><a href="http://nuttersmark.com/">Mark Nutter</a></span></cite> – 
+        <abbr title="February 04, 2009 19:55"><span class="date">February 04, 2009 @ 07:55 PM</span></abbr>
+      </div>
+      <div class="content">
+        <p>I
+for the life of me can’t seem to get this to work. I have everything
+hooked up to growl just fine but when I include this sound notification
+system it just kills everything. No error messages or anything, just no
+growl notifications or sounds. How do you debug this? I didn’t restart
+after installing macports and mpg321.. could that be the issue? Help
+appreciated and thanks for your efforts!</p>
+      </div>
+    </li>
+    
+  </ol>
+</div>
+
+<form id="comment-form" method="post" action="/2007/7/28/autotest-sound-effects/comments#comment-form">
+<fieldset>
+  <legend>Comment</legend>
+  <p>
+    <label class="text" for="comment_author">Name:</label><br>
+    <input id="comment_author" name="comment[author]" value="" type="text">
+  </p>
+  <p>
+    <label class="text" for="comment_author_email">Email Address:</label><br>
+    <input id="comment_author_email" name="comment[author_email]" value="" type="text">
+  </p>
+  <p>
+    <label class="text" for="comment_author_url">Website:</label><br>
+    <input id="comment_author_url" name="comment[author_url]" value="" type="text">
+  </p>
+  <p>
+    <label class="text" for="comment_body">Comment:</label><br>
+    <textarea id="comment_body" name="comment[body]"></textarea>
+  </p>
+  <div class="formactions">
+    <input value="Post comment" class="submit" type="submit">
+  </div>
+</fieldset>
+</form>
+
+
+
+      <script type="text/javascript">
+        //<![CDATA[
+        show_dates_as_local_time()
+        //]]>
+      </script>
+    </div>
+
+    <div id="sidebar">
+
+      <!-- Delete the comment blocks if you'd like to display the search form -->
+      <div class="sidebar-node">
+        <div id="search" class="search">
+  <h3>Search:</h3>
+          <form action="/search" id="sform" method="get" name="sform">
+            <p><input autocomplete="off" id="q" name="q" value="" type="text"></p>
+          </form>
+          <p>&nbsp;</p>
+        </div>
+      </div>
+
+      <!-- Delete the comment blocks if you'd like to display links for the monthly archive -->
+      
+
+      <!-- Delete the comment blocks if you'd like to list out your sections -->
+      
+      <div class="sidebar-node">
+        <h3>Sections</h3>
+        <ul>
+        
+          <li><a class="selected" href="http://www.fozworks.com/" title="Home">Home</a> (15)</li>
+        
+        </ul>
+      </div>
+      
+
+      <!-- Delete the comment blocks if you'd like to list out your tags -->
+      
+      <div class="sidebar-node">
+        <h3>Tags</h3>
+        <ul>
+        
+          <li><a href="http://www.fozworks.com/tags/awards" rel="tag" title="awards">awards</a> (1)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/code" rel="tag" title="code">code</a> (4)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/configs" rel="tag" title="configs">configs</a> (1)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/irb" rel="tag" title="irb">irb</a> (1)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/rails" rel="tag" title="rails">rails</a> (8)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/rake" rel="tag" title="rake">rake</a> (1)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/ruby" rel="tag" title="ruby">ruby</a> (5)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/sound" rel="tag" title="sound">sound</a> (2)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/sphinx" rel="tag" title="sphinx">sphinx</a> (2)</li>
+        
+          <li><a href="http://www.fozworks.com/tags/testing" rel="tag" title="testing">testing</a> (4)</li>
+        
+        </ul>
+      </div>
+      
+
+     <div class="sidebar-node">
+      <h3>About</h3>
+      <ul>
+          <li><a href="http://somebox.com/">Somebox.com</a> (my Company)</li>
+         <li><a href="http://www.google.com/reader/shared/user/00767020246311574180/state/com.google/starred">Blog Posts I'm Enjoying...</a></li>
+<a href="http://www.google.com/reader/shared/user/00767020246311574180/state/com.google/starred">           </a><li><a href="http://somebox.com/jeremy">About me</a></li>
+
+</ul>
+</div>
+
+      <div class="sidebar-node">
+        <h3>Sites I Dig</h3>
+         <ul>
+           <li><a href="http://www.primospot.com/">Primospot</a></li>
+           <li><a href="http://www.democracynow.org/">Democracy Now!</a></li>
+           <li><a href="http://vermicel.li/">Vermicelli - technology services</a></li>
+           <li><a href="http://www.brooklynschoolyard.com/">Brooklyn Schoolyard</a></li>
+           <li><a href="http://rubycentral.org/">Ruby Central</a></li>
+            <li><a href="http://2600.org/">2600</a>, home of my favorite podcast "<a href="http://www.2600.com/offthehook/">Off The Hook</a>"</li>
+          </ul>
+      </div>
+ 
+
+<div class="sidebar-node">
+<!-- Start of Flickr Badge -->
+<style type="text/css">
+#flickr_badge_source_txt {padding:0; font: 11px Arial, Helvetica, Sans serif; color:#666666;}
+#flickr_badge_icon {display:block !important; margin:0 !important; border: 1px solid rgb(0, 0, 0) !important;}
+#flickr_icon_td {padding:0 5px 0 0 !important;}
+.flickr_badge_image {text-align:center !important;}
+.flickr_badge_image img {border: 1px solid black !important;}
+#flickr_badge_uber_wrapper {width:150px;}
+#flickr_www {display:block; text-align:center; padding:0 10px 0 10px !important; font: 11px Arial, Helvetica, Sans serif !important; color:#3993ff !important;}
+#flickr_badge_uber_wrapper a:hover,
+#flickr_badge_uber_wrapper a:link,
+#flickr_badge_uber_wrapper a:active,
+#flickr_badge_uber_wrapper a:visited {text-decoration:none !important; background:inherit !important;color:#3993ff;}
+#flickr_badge_wrapper {background-color:#ffffff;border: solid 1px #000000}
+#flickr_badge_source {padding:0 !important; font: 11px Arial, Helvetica, Sans serif !important; color:#666666 !important;}
+</style>
+<table id="flickr_badge_uber_wrapper" border="0" cellpadding="0" cellspacing="10"><tbody><tr><td><a href="http://www.flickr.com/" id="flickr_www">www.<strong style="color: rgb(57, 147, 255);">flick<span style="color: rgb(255, 28, 146);">r</span></strong>.com</a><span style="position: absolute; left: -999em; top: -999em; visibility: hidden;" class="flickr_badge_beacon"><img src="autotest-sound-effects_files/p.gif" alt="" width="0" height="0"></span>
+<table id="flickr_badge_wrapper" border="0" cellpadding="0" cellspacing="10">
+<script type="text/javascript" src="autotest-sound-effects_files/badge_code_v2.js"></script><tbody><tr><td style="padding: 0pt;" class="flickr_badge_image" id="flickr_badge_image1" align="center" valign="center"><a href="http://www.flickr.com/photos/somebox/3182474880/"><img src="autotest-sound-effects_files/3182474880_4e7205b0b3_t.jpg" alt="Ein Foto in Flickr" title="Wengernalp" width="100" height="67"></a></td></tr><tr><td style="padding: 0pt;" class="flickr_badge_image" id="flickr_badge_image2" align="center" valign="center"><a href="http://www.flickr.com/photos/somebox/3182474058/"><img src="autotest-sound-effects_files/3182474058_089c692140_t.jpg" alt="Ein Foto in Flickr" title="Wengeralp" width="100" height="67"></a></td></tr><tr><td style="padding: 0pt;" class="flickr_badge_image" id="flickr_badge_image3" align="center" valign="center"><a href="http://www.flickr.com/photos/somebox/3182473220/"><img src="autotest-sound-effects_files/3182473220_4311a1e4fc_t.jpg" alt="Ein Foto in Flickr" title="Jungfrau" width="67" height="100"></a></td></tr><tr>
+<td id="flickr_badge_source" align="center" valign="center">
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+<td id="flickr_icon_td" width="10"><a href="http://www.flickr.com/photos/somebox/"><img id="flickr_badge_icon" alt="somebox's photos" src="autotest-sound-effects_files/13385207N00.jpg" align="left" width="48" height="48"></a></td>
+<td id="flickr_badge_source_txt"><nobr>More of</nobr> <a href="http://www.flickr.com/photos/somebox/">somebox's photos</a></td>
+</tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td></tr></tbody></table>
+<!-- End of Flickr Badge -->
+
+</div>
+
+<div class="sidebar-node">
+<script type="text/javascript" src="autotest-sound-effects_files/somebox_002"></script><script type="text/javascript" src="autotest-sound-effects_files/del-linkrolls.js"></script>
+<script type="text/javascript" src="autotest-sound-effects_files/somebox"></script><style type="text/css"> .delicious-posts ul {list-style-type:none; margin: 0 0 1em 0; padding: 0 } .delicious-tag,.delicious-extended {font-size:smaller} .delicious-extended{margin:0;padding:0 0 0.25em 0} .module-list-item .delicious-posts ul{margin:0;padding:0} .module-list-item .delicious-posts h2, .module-list-item .delicious-posts li:first-child{margin-top:0} </style><div class="delicious-posts" id="delicious-posts-somebox"><h2 class="delicious-banner sidebar-title"><a href="http://delicious.com/"><img src="autotest-sound-effects_files/delicious.gif" alt="delicious" border="0" width="10" height="10"></a> <a href="http://delicious.com/somebox">my del.icio.us</a></h2><ul><li class="delicious-post delicious-odd">»&nbsp;<a class="delicious-link" href="http://www.lulu.com/en/products/paperback/?cid=en_home_publish">Publish a Paperback Book - Lulu.com</a> </li><li class="delicious-post delicious-even">»&nbsp;<a class="delicious-link" href="http://cappuccino.org/">Cappuccino Web Framework - Build Desktop Class Applications in Objective-J and JavaScript</a> </li><li class="delicious-post delicious-odd">»&nbsp;<a class="delicious-link" href="http://terracefclub.com/megamonomeet">terrace f. club  :::  food = loveMega Monomeet</a> </li><li class="delicious-post delicious-even">»&nbsp;<a class="delicious-link" href="http://coppakids.com/">COPPA Kids: Born too late.</a> </li><li class="delicious-post delicious-odd">»&nbsp;<a class="delicious-link" href="http://blog.davidchelimsky.net/2009/2/2/rspec-works-with-test-unit">David Chelimsky  RSpec works with test/unit</a> </li></ul></div>
+
+<noscript><a href="http://del.icio.us/somebox">my del.icio.us</a></noscript>
+</div>
+
+<div class="sidebar-node">
+<script language="javascript" type="text/javascript" src="autotest-sound-effects_files/jswidget.js">
+</script><div class="LTwrapper" style="font-family: Verdana,Arial,sans-serif;"><div class="LTheader" style="font-weight: bold; margin-bottom: 5px;">Recent books from <a href="http://www.librarything.com/catalog/foz" target="_top">my library</a></div><div class="LTitem LTodd" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0321555457/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0321555457.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTeven" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0596514972/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0596514972.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTodd" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0132350882/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0132350882.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTeven" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0596529325/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0596529325.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTodd" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0596517742/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0596517742.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTeven" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/1430209674/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/1430209674.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTodd" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0321503619/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0321503619.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTeven" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0321552636/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0321552636.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTodd" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/1934356050/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/1934356050.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTeven" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0470229055/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0470229055.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTodd" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/1430209739/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/1430209739.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTitem LTeven" style="clear: right; padding-top: 5px; display: inline;"><a href="http://www.amazon.com/exec/obidos/ASIN/0596510519/ref=nosim/fozworks-20" target="_new"><img src="autotest-sound-effects_files/0596510519.jpg" style="margin: 2px;" border="0" width="43"></a></div><div class="LTprovided" style="padding: 5px 0px; text-align: right; clear: right ! important; font-size: 9px;">powered by <a href="http://www.librarything.com/" target="_top">LibraryThing</a></div></div>
+</div>
+
+    <div class="sidebar-node">
+         <div style="padding-right: 3.2em; text-align: center;">
+        <h3>Powered By:</h3>
+        <a href="http://mephistoblog.com/" class="powered"><img alt="mephisto-badge-tiny" src="autotest-sound-effects_files/mephisto-badge-tiny.png"></a><br>
+        <a href="http://rubyonrails.org/"><img src="autotest-sound-effects_files/btn1transparent.png" border="0"><br></a><p><a href="http://feeds.feedburner.com/fozworks"><img src="autotest-sound-effects_files/fozworks_002.gif" style="border: 0pt none ;" alt="" width="88" height="26"></a></p>
+     <p><a href="http://workingwithrails.com/recommendation/new/person/8561-jeremy-seitz"><img alt="Recommend Me" src="autotest-sound-effects_files/compact-small-button.jpg"></a></p>
+
+         </div>
+    </div>
+
+</div>
+    <br style="clear: both;">
+
+  <div id="footer">
+    <hr>
+    <p><a href="http://www.fozworks.com/">FozWorks</a></p>
+    <ul>
+      <li>Fozworks Logo by <a href="http://slackart.com/">Mike Slack</a> |</li>
+      <li><a href="http://mephistoblog.com/" target="_blank">Mephisto</a> /
+          <a href="http://quotedprintable.com/pages/scribbish" target="_blank">scribbish</a></li>
+      </ul></div>
+    
+  </div>
+
+</div>
+<script src="autotest-sound-effects_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1716288-2";
+urchinTracker();
+</script>
+</body></html>

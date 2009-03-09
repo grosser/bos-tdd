@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Evil Twin Plugin — err.the_blog</title>
+  <meta name="description" content="Err the Blog: Ruby and Rails from the front.">
+  <link href="http://feeds.feedburner.com/errtheblog" rel="alternate" title="Err the Blog" type="application/atom+xml">
+  <link href="67-evil-twin-plugin_files/errtheblog.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="67-evil-twin-plugin_files/code_highlighter.js" type="text/javascript"></script>
+<script src="67-evil-twin-plugin_files/ruby.js" type="text/javascript"></script>
+</head><body>
+  <div id="wrap">
+    <div id="header">
+      <div class="feed">
+        <a href="http://feeds.feedburner.com/errtheblog">
+          <img src="67-evil-twin-plugin_files/feed.png" alt="Err the Blog Atom Feed Icon">
+        </a>
+      </div>
+      <div class="logo">
+        <a href="http://errtheblog.com/" class="reverse">Err the Blog</a>
+      </div>
+        <div style="float: right;">
+          <a href="http://feeds.feedburner.com/errtheblog"><img src="67-evil-twin-plugin_files/errtheblog.gif" style="border: 0pt none ;" alt="" width="88" height="26"></a>
+        </div>
+
+      <div class="sub">
+        Rubyisms and Railities
+      </div>
+    </div>
+          
+    <ul class="hfeed" id="post-list">
+  <li class="hentry post-li" id="post_67">
+
+  <div class="sidebar">
+    <div class="title">“<a href="http://errtheblog.com/posts/67-evil-twin-plugin" class="reverse url entry-title" rel="bookmark">Evil Twin Plugin</a>”</div>
+
+    <div class="secondary byline">– <span class="author vcard fn">Chris</span> 
+        on <abbr class="published" title="2007-11-20T01:24:40+00:00">November 20, 2007</abbr>     
+    </div><br>
+
+    				  
+  </div>
+
+  <div class="entry-content main">
+    <p>Seriously, I think I have something against Rails’ <span class="code">lib</span> directory.  We jumped from keeping gems in <span class="code">lib</span> to <span class="code">vendor/gems</span> <a href="http://errtheblog.com/post/2120">back in March</a>.  Then we jumped from keeping generic Rake tasks in <span class="code">lib/tasks</span> to <a href="http://errtheblog.com/post/6069">Sake</a>.  Now we’re gonna jump again.</p>
+
+
+	<h3>Hacking Plugins</h3>
+
+
+	<p>It’s really not that big of a deal, and pretty common—you want to change the behavior of some existing plugin.  Maybe you <a href="http://www.rubyinside.com/advent2006/12-piston.html">Piston</a> it and commit your changes.  Sure.  But maybe you just want to leave the original code alone.</p>
+
+
+	<p>A classic approach has been to stick some kind of hack in the <span class="code">lib</span>
+directory. Issues abound, for sure. First: the load order. Who gets
+loaded first? Who reloads and who doesn’t? Second: location. You’ve got
+one bit of code messing with another bit of code in a totally separate
+location. Third: testing. Are you testing it? Maybe.</p>
+
+
+	<p>None of these things are deal breakers, but we can certainly address them.  And we will.</p>
+
+
+	<h3>The Evil Twin Plugin</h3>
+
+
+<div style="margin-bottom: 10px;" align="center">
+  <img src="67-evil-twin-plugin_files/eviltwin.jpg" alt="Evil Twin">
+</div>
+
+	<p>Here’s the simple solution: create a plugin called <span class="code">whatever_hacks</span>, where <em>whatever</em> is the name of the plugin you’re hacking.  That’s it.  An evil twin, if you will.</p>
+
+
+	<p>Adding the <em>_hacks</em>
+suffix ensures it will always be loaded after the target plugin
+(assuming you haven’t messed with the default plugin load
+order—alphabetical). Keeping it right next to the target plugin also
+ensures anyone who peers into <span class="code">vendor/plugins</span> will instantly know tomfoolery is afoot.</p>
+
+
+	<p>You can now build out a tested, hack happy plugin.  Or, y’know, just stick it all in <span class="code">init.rb</span>.  With caution.</p>
+
+
+	<h3>Caution: init.rb</h3>
+
+
+	<p>Caution: <span class="code">init.rb</span> does not always do what you expect it to do.  It’s loaded in the context of <span class="code">Rails::Plugin</span> in 2.0 and <span class="code">Rails::Initializer</span> in 1.2.5, not <span class="code">Object</span>.  Come again?  Like this: re-opening existing classes isn’t as straightforward as elsewhere.</p>
+
+
+=&gt; <strong>init.rb</strong>
+<pre class="ruby"><span class="keyword">class </span><span class="class">Hash</span>
+<span class="keyword">end</span>
+<span class="ident">puts</span> <span class="constant">Hash</span><span class="punct">.</span><span class="ident">inspect</span>
+</pre>
+
+	<p>Guess what that prints.  Ready?</p>
+
+
+<pre>$ ./script/runner 
+Rails::Plugin::Hash
+</pre>
+
+	<p>That’s right—we didn’t re-open <span class="code">Hash</span>, we created a new <span class="code">Rails::Plugin::Hash</span> class.  Any methods we add in there won’t be added to <span class="code">Hash</span> proper.</p>
+
+
+	<p>If we want to grab a real class and stuff some methods in it, we need to use <span class="code">class_eval</span> or <span class="code">module_eval</span>:</p>
+
+
+=&gt; <strong>init.rb</strong>
+<pre class="ruby"><span class="constant">Hash</span><span class="punct">.</span><span class="ident">class_eval</span> <span class="keyword">do</span>
+  <span class="keyword">def </span><span class="method">duck_punched?</span>
+    <span class="constant">true</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>  
+
+<span class="ident">puts</span><span class="punct">({}.</span><span class="ident">duck_punched?</span><span class="punct">)</span>
+</pre>
+
+	<p>As expected:</p>
+
+
+<pre>$ ./script/runner 
+true
+</pre>
+
+	<p>Doing it this way (<span class="code">class_eval</span>) forces a constant lookup, making Ruby happily run up the chain and find the class or module in question.</p>
+
+
+	<h3>attachment_fu_cropper</h3>
+
+
+	<p>Okay, time for a real example.  I wanted to change attachment_fu’s <span class="code">ImageScienceProcessor</span>
+to crop thumbnails before resizing them. As this is a hack I use on all
+my apps, I also want to keep it out of my models. Hence, <span class="code">attachment_fu_hacks</span>.</p>
+
+
+=&gt; <strong>vendor/plugins/attachment_fu_hacks/init.rb</strong>
+<pre class="ruby"><span class="ident">klass</span> <span class="punct">=</span> <span class="constant">Technoweenie</span><span class="punct">::</span><span class="constant">AttachmentFu</span><span class="punct">::</span><span class="constant">Processors</span><span class="punct">::</span><span class="constant">ImageScienceProcessor</span>
+<span class="ident">klass</span><span class="punct">.</span><span class="ident">module_eval</span> <span class="keyword">do</span>
+  <span class="comment">##</span>
+  <span class="comment"># Hacked to use image_science's #cropped_thumbnail method</span>
+  <span class="keyword">def </span><span class="method">resize_image</span><span class="punct">(</span><span class="ident">img</span><span class="punct">,</span> <span class="ident">size</span><span class="punct">)</span>
+    <span class="comment"># create a dummy temp file to write to</span>
+    <span class="ident">filename</span><span class="punct">.</span><span class="ident">sub!</span> <span class="punct">/</span><span class="ident">gif</span><span class="global">$/</span><span class="punct">,</span> <span class="punct">'</span><span class="string">png</span><span class="punct">'</span>
+    <span class="constant">self</span><span class="punct">.</span><span class="ident">temp_path</span> <span class="punct">=</span> <span class="ident">write_to_temp_file</span><span class="punct">(</span><span class="ident">filename</span><span class="punct">)</span>
+    <span class="ident">grab_dimensions</span> <span class="punct">=</span> <span class="ident">lambda</span> <span class="keyword">do</span> <span class="punct">|</span><span class="ident">img</span><span class="punct">|</span>
+      <span class="constant">self</span><span class="punct">.</span><span class="ident">width</span>  <span class="punct">=</span> <span class="ident">img</span><span class="punct">.</span><span class="ident">width</span>  <span class="keyword">if</span> <span class="ident">respond_to?</span><span class="punct">(</span><span class="symbol">:width</span><span class="punct">)</span>
+      <span class="constant">self</span><span class="punct">.</span><span class="ident">height</span> <span class="punct">=</span> <span class="ident">img</span><span class="punct">.</span><span class="ident">height</span> <span class="keyword">if</span> <span class="ident">respond_to?</span><span class="punct">(</span><span class="symbol">:height</span><span class="punct">)</span>
+      <span class="ident">img</span><span class="punct">.</span><span class="ident">save</span> <span class="ident">temp_path</span>
+      <span class="ident">callback_with_args</span> <span class="symbol">:after_resize</span><span class="punct">,</span> <span class="ident">img</span>
+    <span class="keyword">end</span>
+
+    <span class="ident">size</span> <span class="punct">=</span> <span class="ident">size</span><span class="punct">.</span><span class="ident">first</span> <span class="keyword">if</span> <span class="ident">size</span><span class="punct">.</span><span class="ident">is_a?</span><span class="punct">(</span><span class="constant">Array</span><span class="punct">)</span> <span class="punct">&amp;&amp;</span> <span class="ident">size</span><span class="punct">.</span><span class="ident">length</span> <span class="punct">==</span> <span class="number">1</span>
+    <span class="keyword">if</span> <span class="ident">size</span><span class="punct">.</span><span class="ident">is_a?</span><span class="punct">(</span><span class="constant">Fixnum</span><span class="punct">)</span> <span class="punct">||</span> 
+        <span class="punct">(</span><span class="ident">size</span><span class="punct">.</span><span class="ident">is_a?</span><span class="punct">(</span><span class="constant">Array</span><span class="punct">)</span> <span class="punct">&amp;&amp;</span> <span class="ident">size</span><span class="punct">.</span><span class="ident">first</span><span class="punct">.</span><span class="ident">is_a?</span><span class="punct">(</span><span class="constant">Fixnum</span><span class="punct">))</span>
+      <span class="keyword">if</span> <span class="ident">size</span><span class="punct">.</span><span class="ident">is_a?</span><span class="punct">(</span><span class="constant">Fixnum</span><span class="punct">)</span>
+        <span class="ident">img</span><span class="punct">.</span><span class="ident">cropped_thumbnail</span><span class="punct">(</span><span class="ident">size</span><span class="punct">,</span> <span class="punct">&amp;</span><span class="ident">grab_dimensions</span><span class="punct">)</span>
+      <span class="keyword">else</span>
+        <span class="ident">img</span><span class="punct">.</span><span class="ident">cropped_thumbnail</span><span class="punct">(</span><span class="ident">size</span><span class="punct">.</span><span class="ident">first</span><span class="punct">,</span> <span class="punct">&amp;</span><span class="ident">grab_dimensions</span><span class="punct">)</span>
+      <span class="keyword">end</span>
+    <span class="keyword">else</span> 
+      <span class="ident">new_size</span> <span class="punct">=</span> <span class="punct">[</span><span class="ident">img</span><span class="punct">.</span><span class="ident">width</span><span class="punct">,</span> <span class="ident">img</span><span class="punct">.</span><span class="ident">height</span><span class="punct">].</span><span class="ident">dim</span> <span class="ident">size</span><span class="punct">.</span><span class="ident">to_s</span>
+
+      <span class="ident">img</span><span class="punct">.</span><span class="ident">cropped_thumbnail</span><span class="punct">(</span><span class="ident">new_size</span><span class="punct">.</span><span class="ident">first</span><span class="punct">,</span> <span class="punct">&amp;</span><span class="ident">grab_dimensions</span><span class="punct">)</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span> 
+</pre>
+
+	<p>Works like a charm.</p>
+
+
+	<p>When <a href="http://locusfoc.us/">heavysixer</a> wanted to hack <span class="code">acts_as_taggable</span>, he took the same approach: <a href="http://pastie.caboo.se/119904">http://pastie.caboo.se/119904</a>.  Feel free to follow suit.</p>
+  </div>
+</li>
+  
+  
+
+  <div class="commentsblock" id="comments">
+    
+    <li class="post-li" id="comment_1088">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://scie.nti.st/" class="reverse vcard url fn" rel="nofollow">Garry</a></span>, 
+        about 1 hour later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Ah,
+neat tip. I like that putting “_hacks” at the end ensures it loads
+after the real plugin, load order being alphabetical and so on. I
+hadn’t thought of that!</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1089">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://simplisticcomplexity.com/" class="reverse vcard url fn" rel="nofollow">Jon Maddox</a></span>, 
+        about 1 hour later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Hilarious. As I was reading through this, I was thinking about the patch I did for cropping with Attachment_fu. Creepy.</p>
+
+
+	<p>This
+is sweet, I’ll try to factor out my patch using this method. I’ve never
+been a big fan of patching plugins directly, especially if you need to
+reuse what you did to it. This keeps it dry and distributable. Pretty
+slick.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1090">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span>d</span>, 
+        about 1 hour later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>im hacking our acts_as_taggable_ext, and this flies into my rss reader.  cue twilight zone music.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1091">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://www.notsostupid.com/" class="reverse vcard url fn" rel="nofollow">Sebastian</a></span>, 
+        about 1 hour later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>We have a separate <span class="caps">RAILS</span>_ROOT/plugins directory for our “own” plugins (and pluginized code, to keep lib clean).</p>
+
+
+	<p>We
+also have a “snippets” plugin that mimics the ActiveSupport Railties
+folders, with names for each object or library we are patching, and a
+simple init.rb that loads all files inside lib:</p>
+
+
+	<p>Dir[File.dirname(<i><span class="caps">FILE</span></i>) + ”/lib/<strong>*/</strong>.rb”].each { |file| require(file) }}</p>
+
+
+	<p>There we store dozens of patches and little tweaks to ruby, rails and other plugins.</p>
+
+
+	<p>Having
+a separate whatever_hacks plugins makes sense if the changes are
+significant, but I rather have a single plugin for trivial snippets.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1092">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://david.goodlad.ca/" class="reverse vcard url fn" rel="nofollow">David Goodlad</a></span>, 
+        about 4 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Instead of the whole class_eval business, can’t you just do:</p>
+
+
+	<p>class ::Hash
+  def foo; ‘bar’; end
+end</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1093">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://errtheblog.com/" class="reverse vcard url fn" rel="nofollow">Chris</a></span>, 
+        about 6 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>::Hash?  Gross!</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1094">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://mislav.caboo.se/" class="reverse vcard url fn" rel="nofollow">Mislav</a></span>, 
+        about 7 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>“Gross<a href="http://errtheblog.com/posts/:Hash">, <span class="caps">LOL</span> :)</a></p>
+
+
+<a href="http://errtheblog.com/posts/:Hash">	</a><p><a href="http://errtheblog.com/posts/:Hash">Remember when I wrote</a>” in will_paginate? One of you guys couldn’t stand it :D</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1095">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://mislav.caboo.se/" class="reverse vcard url fn" rel="nofollow">Mislav</a></span>, 
+        about 7 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>I said remember when I wrote ::Hash</p>
+
+
+	<p>Textile sucks, seriously</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1096">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://errtheblog.com/" class="reverse vcard url fn" rel="nofollow">Chris</a></span>, 
+        about 7 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Textile? Gross!</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1097">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span>Garry</span>, 
+        about 10 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p><span class="caps">LOL</span></p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1098">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://daddy.platte.name/" class="reverse vcard url fn" rel="nofollow">Ryan Platte</a></span>, 
+        about 16 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>The
+issues with init.rb are due to its weird implementation within Rails
+involving eval. I recommend running nothing but requires from within
+init.rb to make everything nice and clean—required files work as
+expected with no fallout that I’m aware of from the eval.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1099">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span>Jim</span>, 
+        about 18 hours later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>A little off topic, but how do you use your Attachment_fu hack so that you can get square (cropped) thumbnails?</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1100">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span>Carl</span>, 
+        2 days later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Jim,
+all you have to do is put that code in the attachment_fu_hack dir as
+init.rb. When I tried it I got ‘undefined method `dim’ for Array’
+error. I haven’t looked too closely but he probably just method that
+attachment_fu defines in Array. Chris may want to correct me on that
+though.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1101">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span>rick</span>, 
+        4 days later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>I
+love that you give these old conventions cool names. I made the
+original commit to rails that orders the plugins before loading them to
+make this kind of thing possible. Then, someone made a hacked version
+of acts_as_versioned that worked with associated models or something.
+Cool, hacky shit.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1110">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://nubyonrails.com/" class="reverse vcard url fn" rel="nofollow">topfunky</a></span>, 
+        23 days later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>I was using <span class="code">lib/duck_punches</span>, but this makes much more sense.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1267">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span>punkrats</span>, 
+        2 months later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Jim, just replace one line, and it’ll work:</p>
+
+
+	<p>new_size = [img.width, img.height] / size.to_s</p>
+
+
+	<p>Cheers.</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1504">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span></span>, 
+        3 months later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>So this technique totally overwrites whatever method you’re extending?</p>
+
+
+	<p>For example, you hack resize_image above.</p>
+
+
+	<p>You
+have have to implement this whole method, you can just edit a few args
+and call super(img, new_size) and have the original resize_image finish.</p>
+
+
+	<p>Would this be correct?</p>
+    </div>
+  </div>
+</li><li class="post-li" id="comment_1657">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://socialtech.ca/ade/" class="reverse vcard url fn" rel="nofollow">Ade</a></span>, 
+        5 months later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Here’s a version that uses RMagick and also supports desaturation:</p>
+
+
+	<p>(I hope I get the textile </p><pre> tags right!)
+
+&lt;pre&gt;
+klass = Technoweenie::AttachmentFu::Processors::RmagickProcessor
+klass.module_eval do
+  ##
+  # Hacked to allow cropping
+    # see comment by Martyn Loughran at http://toolmantim.com/article/2006/9/12/generating_cropped_thumbnails_with_acts_as_attachment
+    def resize_image(img, size)
+    size = size.first if size.is_a?(Array) &amp;&amp; size.length == 1 &amp;&amp; !size.first.is_a?(Fixnum)
+    if size.is_a?(Fixnum) || (size.is_a?(Array) &amp;&amp; size.first.is_a?(Fixnum))
+      size = [size, size] if size.is_a?(Fixnum)
+      img.thumbnail!(*size)
+    # This elsif extends
+        # extended again by Adrian Duyzer to support desaturation
+    elsif size.is_a?(Hash)
+            img = img.quantize(256, Magick::GRAYColorspace) if size[:desaturate]
+      dx, dy = size[:crop].split(':').map(&amp;:to_f)
+      w, h = (img.rows * dx / dy), (img.columns * dy / dx)
+      img.crop!(::Magick::CenterGravity, [img.columns, w].min, [img.rows, h].min)
+      size = size[:size]
+      w2, h2 = size.split('x').map(&amp;:to_f)
+      img.resize!(w2,h2)
+    else
+      img.change_geometry(size.to_s) { |cols, rows, image| image.resize!(cols, rows) }
+    end
+    self.temp_path = write_to_temp_file(img.to_blob)
+  end
+end 
+&lt;/pre&gt;
+
+Use like so (note the different way that thumbnail sizes are specified from the main size):
+
+&lt;pre&gt;
+    has_attachment :content_type =&gt; :image, 
+                 :storage =&gt; :file_system, 
+                 :max_size =&gt; 5.megabytes,
+                 :resize_to =&gt; {:crop =&gt; "375:430", :size =&gt; '375x430', :desaturate =&gt; true},
+                 :thumbnails =&gt; {
+                                     :medium =&gt; [:crop =&gt; "185:205", :size =&gt; '185x205', :desaturate =&gt; true],
+                                     :small =&gt; [:crop =&gt; "1:1", :size =&gt; '100x100', :desaturate =&gt; true] 
+                                 }
+&lt;/pre&gt;
+    </pre></div>
+  </div>
+</li><li class="post-li" id="comment_1658">
+  <div class="sidebar">
+
+    <div class="secondary">
+      <span class="highlight">
+        <span><a href="http://socialtech.ca/ade/" class="reverse vcard url fn" rel="nofollow">Ade</a></span>, 
+        5 months later:
+      </span>
+    </div>
+
+  </div>
+  
+  <div class="main">
+    <div class="post-comment">
+      <p>Annnd…I got the textile tags wrong. Maybe you guys can fix it up for me.</p>
+    </div>
+  </div>
+</li>
+    
+    <li class="post-li">
+
+      <div class="sidebar">
+        <div class="secondary">
+          Nineteen 
+          people have commented.
+          <br>
+          <span class="highlight">
+            Chime in.
+          </span>
+        </div>
+      </div>
+
+      <div class="main">
+        
+        Sorry, no more comments :( 
+        
+      </div>
+    </li>
+  </div>
+  
+  
+
+</ul>
+
+    
+    <div id="footer">
+
+      <div class="meta">
+        This is <a href="http://errtheblog.com/">Err</a>,
+        the weblog of <span class="vcard"><a href="http://www.pjhyett.com/" class="url fn">PJ Hyett</a></span>
+        and <span class="vcard"><a href="http://ozmm.org/" class="url fn">Chris Wanstrath</a></span>. 
+        <br>All original content copyright ©2006-2008 the aforementioned.
+      </div>
+
+    </div>
+
+  </div>
+</body></html>

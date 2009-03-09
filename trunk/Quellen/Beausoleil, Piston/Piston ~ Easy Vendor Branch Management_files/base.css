@@ -1,0 +1,71 @@
+html, body { margin: 0; padding: 0; font-family: Georgia, Tahoma, serif; font-size: 12pt; line-height: 1.2; color: #53484A; background: white; }
+body { margin: 10px; }
+#logo { width: 160px; height: 200px; }
+#title { width: 280px; height: 87px; position: absolute; left: 170px; top: 10px; }
+#tagline { width: 311px; height: 27px; position: absolute; left: 440px; top: 72px; }
+#bottom-logo { width: 189px; height: 140px; position: absolute; right: 0; }
+#copyright { text-align: right; margin-right: .5em; position: absolute; right: 189px; height: 140px; }
+#copyright p { font-size: 10pt; margin: 0; padding: 0; }
+#copyright #spacer { height: 8em; }
+
+h1, h2, h3 { font-family: Arial, sans-serif; border-bottom: 1px solid #c4833b; }
+
+#main { display: table-row; }
+#nav, #content { display: table-cell; }
+#content { padding: 0 1em; }
+
+#nav { max-width: 160px; margin-right: 1em; }
+#navigator { list-style: none; margin-left: 0; padding-left: 0; width: 160px; }
+
+blockquote { color: black;  background: #f3f3f3; }
+
+a {}
+a:visited {}
+a:hover {}
+
+#index a#target-index,
+#index a#target-index:visited,
+#index a#target-index:hover,
+
+#caveats a#target-caveats,
+#caveats a#target-caveats:visited,
+#caveats a#target-caveats:hover,
+
+#dependencies a#target-dependencies,
+#dependencies a#target-dependencies:visited,
+#dependencies a#target-dependencies:hover,
+
+#details a#target-details,
+#details a#target-details:visited,
+#details a#target-details:hover,
+
+#contributions a#target-contributions,
+#contributions a#target-contributions:visited,
+#contributions a#target-contributions:hover,
+
+#links a#target-links,
+#links a#target-links:visited,
+#links a#target-links:hover,
+
+#usage a#target-usage,
+#usage a#target-usage:visited,
+#usage a#target-usage:hover,
+
+#properties a#target-properties,
+#properties a#target-properties:visited,
+#properties a#target-properties:hover
+    { text-decoration: none; color: #53484A; cursor: default; }
+
+pre { font-size: 10pt; background: #262122; color: white; padding: .2em; max-width: 800px; overflow: auto; }
+pre.pseudocode { background: #f6f6f6; color: #53484A; }
+
+dl {}
+dl dt { margin: 1em 0 0; }
+dl dd ul { padding: 0; }
+
+dl.properties { }
+dl.properties dt { font-family: monospace; margin: 0; font-weight: bold; }
+dl.properties dd { margin-left: 1em; }
+dl.properties dd p { margin: .2em 0 .5em 0; }
+
+p.note:first-line { font-weight: bold; }

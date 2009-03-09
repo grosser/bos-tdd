@@ -1,0 +1,6 @@
+if (typeof window.Delicious == 'undefined') window.Delicious = {};
+Delicious.Linkrolls_CB_39294 = function(posts) {
+    Delicious.Linkrolls.writeln({"user":"somebox","usertags":false,"version":"1","count":"5","title":"my del.icio.us","bullet":"\u00bb","icon":"s","BASE_URL":"http:\/\/delicious.com","STATIC_URL":"http:\/\/l.yimg.com\/hr"}, posts);
+};
+document.writeln('<scr'+'ipt type="text/javascript" src="http://l.yimg.com/hr/static/js/del-linkrolls.js"></scr'+'ipt>');
+document.writeln('<scr'+'ipt type="text/javascript" src="http://feeds.delicious.com/v2/json/somebox?count=5&callback=Delicious.Linkrolls_CB_39294"></scr'+'ipt>');

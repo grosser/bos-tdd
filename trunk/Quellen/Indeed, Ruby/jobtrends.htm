@@ -1,0 +1,672 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		    
+	
+				
+
+
+
+
+
+<title>ruby Job Trends | Indeed.com</title>
+<meta name="description" content="Research ruby job trends and the demand for ruby jobs at Indeed.com.  Search all ruby jobs, and get ruby job alerts by email.">
+<meta name="keywords" content="ruby job trends job search graph ruby time jobs most popular ruby jobs research career employment">
+<link rel="shortcut icon" href="http://www.indeed.com/favicon.ico">
+<link href="jobtrends_files/global.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	td { font-size: 13px; font-family: Arial, Helvetica, sans-serif; }
+	.sectionTitle 	{ color: rgb(128, 128, 128); margin: 0; font-size: 13px; font-weight: bold; line-height: 19px;  }
+	.separator_top { height: auto; padding: 2px 2px 2px 14px; }
+	label { font-weight: normal; }
+</style>
+<style type="text/css">
+	a.open { background: url(/images/arrow-down-blue.gif) left center no-repeat; padding-left: 15px; }
+	a.closed { background: url(/images/arrow-right-blue.gif) left center no-repeat; padding-left: 15px; }
+	
+	#sample_searches { margin-left: 1.5em; margin-top: 0.5em; padding: 0; list-style-type: none; margin-left: 6px; }
+	#sample_searches li { margin-bottom: 0.5em; }
+	
+	#share_this_link,
+	#email_this_link { font-weight: bold; margin-left: 6px; white-space: nowrap; _height: 1%;}
+	
+	#email_this,
+	#shareGraph { margin-bottom: 1.5em; }
+	
+	#sample_trends { border-top: 1px solid #ccc; }
+	.sample_trends_title { background: #e8e8e8; padding: 3px 6px; color: #666; }
+	
+	#sidebar { width: 220px; }
+	
+	.ws_content { margin-top: 6px; border: 1px solid #ccc; background: #ebebeb; padding: 5px; }
+	.ws_content textarea { width:100%; }
+	#sidebar .ws_content textarea { _width:208px; }	
+	
+	
+	.ws_content .error_msg { margin: 0.5em 0pt 0.5em 20px; padding-left: 0pt; }
+	.ws_content .error_msg li { color:#c00;}
+	
+	.ws_content p { margin-bottom: 0; }
+	.ws_content .lineItem { margin-bottom: 6px; }
+	
+	#shareCode_bottom { margin-bottom: 1em; }
+	#footer { margin-top: 1em; }
+    #industry_trends sup { color: #f00; }
+    #industry_trends { margin-top: 1em; }
+    #industry_trends .heading { text-align: center; margin-bottom: 0 }
+
+</style>
+
+<script type="text/javascript" src="jobtrends_files/global.js"></script>
+<script type="text/javascript">
+	function simpleToggle( label, target, actions ) { 
+	
+		if ( target.style.display == 'none' ) {
+		
+			target.style.display = '';
+			label.className = 'open';
+			if ( actions && actions.onopen ) { actions.onopen(); }
+		
+		}
+		
+		else {
+		
+			target.style.display = 'none';
+			label.className = 'closed';
+			if ( actions &&  actions.onclose ) { actions.onclose(); }
+		}
+	
+	}
+	
+	
+	function getFormValuesAsObject(form) {
+	
+		var args = {};
+		
+		for ( var i = 0; i < form.elements.length; i++ ) {
+			
+			input = form.elements[i];
+			
+			if ( input.disabled ) { continue; }
+			
+			switch (input.type) {
+				
+				case 'text':
+				case 'hidden':
+				case 'password':
+				case 'textarea':
+				case 'submit':
+				case 'file':
+					args[input.name] = trim( input.value );
+					break;
+	
+				case 'select-one':
+					args[input.name] = input.options[input.selectedIndex].value;
+					break;
+		
+				case 'select-multiple':
+					for ( var j = 0; j < input.options.length; j++ ) {
+					
+						if ( input.options[j].selected ) {
+	
+							args[input.name] = input.options[j].value;
+						
+						}
+					
+					}
+					
+					break;
+				
+				case 'radio':
+				case 'checkbox':
+					if ( input.checked ) { 
+						args[input.name] = input.value;
+					}
+					break;
+					
+			}
+		}
+		
+		return args;
+	}
+	
+	
+	function trim( str ) {
+	
+		return str.replace( /^\s*/, '' ).replace( /\s*$/, '');
+	
+	}
+	
+	
+	function createQueryStringFromObj( args ) {
+	
+		encoded_args = [];
+		
+		for ( var arg in args ) {
+		
+			encoded_args[encoded_args.length] = urlencode( arg ) + '=' + urlencode( args[arg] );
+		
+		} 
+		
+		return '?' + encoded_args.join('&');
+	
+	}
+
+	
+	function genericEmailForm( form, sts, rpc_base ) {
+		
+		var args = getFormValuesAsObject( form );
+		
+		var sts = document.getElementById( sts );
+		
+		if ( !sts ) {
+			sts = document.createElement('div');
+			sts.id = sts;
+			sts.className = 'email_job_sts';
+			form.parentNode.insertBefore( sts, form );
+		}
+		
+		function sendemail_success( msg ) {
+			
+			sts.style.display = '';
+			sts.innerHTML = '<p>Your email to <b>' + args.toEmail + '</b>  has been sent! </p>';
+						
+			form.style.display = 'none';
+			
+			var again = document.createElement('a');
+			again.href = '#';
+			again.onclick = function () { sts.innerHTML = ''; form.style.display = ''; form.toEmail.value = args.toEmail; form.fromEmail.value = args.fromEmail;  form.comments.value = ''; setTimeout( function( ) { form.toEmail.select(); }, 0 ); return false; }
+			
+			sts.firstChild.appendChild( again );
+			
+			again.innerHTML = 'Send another email';
+			again.focus();
+			
+		}
+	
+		function sendemail_errors( errors ) {
+			
+			var error_msg = '';
+			
+			for ( error in errors ) {
+			
+				error_msg += '<li>' + errors[error] + '</li>';
+			}
+			
+			sts.style.display = '';
+			sts.innerHTML = '<ul class="error_msg">' + error_msg + '</ul>';
+	
+		}
+		
+		sendRequest( rpc_base + createQueryStringFromObj( args ), form.method, function( response ) { if ( response.readyState != 4 || response.responseText == '' ) { return; } eval( response.responseText ); });
+	
+	}
+
+</script>
+
+
+
+
+<script type="text/javascript">
+undefined = void(0);
+var gaJsHost = "http://www.";
+if ("https:" == document.location.protocol) gaJsHost = "https://ssl.";
+document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="jobtrends_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker;
+if (typeof _gat != 'undefined') {
+pageTracker = _gat._getTracker("UA-90780-1");
+pageTracker._trackPageview();
+
+}
+</script>
+
+</head><body>
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+<script type="text/javascript"><!--
+
+function addDest( link ) {
+
+    if ( link.href.search( /[\&|\?]{1}dest=/ ) == -1 )  {
+    
+        // no dest on href, let's add one
+        
+        var delim = link.href.indexOf('?') == -1 ? '?' : '&'; // if no ? in url, use ? instead of &
+        
+        // pick the best encoding function available...
+        var encoding_function = escape;
+        if ( encodeURIComponent ) { encoding_function = encodeURIComponent; }
+        else if ( urlencode ) { encoding_function = urlencode; }
+        
+		link.href += delim + 'dest=' + encoding_function( window.location );
+    
+    }
+    
+}
+
+// -->
+</script>
+
+	<table id="user_nav">
+	<tbody><tr>
+		<td id="user_actions">
+			<a href="http://www.indeed.com/my/myjobs" rel="nofollow">my.indeed</a> -
+			
+				
+				
+					
+						
+						
+							<a href="http://www.indeed.com/my/login" onclick="addDest(this)" rel="nofollow">sign in</a>
+						
+					
+				
+			
+			
+		</td>
+	</tr>
+</tbody></table>
+
+   
+    
+
+
+
+
+
+<style type="text/css">
+		
+	#global_nav 					{ width: auto; padding: 0; font-size: 13px; border-spacing: 0; border-collapse: collapse; margin-bottom: 6px; }		
+	#global_nav td 					{ padding: 0; }
+	#global_nav #branding 			{ float: none; margin-right: 0; }
+	
+	#global_nav #local_nav  		{ border-spacing: 0; border-collapse: collapse; padding: 0; }
+	#global_nav #local_nav td 		{ padding: 2px; white-space: nowrap; }
+	
+	#global_nav #local_nav .label 	{ color: #000; display: block; font-weight: normal; margin-top: 2px; font-size: 12px; }
+	
+	#global_nav #local_nav .label b { font-weight: bold; color: #f60; margin-right: 3px; text-transform: lowercase; }
+	
+	#global_nav #product_nav 		{ text-transform: lowercase; font-weight: bold; }
+	#global_nav #product_nav a 		{ font-weight: normal; }
+	
+	#global_nav #product_nav a,
+	#global_nav #product_nav a:link,
+	#global_nav #product_nav a:visited { color: #00c; }
+	
+	#global_nav #product_nav b,
+	#global_nav #product_nav a 		{ margin-right: 18px; font-size: 13px; line-height: 1; } 
+	
+	#global_nav #product_nav #trends_product_link,
+	#global_nav #product_nav #trends_product_link:link, 
+	#global_nav #product_nav #trends_product_link:visited { font-weight: bold; text-decoration: none; color: #000; }
+	
+</style>
+
+<script type="text/javascript">
+
+var urlencode = window.encodeURIComponent ? 
+	function ( str ) { return window.encodeURIComponent(str).replace(/%20/g,'+') } : 
+	function ( str ) { return escape(str).replace(/\+/g,'%2B').replace(/\//g,'%2F').replace(/%20/g,'+'); 
+} 
+	
+</script>
+
+<table id="global_nav" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td style="padding-right: 12px;"><a id="branding" href="http://www.indeed.com/"><img src="jobtrends_files/indeed.gif" alt="one search. all jobs. Indeed" width="175" height="72"></a></td>
+		<td>
+			
+			<form name="trends_search_form" id="trends_search_form" action="/jobtrends" method="get">
+				<table id="local_nav" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td id="product_nav" colspan="2">
+							<a href="http://www.indeed.com/" title="Jobs" id="jobs_product_link">Jobs</a> 
+							<a href="http://www.indeed.com/salary" title="Salary Search" id="salaries_product_link">Salaries</a> 
+							<a href="http://www.indeed.com/jobtrends" title="Career Trends" id="trends_product_link">Trends</a> 
+							<a href="http://www.indeed.com/forum" title="Employment Forums" id="forums_product_link">Forums</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input id="trends_search_what_input" class="input_text" name="q" size="48" maxlength="512" value="ruby" alt="job title, keywords or company"><span class="label"><b>What:</b> job title, keywords or company</span></td>
+						<td rowspan="2"><input class="input_submit" value="Find Trends" type="submit">&nbsp;<input class="input_button" value="Find Jobs" onclick="window.location = '/jobs?q=' + urlencode( this.form.q.value ) + '&amp;l=' + urlencode( this.form.l.value ); return false;" type="button"></td>
+					</tr>
+				</tbody></table>
+				<input name="l" value="" type="hidden">
+				
+				
+				<input name="relative" value="1" type="hidden">
+			</form>
+			<script type="text/javascript">
+				document.getElementById('jobs_product_link').onclick = function( e ) { var q = document.trends_search_form.q.value; if ( q ) { window.location = '/jobs?q=' + urlencode( q ) + '&l=' + urlencode( document.trends_search_form.l.value ); return false; } };
+				document.getElementById('salaries_product_link').onclick = function( e ) { var q = document.trends_search_form.q.value; var l = document.trends_search_form.l.value; if ( q || l ) { window.location = '/salary?q1=' + urlencode( q ) + '&l1=' + urlencode( l ); return false; } };
+				document.getElementById('forums_product_link').onclick = function( e ) { var q = document.trends_search_form.q.value; if ( q ) { window.location = '/forum/?q=' + urlencode( q ) + '&l=' + urlencode( document.trends_search_form.l.value ); return false; } };
+			</script>
+			
+		</td>
+	</tr>
+</tbody></table>
+	
+	
+
+
+<div class="separator_top">
+	<p class="sectionTitle">Job Trends</p>
+</div>
+
+<table style="padding-left: 14px;" align="center" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td colspan="2"><h1>ruby Job Trends</h1></td>
+	</tr>
+	<tr>		
+		<td style="padding-right: 12px; width: 540px;" valign="top">
+			
+				
+				
+			
+			
+			
+				
+					<div style="margin: 0pt; padding: 0pt 6px 3px; text-align: right;">Scale: 
+						
+						
+						
+							<a href="http://www.indeed.com/jobtrends?q=ruby&amp;l=" rel="nofollow">Absolute</a> - <b>Relative</b>
+						
+						
+					</div>
+					
+					<img src="jobtrends_files/jobgraph.png" alt="ruby Job Trends graph" border="0" width="540" height="300">
+					<br><br>
+					<p style="text-align: center;">Indeed.com searches millions of jobs from thousands of job sites.<br>
+						
+							This job trends graph shows relative growth for jobs we find matching your search terms.
+							
+						
+					</p>
+						
+						<p style="text-align: center;">Find  
+						
+                            
+                            <a href="http://www.indeed.com/q-ruby-jobs.html">ruby jobs</a>
+                        </p>
+						<div>
+							<p style="text-align: center; margin-bottom: 0pt;">Feel free to <a class="closed" id="shareCode_bottom_link" href="#shareCode_bottom" onclick="simpleToggle( this, document.getElementById('shareCode_bottom'), { onopen: function() { var code = document.getElementById('graph_code_540x300_bottom'); code.focus(); code.select(); } } ); return false;">share this graph</a></p>
+
+
+
+						<div style="display: none;" id="shareCode_bottom" class="ws_content">
+							<p style="margin-bottom: 0pt;">Insert the code below into any webpage to include this graph:</p>
+							<textarea id="graph_code_540x300_bottom" onclick="this.select();" rows="5" cols="40" readonly="readonly">&lt;div
+style="width:540px"&gt;
+&lt;a
+href="http://www.indeed.com/jobtrends?q=ruby&amp;relative=1&amp;relative=1"
+title="ruby Job Trends"&gt;
+&lt;img width="540" height="300"
+src="http://www.indeed.com/trendgraph/jobgraph.png?q=ruby&amp;relative=1"
+border="0" alt="ruby Job Trends graph"&gt;
+&lt;/a&gt;
+&lt;table width="100%" cellpadding="6" cellspacing="0" border="0"
+style="font-size:80%"&gt;&lt;tr&gt;
+&lt;td&gt;&lt;a
+href="http://www.indeed.com/jobtrends?q=ruby&amp;relative=1&amp;relative=1"&gt;ruby
+Job Trends&lt;/a&gt;&lt;/td&gt;
+&lt;td align="right"&gt;&lt;a
+href="http://www.indeed.com/q-ruby-jobs.html"&gt;ruby
+jobs&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;</textarea>
+						</div>
+					</div>
+					<script type="text/javascript">document.getElementById('shareCode_bottom_link').className = 'closed'; document.getElementById('shareCode_bottom').style.display = 'none';</script>
+
+                    <div id="industry_trends"><p class="heading"><sup>New</sup> <a href="http://www.indeed.com/jobtrends/industry">Industry Trends</a> - Job posting and click counts for major U.S. industries</p></div>
+                    
+				
+				
+			
+		</td>
+		<td id="sidebar" align="left" valign="top">
+			
+			<div id="email_this">
+				
+				<a id="email_this_link" href="mailto:?subject=Job%20trends%20from%20Indeed&amp;body=http%3A%2F%2Fwww.indeed.com%2Fjobtrends%3Fq%3Druby%26relative%3D1%26relative%3D1" class="closed" onclick="simpleToggle( this, document.getElementById('email_this_form'), { onopen: function() { document.getElementById('fromEmail').select(); } } ); return false;">Email to a friend</a>
+				<div id="email_this_form" style="display: none;" class="ws_content">
+					<div id="email_job_sts"></div>
+					<form action="/rpc/sharetrends" method="get" onsubmit="genericEmailForm( this, 'email_job_sts', '/rpc/sharetrends'); return false;">
+						
+							
+							
+								<input name="q" value="ruby" type="hidden">
+							
+						
+						<input name="relative" value="1" type="hidden">
+						<input name="title" value="ruby Job Trends" type="hidden">
+						<div class="lineItem">
+							<label for="fromEmail">From my email address</label><br>
+							<input id="fromEmail" name="fromEmail" value="" type="text">
+						</div>
+						<div class="lineItem">
+							<label for="toEmail">To email address</label><br>
+							<input id="toEmail" name="toEmail" value="" type="text">
+						</div>
+						<div class="lineItem">
+							<input id="ccEmail" name="ccEmail" value="1" type="checkbox"><label for="ccEmail">Send me a copy</label><br>
+						</div>
+						<div class="lineItem">
+							<label for="comments">Comments (optional)</label><br>
+							<textarea id="comments" name="comments" rows="5" cols="40"></textarea>
+						</div>
+						<div class="lineItem">
+							<input value="Send" type="submit">
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div id="shareGraph">
+				<a class="closed" id="share_this_link" href="#shareCode" onclick="simpleToggle( this, document.getElementById('shareCode'), { onopen: function() { var code = document.getElementById('graph_code_540x300'); code.focus(); code.select();  } } ); return false;">Post on your blog/website</a>
+				<div style="display: none;" id="shareCode" class="ws_content">
+					<p style="margin-bottom: 0pt;">Insert the code below into any webpage to include this graph:</p>
+<textarea id="graph_code_540x300" onclick="this.select();" rows="5" cols="20" readonly="readonly">&lt;div
+style="width:540px"&gt;
+&lt;a
+href="http://www.indeed.com/jobtrends?q=ruby&amp;relative=1&amp;relative=1"
+title="ruby Job Trends"&gt;
+&lt;img width="540" height="300"
+src="http://www.indeed.com/trendgraph/jobgraph.png?q=ruby&amp;relative=1"
+border="0" alt="ruby Job Trends graph"&gt;
+&lt;/a&gt;
+&lt;table width="100%" cellpadding="6" cellspacing="0" border="0"
+style="font-size:80%"&gt;&lt;tr&gt;
+&lt;td&gt;&lt;a
+href="http://www.indeed.com/jobtrends?q=ruby&amp;relative=1&amp;relative=1"&gt;ruby
+Job Trends&lt;/a&gt;&lt;/td&gt;
+&lt;td align="right"&gt;&lt;a
+href="http://www.indeed.com/q-ruby-jobs.html"&gt;ruby
+jobs&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;</textarea>
+				</div>
+			</div>
+			
+			<script type="text/javascript">document.getElementById('share_this_link').className = 'closed'; document.getElementById('shareCode').style.display = 'none';</script>
+						
+			<div id="sample_trends">		
+				<div class="sample_trends_title">Sample Job Trends</div>
+				<ul id="sample_searches">
+					
+						
+						
+						
+						<li>
+						
+						<a title="&quot;social networking&quot; job trends" href="http://www.indeed.com/jobtrends?relative=1">Social Networking</a>            
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="hurricane katrina, hurricane rita, hurricane wilma job trends" href="http://www.indeed.com/jobtrends?cat=hurricanes&amp;relative=1">Hurricane Season 2005</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="christmas, thanksgiving job trends" href="http://www.indeed.com/jobtrends?cat=blackfriday&amp;relative=1">Shop 'til you Drop!</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="&quot;tax preparer&quot; job trends" href="http://www.indeed.com/jobtrends?cat=taxes&amp;relative=1">Death and Taxes</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="&quot;H&amp;R Block&quot; tax, FedEx seasonal job trends" href="http://www.indeed.com/jobtrends?cat=hrblock&amp;relative=1">"What is H&amp;R Block?"</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="comet, ajax job trends" href="http://www.indeed.com/jobtrends?cat=cleaners&amp;relative=1">Household Cleaners?</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="wiki job trends" href="http://www.indeed.com/jobtrends?cat=wiki&amp;relative=1">"Did You Read the Wiki?"</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="MSN nurse, BSN nurse, ASN nurse, LPN nurse job trends" href="http://www.indeed.com/jobtrends?cat=nursing&amp;relative=1">Nursing Demand</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="1999, 2000, 2001 job trends" href="http://www.indeed.com/jobtrends?cat=year2000&amp;relative=1">In the Year 2000...</a>
+						</li>
+					
+						
+						
+						
+						<li>
+						
+						            
+						<a title="february, september,july,,january, april, november, august,,june, december, march, october job trends" href="http://www.indeed.com/jobtrends?cat=waves&amp;relative=1">Waves of Time</a>
+						</li>
+					
+				</ul>
+			</div>
+			
+			<p style="margin-left: 6px;">Also see our <a href="http://www.indeed.com/jobtrends.jsp">job postings per capita</a> page.</p>
+		</td>
+	</tr>
+</tbody></table>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<div id="footer">
+<div class="separator_bottom"></div>
+<div id="secondary_nav">
+
+<div style="padding: 1em; text-align: center;">For jobs in Germany, visit <a href="http://de.indeed.com/">Indeed Germany</a></div>
+
+<a href="http://www.indeed.com/find-jobs.jsp">Browse Jobs</a> - 
+
+<a href="http://www.indeed.com/tools/jobseeker/">Tools</a> - 
+
+<a href="http://ads.indeed.com/">Advertisers</a> - 
+<a href="http://ads.indeed.com/jobroll">Publishers</a> - 
+<a href="http://blog.indeed.com/">Blog</a> - 
+<a href="http://www.indeed.com/intl/en/about.html"><nobr>About</nobr></a> - 
+<a href="http://www.indeed.com/jsp/contactus.jsp">Contact</a>
+<br>&nbsp;<br><font size="-2">©2009 Indeed</font>
+</div>
+</div>
+
+
+</body></html>

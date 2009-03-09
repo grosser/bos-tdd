@@ -1,0 +1,184 @@
+/* ----------------------
+
+GLOBAL
+
+---------------------- */
+
+body 		{ font: 13px/1.4 Arial, Helvetica, sans-serif; margin: 0; padding: 2px 5px; background-color: #fff; }
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+p 			{ margin-bottom: 1em; }
+
+h1 			{ font-size: 24px; margin-bottom: 0.8em; line-height: 1.1em; font-weight: normal; }
+
+a,
+a:link,
+.link 		{ text-decoration: underline; color: #00c; cursor: pointer; }
+
+a:visited	{ color:#551a8b; }
+
+a:active	{ color:#f00; }
+
+a img 		{ border: 0; }
+
+form 		{ margin: 0; padding: 0; }
+
+label,
+.label 		{ font-weight: bold; }
+
+
+#user_nav 									{ border: 0; width: 100%; border-spacing: 0; border-collapse: collapse; padding: 0; line-height: normal; }
+#user_nav #user_actions 					{ vertical-align: top; text-align: right; white-space: nowrap; padding: 0; }
+#user_nav #user_actions a					{ text-transform:  lowercase; }
+
+#global_nav									{ line-height: 1; width: 850px; }
+#global_nav #branding						{ float: left; margin-right: 10px; }
+#global_nav #local_nav						{ border: 0; padding: 0; border-spacing: 0; }
+#global_nav #local_nav td 					{ padding: 0 4px 4px 0; vertical-align: top; }
+#global_nav #local_nav label 				{ color: #f60; font-weight: bold; text-transform: lowercase; display: block; }
+
+
+#global_nav #local_nav .actions				{ line-height: 1.2; white-space: nowrap; }
+#global_nav #local_nav .actions .action 	{ font-size: 10px; font-weight: normal; }
+#global_nav #local_nav .example 			{ display: block; margin-top: 3px; font-size: 12px; white-space: nowrap; }
+#global_nav #local_nav .input_text			{ }
+#global_nav #local_nav .input_submit		{ }
+
+
+
+.separator_top, 							
+.separator_bottom 							{ background: #EBEBEB; margin-bottom: 1em; clear: both; }
+
+.separator_top 								{ height: 21px; border-top: 2px solid #C4D8E2; padding-left: 14px; }
+
+.separator_bottom 							{ height: 18px; border-bottom: 3px solid #C4D8E2; }
+
+
+#footer										{ clear: both; margin-bottom: 1em; }
+
+
+#secondary_nav 				{ font-size: 10pt; text-align:center; clear: both; font-weight: normal; line-height: 1; white-space: nowrap; }
+#secondary_nav a			{  }
+#secondary_nav a.first		{ }
+
+
+.amount 					{ color: #666; }
+
+.instruction 				{ color:#666; font-size:11px; margin: 0; padding: 0; display: block; }
+
+.clear 						{ clear: both; }
+
+
+
+/* ---- MODAL WINDOW ---- */
+
+#modalWindowBackdrop { background-color: #000; opacity: 0.20; -moz-opacity: 0.20; _filter: alpha( opacity=20 ); filter: alpha( opacity=20 ); position: absolute; top: 0px; left: 0px; padding: 0; border-spacing: 0; }
+
+#modalWindowBackdrop td { padding: 0; }
+
+.modalWindow { border: 2px solid #bbb; padding-top: 12px; background-color: #fff; }
+
+.modalWindowClose { position: absolute; top: 6px; right: 6px; font: 12px Arial, Helvetica, sans-serif;  padding-right: 16px; background: url(/images/close.gif) center right no-repeat; }
+
+
+/* ---- BREADCRUMBS ---- */
+
+.breadcrumbs 				{ color: #808080; font-weight: bold; line-height: 19px; font-size: 13px; margin: 0; padding: 0; }
+
+.breadcrumbs .label 		{  }
+
+.breadcrumbs .crumb 		{ }
+
+.breadcrumbs #home_crumb 	{ }
+
+
+
+/* ---- SIGN IN/REGISTER ---- */
+.modalWindow .header_style_2 			{ font-weight: normal; font-size: 24px; border-bottom: 3px solid #9cf; padding-bottom: 4px; margin-bottom: 0; }
+
+/* Standard Form Styles */
+
+.modalWindow form { margin: 0; }
+
+.modalWindow .line_item 			{ clear: both; margin-bottom: 12px; padding: 0; }
+.modalWindow .line_item_title 	{ margin-bottom: 0px; }
+.modalWindow .line_item_controls { }
+
+.modalWindow .line_item_title label,
+.modalWindow .line_item_title .label { font-weight: bold; } 
+
+
+
+.modalWindow label { font-weight: normal; }
+
+#signin_register_task 				{ width: 600px; padding: 15px 15px; }
+#signin_register_task .input_text,
+#signin_register_task .input_password { width: 90%; }
+
+#about_registration, 				
+#register_task { padding: 0 10px; }
+
+#signin_register_task .col						{ float: left; width: 50%; }
+
+
+#signin_register_task .header_style_2 { padding-left: 12px; padding-right: 12px; margin-top: 0; }
+
+#signin_register_task .form_content,
+#signin_register_task .form_controls	{ padding: 6px 12px;}
+#signin_register_task .content_wrapper 	{ padding: 6px 12px; }
+#signin_register_task .content_wrapper p { margin-top: 0; }
+
+#signin_register_task .form_content 	{ background-color: #eaeffa; }
+
+#signin_task				{ margin-right: 1px; }
+
+#about_registration {}
+
+#about_registration h2 { font-size: 13px; }
+
+#signin_register_task.complete { width: 400px; }
+
+
+#forgotten_password_task 				{ width: 300px; padding: 15px 15px; }
+#forgotten_password_task .input_text,
+#forgotten_password_task .input_password { width: 90%; }
+		
+#forgotten_password_task .header_style_2 { padding-left: 12px; padding-right: 12px; margin-top: 0; }
+
+
+#forgotten_password_task .form_content,
+#forgotten_password_task .form_controls,
+#forgotten_password_task .content_wrapper { padding: 6px 12px; }
+#forgotten_password_task .content_wrapper p { margin-top: 0; }
+
+#forgotten_password_task .form_content 	{ background-color: #eaeffa; }
+
+
+#signin_task 				{ width: 300px; padding: 15px 15px; }
+#signin_task .input_text,
+#signin_task .input_password { width: 90%; }
+		
+#signin_task .header_style_2 { padding-left: 12px; padding-right: 12px; margin-top: 0; }
+
+#signin_task  .form_content,
+#signin_task  .form_controls 	{ padding: 6px 12px; }
+
+#signin_task  .form_content 	{ background-color: #eaeffa; }
+
+#signin_task				{ margin-right: 1px; }
+
+
+#choose_password_task 				{ width: 300px; padding: 15px 15px; }
+
+#choose_password_task .form_content 		{ background-color: #e0e5ff; padding: 12px 12px 9px 12px;}
+
+#choose_password_task .input_text,
+#choose_password_task .input_password { width: 90%; }
+		
+#choose_password_task .header_style_2 { padding-left: 12px; padding-right: 12px; }
+#choose_password_task .form_controls 	{ padding: 6px 12px; }
+
+
+
+

@@ -1,0 +1,385 @@
+/*  
+Theme Name: justacog
+Theme URI: http://blog.codahale.com
+Description: Fact: Coda is three times cooler than you, for any given you.
+Version: 0.7
+Author: Coda Hale
+Author URI: http://blog.codahale.com
+*/
+
+a#cc {
+	margin-left: 2em;
+}
+
+a.post-comments {
+	color: #B7AFA3;
+	display: inline;
+	padding-left: 25px;
+	text-decoration: none;
+}
+
+acronym {
+	cursor: help;
+}
+
+blockquote {
+	color: #343434;
+	font: 100% Georgia, "Times New Roman", Times, serif;
+	margin-left: 1.5em;
+	padding: 1em;
+	padding-left: 42px;
+}
+
+body {
+	color: #444444;
+	font: 100% Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+code {
+	font-family: Consolas, "Lucida Console", "Courier New", Courier, monospace;
+}
+
+div#body {
+	margin-left: 0.5em;
+	margin-top: 2.5em;
+	width: 38em;
+}
+
+div#commentpost {
+	margin-left: 5em;
+	width: 40em;
+}
+
+div#description {
+	color: #A2A2A2;
+	font: bold 80%/1em Verdana, Helvetica, sans-serif;
+	margin-left: 9.5em;
+	margin-top: 0;
+	padding-top: 0;
+	width: 40em;
+}
+
+div#footer {
+	clear: both;
+	color: #C0C0C0;
+	margin-left: 5em;
+	width: 35em;
+}
+
+div#footer p {
+	color: #C0C0C0;
+	font-size: 60%;
+}
+
+div#footer p a {
+	color: #888888;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div#footer p a:hover, span.post-categories a:hover, span.post-tag a:hover, h2.post-title a:hover, a.post-comments:hover {
+	text-decoration: underline;
+}
+
+div#sidebar {
+	border-left: 3px solid #C4A478;
+	left: 42em;
+	padding: 0 0.5em 1em;
+	position: absolute;
+	top: 8.5em;
+	width: 15em;
+}
+
+div.post {
+	clear: both;
+	margin-bottom: 1em;
+	margin-left: 1em;
+	margin-right: -2em;
+}
+
+div.post-body {
+	float: right;
+	font-size: 90%;
+	width: 35em;
+}
+
+div.post-body p {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+div.post-footer {
+	clear: both;
+}
+
+div.post-meta {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	width: 6em;
+}
+
+div.sideitem {
+	font-size: 75%;
+	margin-bottom: 1em;
+	margin-top: 0;
+}
+
+div.sideitem .tagcloud {
+	font-size: 70%;
+	margin-left: 2em;
+}
+
+div.sideitem div {
+	margin: 0;
+	padding: 0;
+}
+
+div.sideitem form {
+	margin: 0;
+}
+
+div.sideitem h2 {
+	color: #081B55;
+	font: bold 200% Helvetica, Arial, sans-serif;
+	letter-spacing: -2px;
+	margin: 0;
+	padding: 0;
+}
+
+div.sideitem h2 a {
+  color: #081B55;
+  text-decoration: none;
+  border-bottom: 1px dotted #081B55;
+}
+
+div.sideitem h2 a.explanation {
+	border-bottom: 1px dotted #081B55;
+	color: #081B55;
+	font: 7pt Arial, Helvetica, sans-serif;
+	letter-spacing: 0px;
+	padding-top: 0px;
+	text-decoration: none;
+	vertical-align: top;
+}
+
+div.sideitem p {
+	margin: 0;
+	margin-left: 1em;
+	padding: 0;
+}
+
+div.sideitem ul {
+	margin: 0.5em 2em;
+	padding: 0;
+}
+
+div.sideitem ul li {
+	margin-top: 0.5em;
+}
+
+div.sideitem ul li a {
+	border-bottom: 1px dotted #081B55;
+	color: #081B55;
+	text-decoration: none;
+}
+
+div.sideitem ul li a:hover {
+	border-bottom: none;
+	text-decoration: underline;
+}
+
+div.sideitem ul.archives {
+	margin-top: 0;
+}
+
+div.sideitem ul.pages li {
+	font-size: 115%;
+	font-weight: bold;
+}
+
+h1#title {
+	font: normal 300% Arial, Helvetica, sans-serif;
+	letter-spacing: -5px;
+	margin: 0 0 0 25px;
+	padding: 0;
+}
+
+h1#title a {
+	text-decoration: none;
+}
+
+h1#title span.titlediddle {
+	color: #DA4912;
+}
+
+h1#title span.titlefirst {
+	color: #780E1A;
+	font-weight: bold;
+}
+
+h1#title span.titlelast {
+	color: #081B55;
+	font-weight: bold;
+}
+
+h1#title span.titlename {
+	color: #D31112;
+}
+
+h2 {
+	color: #354E71;
+	font: bold 150% Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+}
+
+h2#respond {
+	color: #354E71;
+	font: bold 130% Helvetica, Arial, sans-serif;
+	letter-spacing: -2px;
+}
+
+h2.post-title {
+	color: #354E71;
+	font: bold 180%/1em Helvetica, Arial, sans-serif;
+	letter-spacing: -2px;
+	margin: -0.1em 0 0.2em 0;
+	padding: 0;
+}
+
+h2.post-title a {
+	color: #354E71;
+	text-decoration: none;
+}
+
+h3 {
+	color: #354E71;
+	font: bold 130%/1em Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+	margin-bottom: 0;
+	padding-bottom: 0.1em;
+}
+
+h3#comments {
+	font-size: 90%;
+	margin-left: 4em;
+}
+
+img {
+	border: none;
+}
+
+div.post-body img {
+  margin-left: 2em;
+}
+
+img.gravatar {
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	float: left;
+	margin-right: 0.5em;
+	padding: 3px;
+}
+
+li.official {
+	background: #EEEEEE;
+	border: 1px solid #AAAAAA;
+}
+
+ol.commentlist li {
+	padding: 1em;
+}
+
+p.alt {
+	border: 1px solid #DDDDDD;
+	padding: 1em;
+}
+
+p.flickr-img {
+  border: 2px solid #fff;
+  float: left;
+}
+
+div.clearfix {
+  clear: both;
+}
+
+p.footer img {
+	margin-left: 2em;
+	margin-top: 1em;
+}
+
+pre {
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	font: 95%/120% Consolas, "Lucida Console", "Courier New", Courier, monospace;
+	margin: 15px 10px;
+	overflow: auto;
+	padding: 1em;
+	width: 85%;
+}
+
+tt {
+  font: 95%/120% Consolas, "Lucida Console", "Courier New", Courier, monospace;
+}
+
+span.post-categories a {
+	color: #929292;
+	display: list-item;
+	font-weight: bold;
+	list-style: none;
+	text-decoration: none;
+}
+
+span.post-day, span.post-monthyear, span.post-time, a.post-comments {
+	color: #B7AFA3;
+	display: list-item;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing: -1.5px;
+	list-style: none;
+}
+
+span.post-tag {
+	display: list-item;
+	list-style: none;
+	padding-bottom: 0.5em;
+}
+
+span.post-tag a {
+	color: #929292;
+	text-decoration: none;
+}
+
+span.post-tag img {
+	vertical-align: middle;
+}
+
+span.post-tags, span.post-categories {
+	font: 55% Verdana, Arial, sans-serif;
+}
+
+table#wp-calendar {
+	margin-left: 1em;
+}
+
+.postgrav {
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 3px;
+}
+
+#commentform input, #commentform textarea {
+	font: 0.9em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+#commentform p {
+	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+#commentform textarea {
+	width: 35em;
+}

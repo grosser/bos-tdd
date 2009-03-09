@@ -1,0 +1,441 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>Test-Driven Development</title>
+<meta name="description" content="Bill Venners interviews Martin Fowler about refactoring, testing, and design.">
+<meta name="keywords" content="martin, fowler, refactoring, design, testing, extreme, programming">
+<meta name="author" content="Bill Venners">
+<link rel="stylesheet" type="text/css" href="testdrivenP_files/artimapf.css">
+<link rel="shortcut icon" href="http://www.artima.com/favicon.ico">
+</head><body><table style="margin-top: 5px;" bgcolor="#ffffff" width="100%">
+<tbody><tr>
+<td align="center">
+<div id="topbanner" style="height: 90px;"><noscript><a
+href='http://www.artima.com/zcr/adclick.php?n=a86d37e9'
+target='_top'><img
+src='http://www.artima.com/zcr/adview.php?what=zone:1&amp;n=a86d37e9'
+border='0' alt='' /></a></noscript></div>
+</td>
+</tr>
+</tbody></table>
+<table cellspacing="0" width="100%">
+<tbody><tr>
+<td align="left" valign="bottom">
+<a href="http://www.artima.com/index.jsp"><img src="testdrivenP_files/a7.gif" alt="The Artima Developer Community" border="0" width="550" height="43"></a>
+</td>
+</tr></tbody></table>
+<table bgcolor="#333333" width="100%">
+<tbody><tr>
+<td align="center">
+<div class="ml">
+<a href="http://www.artima.com/articles" class="hl">Articles</a>&nbsp;|
+<a href="http://www.artima.com/news/index.jsp" class="hl">News</a>&nbsp;|
+<a href="http://www.artima.com/weblogs/index.jsp" class="hl">Weblogs</a>&nbsp;|
+<a href="http://www.artima.com/buzz/index.jsp" class="hl">Buzz</a>&nbsp;|
+<a href="http://www.artima.com/chapters/index.jsp" class="hl">Chapters</a>&nbsp;|
+<a href="http://www.artima.com/forums/index.jsp" class="hl">Forums</a>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table bgcolor="#aaccff" width="100%">
+<tbody><tr>
+<td align="center">
+<div class="sc">
+<a href="http://www.artima.com/articles">Interviews</a>&nbsp;| 
+<a href="http://www.artima.com/forums/flat.jsp?forum=32&amp;thread=2824">Discuss</a>&nbsp;| 
+Print&nbsp;| 
+<a href="mailto:?subject=Test-Driven%20Development&amp;body=%20%0ATest-Driven%20Development%20%0AA%20Conversation%20with%20Martin%20Fowler,%20Part%20V%20%0Aby%20Bill%20Venners%20%0A%0Ahttp://www.artima.com/intv/testdrivenP.html">Email</a>&nbsp;| 
+<a href="http://www.artima.com/intv/testdriven.html">Screen Friendly Version</a>&nbsp;| 
+<a href="http://www.artima.com/intv/flexplex.html">Previous</a>&nbsp;| 
+<a href="http://www.artima.com/intv/tunable.html">Next</a>
+</div>
+</td>
+</tr>
+</tbody></table>
+<br>
+<div class="vegies">
+<div class="tc">
+<span class="ts">Test-Driven Development</span><br>
+<span class="sts">A Conversation with Martin Fowler, Part V</span><br>
+<span class="as">by Bill Venners</span><br>
+<span class="pd">December 2, 2002</span><br>
+</div>
+
+<blockquote>
+<b>Summary</b><br>
+Martin Fowler, chief scientist at Thoughtworks, Inc. and author of numerous 
+books on software design and process, talks with Bill Venners about 
+the unhurried quality of test-first design and monological
+thinking, and the difference between unit and functional testing.
+</blockquote>
+
+<p>
+Over the last decade, Martin Fowler pioneered many software development 
+techniques in the development of business information systems. He's well known 
+for his work on object-oriented analysis and design, software patterns, Unified 
+Modeling Language, agile software processes (particularly extreme programming), 
+and refactoring. He is the author of <em>Analysis Patterns</em> (Oct. 1996), 
+<em>Refactoring</em> (June 1999; coauthored with Kent Beck, et al.), <em>UML 
+Distilled</em> (Aug. 1999; with Kendall Scott), <em>Planning Extreme 
+Programming</em> (Oct. 2000; with Kent Beck), and the soon to be released 
+<em>Patterns of Enterprise Application Architecture</em> (Nov. 2002), all 
+published by Addison Wesley.
+
+</p><p>In this six-part interview, which is being published in weekly installments, 
+Fowler gives his views on many topics, including refactoring, design, testing, 
+and extreme programming. In <a href="http://www.artima.com/intv/refactor.html">Part I</a>, Fowler makes 
+the business case for refactoring and testing, and describes the interplay 
+between refactoring, design, and reliability. In <a href="http://www.artima.com/intv/principles.html">Part 
+II</a>, Fowler discusses design principles of avoiding duplication, separating 
+presentation and domain logic, being explicit, and describes how refactoring
+depends on code ownership. In <a href="http://www.artima.com/intv/evolution.html">Part III</a>, Fowler 
+differentiates between planned and evolutionary design, suggests that focusing 
+on superficial problems can lead to the discovery of substantial problems, and 
+claims that doing a good job won't slow you down. In <a href="http://www.artima.com/intv/flexplex.html">Part IV</a>, 
+Fowler discusses design decay, flexibility and reusability versus complexity,
+four criteria for a simple system, and interface design. In this fifth installment, 
+Fowler describes the unhurried quality of test-first design, defines monological
+thinking, and distinguishes between unit and functional testing.
+
+
+</p><h1>Designing in Small Steps</h1>
+
+<p>
+<strong>Bill Venners</strong>: When doing evolutionary design, are you designing 
+interfaces in small steps, one piece of the interface at a time?
+
+</p><p>
+<strong>Martin Fowler</strong>: Yes. If I'm creating a <code>Money</code> class, I'll 
+make <code>plus</code> work first before I even think about the interface of 
+<code>multiply</code>. Just get <code>plus</code> to work. Don't think about anything 
+else, just focus on <code>plus</code>. Come up with its interface. Come up with its 
+implementation. Now we've done <code>plus</code>. Now let's do the next bit.
+
+</p><p>
+<strong>Bill Venners</strong>: I'm more comfortable with, OK I've got a 
+<code>Money</code> class, what are its responsibilities? What services does it need to 
+provide? Define the interfaces without implementing the code, and get that nice and easy 
+to understand. And then you can write code, test, implement, test, implement. But I still 
+tend to think more of partitioning the whole system into subsystems, and sub-subsystems, 
+and designing interfaces in the chunks they'll be used, like classes.
+
+</p><p>
+<strong>Martin Fowler</strong>: The thing I like about taking small steps and writing 
+tests first is that it gives me a simple to do list of the things I've got to do. At each end 
+point I have a certain amount of closure. I say, OK, this stuff works. Check it in. It's all 
+there. It does what it does and it does it correctly.
+
+
+</p><h1>A Sense of Unhurriedness</h1>
+
+<p>
+<strong>Martin Fowler</strong>: There's an impossible-to-express quality about test-first
+design that gives you a sense of unhurriedness. You are actually moving very 
+quickly, but there's an unhurriedness because you are creating little micro-goals for 
+yourself and satisfying them. At each point you know you are doing one micro-goal piece 
+of work, and it's done when the test passes. That is a very calming thing. It reduces the 
+scope of what you have to think about. You don't have to think about everything you 
+have to do in the class. You just have to think about one little piece of responsibility. You 
+make that work and then you refactor it so everything is very nicely designed. Then you 
+add in the next piece of responsibility. I previously used the kind of approach you 
+describe. I'd ask, "What's the interface of this?" I've now switched and I much more 
+prefer incremental design.
+
+</p><p>
+<strong>Bill Venners</strong>: Well, I'll try it.
+
+</p><p>
+<strong>Martin Fowler</strong>: In many ways, you have to just try the process out for 
+a little while. It's best to try it out with someone who's done it before. Just do it.
+
+</p><p>
+Here's an example of incremental design that I ran into when writing <em>Patterns of 
+Enterprise Applications Architecture Design</em>. I needed to create an example in a 
+pattern about associative table mappings. If you have a many-to-many relationship in 
+memory and you need to persist that to a relational database, it requires an extra link 
+table, so you get three tables. There are multiple ways to pull that data back into memory 
+from the database. There is a simplistic way of pulling the data back that requires a lot of 
+select statements to be executed. There is also a faster way to pull it back. You can just 
+pull the data back in a single select statement. But then it's a bit more awkward to get the 
+data out and to unpack it into the various objects.
+
+</p><p>
+I created the example for that pattern using incremental design. I started by writing an 
+example that was hard-coded for three particular tables and two particular classes. I didn't 
+think about generalizing it. I just made a very specific, concrete example work. After I 
+got that working and had it passing its tests, I started refactoring the example to make it 
+more generally applicable. After a bit of time refactoring, I had a general mechanism. All 
+I had to do was write a tiny mapping class, and I could make the example work with any 
+tables and classes. I had a general purpose structure.
+
+</p><p>
+I found it much easier to do the concrete example first, then refactor that to the abstract 
+example, than to come up with the abstract example first and then apply that to the 
+concrete case. I also found it much more calm and unhurried, even though the process 
+went pretty swiftly. I constantly knew where I was and where I was going. I felt much 
+more in control of the situation. I didn't have that, "Am I ever going to make this code 
+work?" feeling.
+
+
+</p><h1>Monological Thinking</h1>
+
+<p>
+<strong>Martin Fowler</strong>: A phrase I've coined for Kent's new book is 
+<em>monological thinking</em>. By monological, I mean using one style of thought, 
+one style of logic, at any one time. When I was creating the specific example, I was just 
+thinking about how to make a very concrete example work. When I moved into a 
+refactoring mode, I was thinking about how to abstract the working concrete example. I 
+wasn't thinking about how to make the example work and how to make an abstract 
+solution at the same time. I made it work, then I abstracted it. I felt it went quicker and 
+was a much more calm and pleasurable experience.
+
+</p><p>
+<strong>Bill Venners</strong>: It sounds like incremental design is a way of dealing 
+with complexity given our limited brains. To what extent do you think whether you write 
+tests first or second is a personality choice? Are some people by their nature more suited 
+to this style of dealing with complexity versus another?
+
+</p><p>
+<strong>Martin Fowler</strong>: That may well be true. It could well be that there are 
+personality differences. However, I think it is hard to tell at the moment because not 
+enough people have tried the test-driven development approach. Test-driven development 
+is common in the extreme programming community, but that's still a very small slice of 
+the programming population.
+
+</p><p>
+I recommend you sit down with somebody whose done test-driven development, so that 
+you do it pairing with somebody who knows that style. I think you'd get a much better 
+appreciation of how it works that way, because it is so very counter-intuitive. 
+Unfortunately we won't have time to do something like that, but I'd love to do that with 
+you. I can almost guarantee that you'll say, "What we're going to take that small of a 
+step? It's not worth going such a small step." And I'll say, "Just trust me. Do these tiny 
+steps." I've seen it so many times. I remember watching someone pair program with Kent 
+for the first time. This guy had read up on XP and was pretty much in favor of it. He was 
+very positive about XP already. There were times when his jaw was dropping at the tiny 
+little moves Kent was making. He came out of it realizing that there is a whole style to 
+test-driven development that he didn't expect.
+
+
+</p><h1>Unit Testing</h1>
+
+<p>
+<strong>Bill Venners</strong>: What is the unit in unit test? Define unit test.
+
+</p><p>
+<strong>Martin Fowler</strong>: That's very difficult. To a first approximation, it's a 
+class. But as you work with unit tests more, you begin to realize you're testing little areas 
+of responsibility, and that could be a part of a class or it could be several classes together. 
+I don't get too hung up about it, but I'd say if you're just starting out, think of unit tests as 
+just writing a test case per class.
+
+</p><p>
+<strong>Bill Venners</strong>: And the reason you call it "unit" testing is that you're
+testing individual pieces that make up the program. To get a robust whole, you build it on 
+robust parts, or robust units. To get the parts robust, you test them individually with unit 
+tests.
+
+</p><p>
+<strong>Martin Fowler</strong>: That's the notion of where unit testing originally came 
+from. Unit testing in XP is often unlike classical unit testing, because in XP you're 
+usually not testing each unit in isolation. You're testing each class and its immediate 
+connections to its neighbors.
+
+</p><p>
+<strong>Bill Venners</strong>: What's the difference between unit and functional 
+testing?
+
+</p><p>
+<strong>Martin Fowler</strong>: The current name in XP circles for functional tests is 
+acceptance tests. Acceptance tests view the system more as a black box and test more end 
+to end across the whole system. You would have unit tests for individual classes in the 
+domain and database mapping layers. In most of these unit tests, you might not even 
+connect the database. You would stub the database out. But with the functional tests, 
+which go end to end, you would want everything connected.
+
+</p><p>
+<strong>Bill Venners</strong>: When do you stop writing tests? You say in 
+<em>Refactoring</em>, "There's a point of diminishing returns with testing, and there's 
+a danger that by writing too many tests you become discouraged and end up not writing 
+any. You should concentrate on where the risk is." How do you know where the risk is?
+
+</p><p>
+<strong>Martin Fowler</strong>: Ask yourself which bits of the program would you be 
+scared to change? One test I've come up with since the <em>Refactoring</em> book is 
+asking if there is any line of code that you could comment out and the tests wouldn't fail? 
+If so, you are either missing a test or you've got an unnecessary line of code. Similarly, 
+take any Boolean expression. Could you just reverse it? What test would fail? If there's 
+not a test failing, then, you've obviously got some more tests to write or some code to 
+remove.
+
+</p><p>
+<strong>Bill Venners</strong>: Sounds like you could actually automate that.
+
+</p><p>
+<strong>Martin Fowler</strong>: Actually, there is a program that does that. It's called 
+JesTer. The problem is it takes a long time to run, because every time it makes one minor 
+mutation it has to run the entire build test suite.
+
+<img src="testdrivenP_files/ik.gif" align="top" width="15" height="15">
+</p><h1>Talk Back!</h1>
+<p>
+Have an opinion about test-first development, incremental interface design, or unit testing? Discuss this article
+in the News &amp; Ideas Forum topic,
+<a href="http://www.artima.com/forums/flat.jsp?forum=32&amp;thread=2824">Test-Driven Development</a>.
+
+<a name="resources">
+<h1>Resources</h1>
+</a>
+
+</p><p>
+<em>Refactoring: Improving the Design of Existing Code</em>, by Martin Fowler with Kent Beck, John Brant, William Opdyke,
+and Don Roberts is at Amazon.com at:<br>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0201485672/billvennersA/">http://www.amazon.com/exec/obidos/ASIN/0201485672/</a>
+
+</p><p>
+<em>To Be Explicit</em>, an article by Martin Fowler first published
+in <em>IEEE Software</em>:<br>
+<a href="http://www.martinfowler.com/articles/explicit.pdf">http://www.martinfowler.com/articles/explicit.pdf</a>
+
+</p><p>
+<em>Public versus Published Interfaces</em>, an article by Martin Fowler first
+published in <em>IEEE Software</em>:<br>
+<a href="http://www.martinfowler.com/articles/published.pdf">http://www.martinfowler.com/articles/published.pdf</a>
+
+</p><p>
+<em>JesTer</em>, the tool mentioned by Martin Fowler that finds places in your code
+not covered by a unit test:<br>
+<a href="http://www.xpdeveloper.com/cgi-bin/wiki.cgi?JesTer">http://www.xpdeveloper.com/cgi-bin/wiki.cgi?JesTer</a>
+
+</p><p>
+<em>The Pragmatic Programmer: From Journeyman to Master</em>, by Andrew Hunt
+and David Thomas, is at Amazon.com at:<br>
+<a href="http://www.amazon.com/exec/obidos/ASIN/020161622X/billvennersA/">http://www.amazon.com/exec/obidos/ASIN/020161622X/</a>
+
+</p><p>
+IntelliJ IDEA, a Java IDE with refactoring support:<br>
+<a href="http://www.intellij.com/idea/">http://www.intellij.com/idea/</a>
+
+</p><p>
+Eclipse, an open source IDE with refactoring support:<br>
+<a href="http://www.eclipse.org/">http://www.eclipse.org/</a>
+
+</p><p>
+A catalog of summaries of refactorings mentioned in the book, <em>Refactoring</em>:<br>
+<a href="http://www.refactoring.com/catalog/index.html">http://www.refactoring.com/catalog/index.html</a>
+
+</p><p>
+A refactoring portal maintained by Martin Fowler contains links to refactoring tools and other refactoring sites:<br>
+<a href="http://www.refactoring.com/">http://www.refactoring.com/</a>
+
+</p><p>
+Martin Fowler's links to extreme programming resources:<br>
+<a href="http://martinfowler.com/links.html">http://martinfowler.com/links.html</a>
+
+</p><p>
+Articles written by Martin Fowler about XP and agile methods:<br>
+<a href="http://martinfowler.com/articles.html#agile">http://martinfowler.com/articles.html#agile</a>
+
+</p><p>
+<em>Patterns of Enterprise Application Architecture</em>, by Martin Fowler is at Amazon.com at:<br>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0321127420/billvennersA/">http://www.amazon.com/exec/obidos/ASIN/0321127420/</a>
+
+</p><p>
+<em>UML Distilled: A Brief Guide to the Standard Object Modeling Language</em>, by Martin Fowler and Kendall Scott
+is at Amazon.com at:<br>
+<a href="http://www.amazon.com/exec/obidos/ASIN/020165783X/billvennersA/">http://www.amazon.com/exec/obidos/ASIN/020165783X/</a>
+
+</p><p>
+<em>Planning Extreme Programming</em>, by Kent Beck and Martin Fowler is at Amazon.com at:<br>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0201710919/billvennersA/">http://www.amazon.com/exec/obidos/ASIN/0201710919/</a>
+
+</p><p>
+<em>Analysis Patterns: Reusable Object Models </em>, by Martin Fowler is at Amazon.com at:<br>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0201895420/billvennersA/">http://www.amazon.com/exec/obidos/ASIN/0201895420/</a>
+
+</p><p>
+Martin Fowler's website contains many articles, book chapters, and other information from Martin:<br>
+<a href="http://www.martinfowler.com/">http://www.martinfowler.com/</a>
+
+</p><p>
+</p><center>
+<div class="sc">
+<a href="http://www.artima.com/articles">Interviews</a>&nbsp;| 
+<a href="http://www.artima.com/forums/flat.jsp?forum=32&amp;thread=2824">Discuss</a>&nbsp;| 
+Print&nbsp;| 
+<a href="mailto:?subject=Test-Driven%20Development&amp;body=%20%0ATest-Driven%20Development%20%0AA%20Conversation%20with%20Martin%20Fowler,%20Part%20V%20%0Aby%20Bill%20Venners%20%0A%0Ahttp://www.artima.com/intv/testdrivenP.html">Email</a>&nbsp;| 
+<a href="http://www.artima.com/intv/testdriven.html">Screen Friendly Version</a>&nbsp;| 
+<a href="http://www.artima.com/intv/flexplex.html">Previous</a>&nbsp;| 
+<a href="http://www.artima.com/intv/tunable.html">Next</a>
+</div>
+</center>
+</div>
+<hr width="100%">
+<table align="center" width="50%">
+<tbody><tr>
+<td>
+<div class="horizontaltextadbox">
+<div class="adheadline">Sponsored Links</div>
+<div id="sponsoredlinks"><div class="sponlink"><a href="http://www.artima.com/zcr/adclick.php?bannerid=266&amp;zoneid=4&amp;source=&amp;dest=http%3A%2F%2Fwww.artima.com%2Fshop%2Fforsale" target="_top">Programming in Scala - Download Paper Book now, only $49.99</a></div><div id="beacon_266" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="testdrivenP_files/adlog.gif" alt="" style="width: 0px; height: 0px; display: none;" width="0" height="0"></div><div class="sponlink"><a href="http://www.artima.com/zcr/adclick.php?bannerid=252&amp;zoneid=4&amp;source=&amp;dest=http%3A%2F%2Fwww.artima.com%2Fsdn%3Fi%3D23" target="_top">Take the SDN Quiz to see how much you know about Java and win one of 100 Books.</a></div><div id="beacon_252" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="testdrivenP_files/adlog_003.gif" alt="" style="width: 0px; height: 0px; display: none;" width="0" height="0"></div><div class="sponlink"><a href="http://www.artima.com/zcr/adclick.php?bannerid=299&amp;zoneid=4&amp;source=&amp;dest=http%3A%2F%2Fwww.businessobjects.com%2Fjump%2Fxi%2Fcrda%2Fdefault.asp" target="_top">Crystal Reports - New Runtime and Free 30-Day Trial Download </a></div><div id="beacon_299" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="testdrivenP_files/adlog_002.gif" alt="" style="width: 0px; height: 0px; display: none;" width="0" height="0"></div></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+<hr width="100%">
+<div class="sp">
+<div style="text-align: center;">
+<a href="http://www.artima.com/copyright.html">Copyright</a> © 1996-2009 Artima, Inc. All Rights Reserved. - <a href="http://www.artima.com/privacy.html">Privacy Policy</a> - <a href="http://www.artima.com/termsofuse.html">Terms of Use</a> - <a href="http://www.artima.com/advertising.html">Advertise with Us</a>
+</div>
+</div>
+<br>
+<script language="JavaScript" type="text/javascript">
+<!--
+function initBannerVarForZone(zone) {
+        initBannerVarForZoneWithScript(zone, 'adjs_modified');
+}
+
+function initBannerVarForZoneWithScript(zone, phpScript) {
+
+        if (!document.phpAds_used) document.phpAds_used = ',';
+        phpAds_random = new String (Math.random());
+        phpAds_random = phpAds_random.substring(2,11);
+
+        var nextScriptSrc = 'http://www.artima.com/zcr/' + phpScript + '.php?n=' +
+                phpAds_random  +
+                '&amp;what=zone:' + zone + '&amp;target=_top&amp;block=1&amp;blockcampaign=1' +
+                '&amp;exclude=' + document.phpAds_used;
+
+        document.write("<script language='JavaScript' type='text/javascript' src='");
+        document.write(nextScriptSrc);
+        document.write("'><\/script>");
+
+}
+
+function replaceDiv(divID) {
+        document.getElementById(divID).innerHTML = phpadsbanner;
+}
+-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+initBannerVarForZone(1);
+-->
+</script><script style="display: none;" language="JavaScript" type="text/javascript" src="testdrivenP_files/adjs_modified.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+replaceDiv('topbanner');
+-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+initBannerVarForZoneWithScript(4, 'textman');
+-->
+</script><script language="JavaScript" type="text/javascript" src="testdrivenP_files/textman.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+replaceDiv('sponsoredlinks');
+-->
+</script>
+</body></html>

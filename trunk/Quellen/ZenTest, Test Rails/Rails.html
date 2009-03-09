@@ -1,0 +1,528 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+
+<!-- base href="http://zentest.rubyforge.org.way_back_stub/ZenTest/classes/Test/Rails.html" -->
+
+  <title>Module: Test::Rails</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <link rel="stylesheet" href="Rails_files/rdoc-style.css" type="text/css" media="screen">
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script><style type="text/css">div.method-source-code { display: none }</style>
+
+
+</head><body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tbody><tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Test::Rails</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/files/lib/test/rails_rb.html">
+                lib/test/rails.rb
+                </a>
+        <br>
+            </td>
+        </tr>
+
+        </tbody></table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+    <div id="diagram">
+      <map id="map" name="map">
+  <area shape="rect" coords="377,294,500,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/FunctionalTestCase.html" alt="FunctionalTestCase">
+  <area shape="rect" coords="256,390,354,438" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html" alt="ViewTestCase">
+  <area shape="rect" coords="378,390,498,438" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ControllerTestCase.html" alt="ControllerTestCase">
+  <area shape="rect" coords="522,390,629,438" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/HelperTestCase.html" alt="HelperTestCase">
+  <area shape="rect" coords="401,95,476,143" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Unit/TestCase.html" alt="TestCase">
+  <area shape="rect" coords="401,198,476,246" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/TestCase.html" alt="TestCase">
+  <area shape="rect" coords="8,294,224,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/ActiveRecordHelper.html" alt="ActionView::Helpers::ActiveRecordHelper">
+  <area shape="rect" coords="1496,294,1666,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/TagHelper.html" alt="ActionView::Helpers::TagHelper">
+  <area shape="rect" coords="1690,294,1885,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/FormTagHelper.html" alt="ActionView::Helpers::FormTagHelper">
+  <area shape="rect" coords="1909,294,2125,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/FormOptionsHelper.html" alt="ActionView::Helpers::FormOptionsHelper">
+  <area shape="rect" coords="2149,294,2328,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/FormHelper.html" alt="ActionView::Helpers::FormHelper">
+  <area shape="rect" coords="661,294,829,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/UrlHelper.html" alt="ActionView::Helpers::UrlHelper">
+  <area shape="rect" coords="853,294,1050,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/AssetTagHelper.html" alt="ActionView::Helpers::AssetTagHelper">
+  <area shape="rect" coords="1074,294,1274,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/PrototypeHelper.html" alt="ActionView::Helpers::PrototypeHelper">
+  <area shape="rect" coords="1298,294,1472,342" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/ActionView/Helpers/TextHelper.html" alt="ActionView::Helpers::TextHelper">
+  <area shape="rect" coords="261,198,336,246" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/IvarProxy.html" alt="IvarProxy">
+  <area shape="rect" coords="245,165,640,449" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html" alt="Rails">
+  <area shape="rect" coords="489,85,582,131" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Unit/Assertions.html" alt="Assertions">
+  <area shape="rect" coords="364,51,593,154" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Unit.html" alt="Unit">
+  <area shape="rect" coords="234,18,650,459" href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test.html" alt="Test">
+</map>
+<img src="Rails_files/f_33.png" usemap="#map" alt="dot/f_33.png" border="0">
+    </div>
+
+    <div id="description">
+      <h1>Introduction</h1>
+<p>
+<a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html">Test::Rails</a> helps you build industrial-strength <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html">Rails</a> code by:
+</p>
+<ul>
+<li>testing views separate from controllers
+
+</li>
+<li>enhancing the assertion vocabulary, and
+
+</li>
+<li>auditing your tests for consistency.
+
+</li>
+</ul>
+<h1>Details</h1>
+<p>
+<a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html">Test::Rails</a>:
+</p>
+<ul>
+<li>splits Functional test into Controller and View tests.
+
+<ul>
+<li>Splits view assertions away from controller assertions.
+
+</li>
+<li>Helps decouple views from controllers.
+
+</li>
+<li>Allows you to test AJAX actions in isolation.
+
+</li>
+<li>Allows you to test a single partial.
+
+</li>
+<li>Clearer failures when assert_tag fails.
+
+</li>
+</ul>
+</li>
+<li>An auditing script analyzes missing assertions in your controllers and
+views.
+
+</li>
+<li>Library of assertions for testing views.
+
+</li>
+</ul>
+<h1>How to Convert to <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html">Test::Rails</a></h1>
+<p>
+You will need to make three small changes to test/test_helper.rb to set up
+<a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html">Test::Rails</a>:
+</p>
+<p>
+First, add the following to &#8216;test/test_helper.rb&#8217; before you
+require <tt>test_help</tt>:
+</p>
+<pre>  require 'test/rails'
+</pre>
+<p>
+Next, change the class from "<a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Unit.html">Unit</a>" to
+"<a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html">Rails</a>" right after you require
+<tt>test_help</tt>.
+</p>
+<p>
+Your &#8216;test/test_helper.rb&#8217; will end up looking like this:
+</p>
+<pre>  ENV["RAILS_ENV"] = "test"
+  require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+  require 'test/rails'
+  require 'test_help'
+
+  class Test::Rails::TestCase
+  ...
+</pre>
+<p>
+Finally, you need to add the extra rake tasks <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html">Test::Rails</a> provides. Add the following line to your
+Rakefile after you require &#8216;tasks/rails&#8217;:
+</p>
+<pre>  require 'test/rails/rake_tasks'
+</pre>
+<p>
+<b>NOTE</b>:
+</p>
+<ul>
+<li>get/post/etc. no longer have a session or flash argument. Use the session
+and flash accessor instead.
+
+</li>
+<li>assert_tag will (eventually) not work in controller tests.
+
+</li>
+</ul>
+<h2>Writing View Tests</h2>
+<p>
+View tests live in test/views. They are named after the controller that is
+being tested. For exampe, RouteViewTest will live in the file
+test/views/route_view_test.rb.
+</p>
+<h3>Example View <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test.html">Test</a> Case</h3>
+<pre>  require 'test/test_helper'
+
+  # We are testing RouteController's views
+  class RouteViewTest &lt; Test::Rails::ViewTestCase
+
+    fixtures :users, :routes, :points, :photos
+
+    # testing the view for the delete action of RouteController
+    def test_delete
+      # Instance variables necessary for this view
+      assigns[:loggedin_user] = users(:herbert)
+      assigns[:route] = routes(:work)
+
+      # render this view
+      render
+
+      # assert everything is as it should be
+      assert_links_to "/route/flickr_refresh/#{routes(:work).id}"
+
+      form_url = '/route/destroy'
+      assert_post_form form_url
+      assert_input form_url, :hidden, :id
+      assert_submit form_url, 'Delete!'
+      assert_links_to "/route/show/#{routes(:work).id}", 'No, I do not!'
+    end
+
+    # ...
+
+  end
+</pre>
+<p>
+All view tests are a subclass of <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html">Test::Rails::ViewTestCase</a>. The name of
+the subclass must match the controller this view depends upon. <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html">ViewTestCase</a> takes care of all the setup
+necessary for running the tests.
+</p>
+<p>
+The <tt>test_delete</tt> method is named after the delete method in
+RouteController. The <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html#M000103">ViewTestCase#render</a> method looks
+at the name of the test and tries to figure out which view file to use, so
+naming tests after actions will save you headaches and typing.
+</p>
+<p>
+Use <tt>assigns</tt> to set up the variables the view will use when it
+renders.
+</p>
+<p>
+The call to render is the equivalent to a functional tests&#8217; get/post
+methods. It makes several assumptions, so be sure to read <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html#M000103">ViewTestCase#render</a> carefully.
+</p>
+<p>
+<a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html">ViewTestCase</a> has a vastly expanded
+assertion library to help you out with testing. See <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html">ViewTestCase</a> for all the helpful
+assertions you can use in your view tests.
+</p>
+<h2>Writing Controller Tests</h2>
+<p>
+Controller tests are essentially functional tests without the view
+assertions.
+</p>
+<p>
+They live in test/controllers, subclass <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ControllerTestCase.html">ControllerTestCase</a>, and are named
+after the controller they are testing. For example, RouteControllerTest
+will live in the file test/controllers/route_controller_test.rb.
+</p>
+<h3>Example Controller <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test.html">Test</a> Case</h3>
+<pre>  require 'test/test_helper'
+
+  # We are testing RouteController's actions
+  class RouteControllerTest &lt; Test::Rails::ControllerTestCase
+
+    fixtures :users, :routes, :points, :photos
+
+    # Testing the delete method
+    def test_delete
+      # A session accessor is provided instead of passing a hash to get.
+      session[:username] = users(:herbert).username
+
+      get :delete, :id =&gt; routes(:work).id
+
+      # assert we got a 200
+      assert_success
+
+      # assert that instance variables are correctly assigned
+      assert_assigned :action_title, "Deleting \"#{routes(:work).name}\""
+      assert_assigned :route, routes(:work)
+    end
+
+    # ...
+
+  end
+</pre>
+<h2>Writing Abstract <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test.html">Test</a> Cases</h2>
+<p>
+Abstract test cases are a great way to refactor your tests and ensure you
+do not violate the DRY principal and share code between different test
+classes. If you have common setup code for your test classes you can create
+your own subclass of <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ControllerTestCase.html">ControllerTestCase</a> or <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html">ViewTestCase</a>.
+</p>
+<h3>Example Abstract <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test.html">Test</a> Case</h3>
+<pre>  class RobotControllerTestCase &lt; Test::Rails::ControllerTestCase
+
+    fixtures :markets, :people
+
+    def setup
+      super
+
+      # We're running tests in this class so we don't need to do any more
+      # setup
+      return if self.class == RobotControllerTestCase
+
+      # Set our current host
+      @host = 'www.test.robotcoop.com'
+      util_set_host @host
+    end
+
+    ##
+    # Sets the hostname to +host+ for this request.
+
+    def util_set_host(hoston)
+      @request.host = host
+    end
+
+  end
+</pre>
+<h1>How to Audit Your Tests</h1>
+<p>
+<tt>bin/rails_test_audit</tt> ensures that your view tests&#8217; +assign+s
+are compared against your controller tests&#8217; assert_assigned, warning
+you when you&#8216;ve forgotten to test something.
+</p>
+<p>
+Given:
+</p>
+<pre>  class RouteControllerTest &lt; Test::Rails::ControllerTestCase
+    def test_flickr_refresh
+      get :flickr_refresh, :id =&gt; routes(:work).id
+      assert_success
+
+      assert_assigned :tz_name, 'Pacific Time (US &amp; Canada)'
+    end
+  end
+</pre>
+<p>
+And:
+</p>
+<pre>  class RouteViewTest &lt; Test::Rails::ViewTestCase
+    def test_flickr_refresh
+      assigns[:route] = routes(:work)
+      assigns[:tz_name] = 'Pacific Time (US &amp; Canada)'
+
+      render
+
+      # ...
+    end
+  end
+</pre>
+<p>
+<tt>rails_test_audit</tt> will see that you don&#8216;t have an
+<tt>assert_assigned</tt> for <tt>route</tt> and will output:
+</p>
+<pre>  require 'test/test_helper'
+
+  class RouteControllerTest &lt; Test::Rails::ControllerTestCase
+
+    def test_flickr_refresh
+      assert_assigned :route, routes(:work)
+    end
+
+  end
+</pre>
+<h1>How &#8216;rake test&#8217; Changed</h1>
+<p>
+test:views and test:controllers targets get added so you can run just the
+view or controller tests.
+</p>
+<p>
+The "test" target runs tests in the following order: units,
+controllers, views, functionals, integration.
+</p>
+<p>
+The test target no longer runs all tests, it stops on the first failure.
+This way a failure in a unit test doesn&#8216;t fill your screen with less
+important errors because the underlying failure also affected your
+controllers and views.
+</p>
+<p>
+The stats target is updated to account for controller and view tests.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.html#M000100">rails_version</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ControllerTestCase.html" class="link">Test::Rails::ControllerTestCase</a><br>
+Class <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/FunctionalTestCase.html" class="link">Test::Rails::FunctionalTestCase</a><br>
+Class <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/HelperTestCase.html" class="link">Test::Rails::HelperTestCase</a><br>
+Class <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/IvarProxy.html" class="link">Test::Rails::IvarProxy</a><br>
+Class <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/TestCase.html" class="link">Test::Rails::TestCase</a><br>
+Class <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails/ViewTestCase.html" class="link">Test::Rails::ViewTestCase</a><br>
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000100" class="method-detail">
+        <a name="M000100"></a>
+
+        <div class="method-heading">
+          <a href="http://web.archive.org/web/20071215141645/http://zentest.rubyforge.org/ZenTest/classes/Test/Rails.src/M000100.html" target="Code" class="method-signature" onclick="popupCode('Rails.src/M000100.html');return false;">
+          <span class="method-name">rails_version</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The currently loaded rails version. Better than Rails::VERSION::STRING
+since this one is comparable.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://web.archive.org/web/20071215141645/http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+<!-- SOME LINK HREF'S ON THIS PAGE HAVE BEEN REWRITTEN BY THE WAYBACK MACHINE
+OF THE INTERNET ARCHIVE IN ORDER TO PRESERVE THE TEMPORAL INTEGRITY OF THE SESSION. -->
+
+
+<script language="Javascript">
+<!--
+
+// FILE ARCHIVED ON 20071215141645 AND RETRIEVED FROM THE
+// INTERNET ARCHIVE ON 20090309181052.
+// JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+// ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+// SECTION 108(a)(3)).
+
+   var sWayBackCGI = "http://web.archive.org/web/20071215141645/";
+
+   function xResolveUrl(url) {
+      var image = new Image();
+      image.src = url;
+      return image.src;
+   }
+   function xLateUrl(aCollection, sProp) {
+      var i = 0;
+      for(i = 0; i < aCollection.length; i++) {
+         var url = aCollection[i][sProp];         if (typeof(url) == "string") { 
+          if (url.indexOf("mailto:") == -1 &&
+             url.indexOf("javascript:") == -1
+             && url.length > 0) {
+            if(url.indexOf("http") != 0) {
+                url = xResolveUrl(url);
+            }
+            url = url.replace('.way_back_stub','');
+            aCollection[i][sProp] = sWayBackCGI + url;
+         }
+         }
+      }
+   }
+
+   xLateUrl(document.getElementsByTagName("IMG"),"src");
+   xLateUrl(document.getElementsByTagName("A"),"href");
+   xLateUrl(document.getElementsByTagName("AREA"),"href");
+   xLateUrl(document.getElementsByTagName("OBJECT"),"codebase");
+   xLateUrl(document.getElementsByTagName("OBJECT"),"data");
+   xLateUrl(document.getElementsByTagName("APPLET"),"codebase");
+   xLateUrl(document.getElementsByTagName("APPLET"),"archive");
+   xLateUrl(document.getElementsByTagName("EMBED"),"src");
+   xLateUrl(document.getElementsByTagName("BODY"),"background");
+   xLateUrl(document.getElementsByTagName("TD"),"background");
+   xLateUrl(document.getElementsByTagName("INPUT"),"src");
+   var forms = document.getElementsByTagName("FORM");
+   if (forms) {
+       var j = 0;
+       for (j = 0; j < forms.length; j++) {
+              f = forms[j];
+              if (typeof(f.action)  == "string") {
+                 if(typeof(f.method)  == "string") {
+                     if(typeof(f.method) != "post") {
+                        f.action = sWayBackCGI + f.action;
+                     }
+                  }
+              }
+        }
+    }
+
+
+//-->
+</script>
+
+</body></html>

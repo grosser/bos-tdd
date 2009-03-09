@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <title>Piston ~ Easy Vendor Branch Management</title>
+  <link rel="Stylesheet" href="Piston%20%7E%20Easy%20Vendor%20Branch%20Management_files/base.css">
+</head><body id="index">
+<div id="header">
+  <div id="logo">
+    <img src="Piston%20%7E%20Easy%20Vendor%20Branch%20Management_files/top-logo.jpg" alt="Piston Logo" width="160" height="200">
+  </div>
+
+  <div id="title">
+    <img src="Piston%20%7E%20Easy%20Vendor%20Branch%20Management_files/piston.png" alt="Piston" width="280" height="87">
+  </div>
+
+  <div id="tagline">
+    <img src="Piston%20%7E%20Easy%20Vendor%20Branch%20Management_files/tagline.png" alt="Easy Vendor Branch Management" width="375" height="27">
+  </div>
+</div>
+
+<div id="main">
+<div id="nav">
+  <ul id="navigator">
+    <li><a href="http://piston.rubyforge.org/index.html" id="target-index">Home</a></li>
+    <li><a href="http://piston.rubyforge.org/usage.html" id="target-usage">Daily Usage</a></li>
+    <li><a href="http://piston.rubyforge.org/details.html" id="target-details">Operational Details</a></li>
+    <li><a href="http://piston.rubyforge.org/contributions.html" id="target-contributions">Contributions</a></li>
+    <li><a href="http://piston.rubyforge.org/caveats.html" id="target-caveats">Caveats</a></li>
+    <li><a href="http://piston.rubyforge.org/dependencies.html" id="target-dependencies">Dependencies</a></li>
+    <li><a href="http://piston.rubyforge.org/properties.html" id="target-properties">SVN Properties</a></li>
+    <li><a href="http://piston.rubyforge.org/links.html" id="target-links">Links</a></li>
+    <li><a href="http://rubyforge.org/projects/piston" id="target-rubyforge">RubyForge</a></li>
+  </ul>
+</div>
+
+<div id="content">
+<p>Piston is a utility that eases vendor branch management. This is similar to <code class="property">svn:externals</code>,
+except you have a local copy of the files, which you can modify at
+will. As long as the changes are mergeable, you should have no problems.</p>
+
+<p>Piston has a similar purpose than <a href="http://svn.collab.net/repos/svn/trunk/contrib/client-side/svnmerge.py">svnmerge.py</a> which you can find in the <code class="path">contrib/client-side</code>
+folder of the main Subversion. The main difference is that Piston is
+designed to work with remote repositories. You should also investigate
+if <a href="http://svk.elixus.org/">SVK</a> would be a better fit for you.</p>
+
+<p>From Wikipedia's <a href="http://en.wikipedia.org/wiki/Piston">Piston</a>:</p>
+<blockquote cite="http://en.wikipedia.org/wiki/Piston">
+  <p>In general, a piston is a sliding plug that fits closely inside the bore of a cylinder.</p>
+  <p>Its purpose is either to change the volume enclosed by the cylinder, or to exert a force on a fluid inside the cylinder.</p>
+</blockquote>
+
+<p>For Piston, we retain the second meaning, <q cite="http://en.wikipedia.org/wiki/Piston">to exert a force on a fluid inside the cylinder.</q> In our case, the fluid is the code copied from the remote repository.</p>
+
+<h1>Installation</h1>
+
+<p>Nothing could be simpler:</p>
+<pre>$ gem install --include-dependencies piston
+Successfully installed piston, version 1.0.0</pre>
+
+<h1>Usage</h1>
+
+<p>First, you need to import the remote repository location:</p>
+
+<pre>$ piston import http://dev.rubyonrails.org/svn/rails/trunk vendor/rails
+Exported r4720 from 'http://dev.rubyonrails.org/svn/rails/trunk' to 'vendor/rails'
+
+$ svn commit -m "Importing local copy of Rails"</pre>
+
+<p>When you want to get the latest changes from the remote repository location:</p>
+
+<pre>$ piston update vendor/rails
+Updated 'vendor/rails' to r4720.
+
+$ svn commit -m "Updates vendor/rails to the latest revision"</pre>
+
+<p>You can prevent a local Piston-managed folder from updating by using the <code class="command">lock</code> subcommand:</p>
+
+<pre>$ piston lock vendor/rails
+'vendor/rails' locked at r4720.</pre>
+
+<p>When you want to update again, you <code class="command">unlock</code>:</p>
+<pre>$ piston unlock vendor/rails
+'vendor/rails' unlocked.</pre>
+</div>
+</div>
+
+<div id="bottom">
+  <div id="copyright">
+    <p id="spacer">&nbsp;</p>
+    <p>Copyright 2006, <a href="http://blog.teksol.info/pages/bio">François Beausoleil</a></p>
+    <p><a href="http://piston.rubyforge.org/">Piston</a> — Remote Repository Copying</p>
+  </div>
+
+  <div id="bottom-logo">
+    <img src="Piston%20%7E%20Easy%20Vendor%20Branch%20Management_files/bottom-logo.jpg" alt="Piston Logo 2" width="189" height="140">
+  </div>
+</div>
+</body></html>

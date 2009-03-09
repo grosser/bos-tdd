@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+   <!-- base href="http://www.verticalexpressionsoftware.com.way_back_stub/blog/2006/06/17/converting-to-using-testrails/" -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Eric’s Random Thoughts  » Blog Archive   » Converting to using Test::Rails…</title>
+
+<meta name="generator" content="WordPress 2.0.3"> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="Eric%E2%80%99s%20Random%20Thoughts%20%C2%BB%20Blog%20Archive%20%C2%BB%20Converting%20to%20using%20Test%20Rails%E2%80%A6_files/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="Eric’s Random Thoughts RSS Feed" href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/feed/">
+<link rel="pingback" href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/xmlrpc.php">
+
+<style type="text/css" media="screen">
+/*	To accomodate differing install paths of WordPress, images are referred only here,
+	and not in the wp-layout.css file. If you prefer to use only CSS for colors and what
+	not, then go right ahead and delete the following lines, and the image files. */
+		
+	body { background: url("http://www.verticalexpressionsoftware.com/blog/wp-content/themes/default/images/kubrickbgcolor.jpg"); }	
+	#page { background: url("http://www.verticalexpressionsoftware.com/blog/wp-content/themes/default/images/kubrickbgwide.jpg") repeat-y top; border: none; } 
+	#header { background: url("http://www.verticalexpressionsoftware.com/blog/wp-content/themes/default/images/kubrickheader.jpg") no-repeat bottom center; }
+	#footer { background: url("http://www.verticalexpressionsoftware.com/blog/wp-content/themes/default/images/kubrickfooter.jpg") no-repeat bottom; border: none;}
+
+/*	Because the template is slightly different, size-wise, with images, this needs to be set here
+	If you don't want to use the template's images, you can also delete the following two lines. */
+		
+	#header 	{ margin: 0 !important; margin: 0 0 0 1px; padding: 1px; height: 198px; width: 758px; }
+	#headerimg 	{ margin: 7px 9px 0; height: 192px; width: 740px; } 
+
+/* 	To ease the insertion of a personal header image, I have done it in such a way,
+	that you simply drop in an image called 'personalheader.jpg' into your /images/
+	directory. Dimensions should be at least 760px x 200px. Anything above that will
+	get cropped off of the image. */
+	/*
+	#headerimg { background: url('http://www.verticalexpressionsoftware.com/blog/wp-content/themes/default/images/personalheader.jpg') no-repeat top;}
+	*/
+</style>
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/xmlrpc.php?rsd">
+<link rel="stylesheet" href="Eric%E2%80%99s%20Random%20Thoughts%20%C2%BB%20Blog%20Archive%20%C2%BB%20Converting%20to%20using%20Test%20Rails%E2%80%A6_files/syntax_hilite_css.css" type="text/css" media="all">
+	<script language="javascript" type="text/javascript" src="Eric%E2%80%99s%20Random%20Thoughts%20%C2%BB%20Blog%20Archive%20%C2%BB%20Converting%20to%20using%20Test%20Rails%E2%80%A6_files/syntax_hilite_js.js"></script>
+	<script language="javascript" type="text/javascript">
+	var arrCode = new Array();
+	</script>
+<style type="text/css">
+<!--#header { background: url('http://www.verticalexpressionsoftware.com/blog/wp-content/themes/default/images/header-img.php?upper=FFCCCC&lower=4180b6') no-repeat bottom center; }
+--></style>
+</head><body>
+<div id="page">
+
+
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/">Eric’s Random Thoughts</a></h1>
+		<div class="description">Current experiences in learning Ruby on Rails</div>
+	</div>
+</div>
+<hr>
+
+	<div id="content" class="widecolumn">
+				
+  	
+		<div class="navigation">
+			<div class="alignleft">« <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/13/continued-adventures-in-testing-validations/">Continued adventures in testing validations…</a></div>
+			<div class="alignright"><a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/testrails-and-rails_rcov/">Test::Rails and rails_rcov</a> »</div>
+		</div>
+	
+		<div class="post" id="post-20">
+			<h2><a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/" rel="bookmark" title="Permanent Link: Converting to using Test::Rails…">Converting to using Test::Rails…</a></h2>
+	
+			<div class="entrytext">
+				<p>So
+I've been playing with converting my tests from Test::Unit::TestCase
+derived to Test::Rails::[Controller|View]TestCase derived tests on two
+different Rails projects. I'm a big fan of the separated View and
+Controller tests. I'm also a fan of not having to use a testing
+nomenclature that bothers me (Rails' "Functional" Tests aren't really
+functional tests, rather they are unit tests for the actionpack.
+Personally, I'd prefer to be able to better mock/stub out the ORM
+portion of the model elements when testing controllers -- thus their
+role as unit tests would be even more explicity and less an near
+end-to-end action test. Ie, I'd want to set expectation on the finders
+to use "fixtures" in the test case as opposed to in the database.
+(Should also be faster compared to non-in-memory databases)</p>
+<p>However in converting to Test::Rails I ran into a few gotchas that I think are worth sharing.</p>
+<p>1. After following the instructions on How To Convert to Test::Rails
+that came with the gem, my unit tests were failing across the board.
+The reason, they couldn't find the custom assertions I had added to
+test_helper.rb. Obvious, of course, the unit tests still descended from
+Test::Unit not Test::Rails. First attempt at fixing was to change them
+to inherit from T::R. Now they found the assertions, but they failed as
+test methods didn't appear to be "sandboxed" -- changes made to the
+test database persisted between test methods.</p>
+<p>So my current work-around was to immediately close
+Test::Rails::TestCase in test_helper.rb and reopen
+Test::Unit::TestCase. Added my custom assertions to T::U::TC and
+changed the model unit tests back to use T::U::TC. Ok, they all pass
+now (as expected as they aren't using any of the new functionality now
+and they didn't need to.</p>
+<p>2. On-to functional tests... Now all of my functional tests have
+been pure controller tests so far anyways, so I thought this should be
+relatively simple.<br>
+  My envisioned steps:<br>
+    A) Copy a file from functional/ to controllers/<br>
+    B) Change the inherited string from T::U::TC to T::R::ControllerTestCase<br>
+    C) see what autotest picks up (expecting to have to change get calls to remove the session parameter, etc)</p>
+<p> Instead everything below up on the call to get, even for simple
+calls like "get :index". No session, flash, or parameters... What's
+going on? The error message made it sound like it was some kind of
+routing/dispatch error with the application being unable to decide what
+to do with :get.</p>
+<p>Stared at the example controller test code from the rdoc for
+T::R::CTC; oh, nice, the boilerplate setup is gone... Its probably
+being handled by the superclass and the old rails boilerplate is
+probably knocking it out. Lets try commenting out my whole setup.
+Passes. Add it back in, add a call to super and remove the three stock
+lines as another test. Passes. Ok, problem solved.</p>
+<p>Lesson Learned: Make sure to either remove the boilerplate setup, or
+remove the three boilerplate lines and replace them with a call to
+super before adding your own extra setup tasks. You can also remove
+everything between require "test_help" and the opening of the _test_
+class. (Test::Rails::FunctionalTestCase, the parent of
+ControllerTestCase, injects the rescue method and automatically finds
+and requires the class under test, so that boilerplate code is
+redundant)</p>
+<p>3. Shoot, the database problem has popped back up. Hmm lets try it
+out in rake test, instead of autotest. It passes. Interesting so
+autotest is somehow getting confused, not T::R... I haven't found the
+work around yet.</p>
+<p>4. Eric Hodel helped my pointing out that buried in the
+FunctionalTestCase docs is a reference to @controller_class_name that
+you can use if your class names don't follow the expected mapping of
+test class-&gt;production class defaults, that commonly happens because
+you've re-factored a given controller's tests to multiple test cases.
+I've cleaned up the provided code slightly to first</p>
+<div class="igBar"><span id="lruby-1"><a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/#" onclick="javascript:showPlainTxt('ruby-1'); return false;">PLAIN TEXT</a></span></div>
+<div class="syntax_hilite"><span class="langName">RUBY:</span><br>
+<div id="ruby-1">
+<div class="ruby">
+<ol>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(153, 102, 204); font-weight: bold;">def</span> setup</div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp;<span style="color: rgb(0, 0, 255); font-weight: bold;">return</span> <span style="color: rgb(153, 102, 204); font-weight: bold;">if</span> <span style="color: rgb(0, 0, 255); font-weight: bold;">self</span>.<span style="color: rgb(153, 102, 204); font-weight: bold;">class</span>.<span style="color: rgb(153, 0, 204);">to_s</span>.<span style="color: rgb(153, 0, 204);">tabelize</span> == File.<span style="color: rgb(153, 0, 204);">basename</span><span style="color: rgb(0, 102, 0); font-weight: bold;">(</span><span style="color: rgb(0, 0, 255); font-weight: bold;">__FILE__</span>,<span style="color: rgb(153, 102, 0);">".rb"</span><span style="color: rgb(0, 102, 0); font-weight: bold;">)</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp;@controller_class_name = File.<span style="color: rgb(153, 0, 204);">basename</span><span style="color: rgb(0, 102, 0); font-weight: bold;">(</span><span style="color: rgb(0, 0, 255); font-weight: bold;">__FILE__</span>,<span style="color: rgb(153, 102, 0);">"_test.rb"</span><span style="color: rgb(0, 102, 0); font-weight: bold;">)</span>.<span style="color: rgb(153, 0, 204);">classify</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(153, 102, 204); font-weight: bold;">end</span> </div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p>
+You would put this in an abstract test case that uses the normal naming
+and then have all your re-factored test cases extend this intermediate
+class. If you have only one or two controllers with multiple test
+cases, this is a workable solution.</p>
+<p>If you have many controllers with multiple test cases, the above
+violated DRY. Notice that the setup is identical for all abstract test
+cases, but relies on the magic __FILE__. My current, non-perfected
+solution is:</p>
+<div class="igBar"><span id="lruby-2"><a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/#" onclick="javascript:showPlainTxt('ruby-2'); return false;">PLAIN TEXT</a></span></div>
+<div class="syntax_hilite"><span class="langName">RUBY:</span><br>
+<div id="ruby-2">
+<div class="ruby">
+<ol>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(0, 128, 0); font-style: italic;"># defined in test_helper.rb</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(153, 102, 204); font-weight: bold;">class</span> MyControllerTest &lt;Test::Rails::ControllerTestCase</div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">def</span> setup<span style="color: rgb(0, 102, 0); font-weight: bold;">(</span>filename=<span style="color: rgb(153, 102, 0);">""</span><span style="color: rgb(0, 102, 0); font-weight: bold;">)</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: rgb(0, 0, 255); font-weight: bold;">return</span> <span style="color: rgb(153, 102, 204); font-weight: bold;">if</span> filename=<span style="color: rgb(153, 102, 0);">""</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: rgb(0, 0, 255); font-weight: bold;">return</span> <span style="color: rgb(153, 102, 204); font-weight: bold;">if</span> convert_classname = File.<span style="color: rgb(153, 0, 204);">basename</span><span style="color: rgb(0, 102, 0); font-weight: bold;">(</span>filename,<span style="color: rgb(153, 102, 0);">"_abstract.rb"</span><span style="color: rgb(0, 102, 0); font-weight: bold;">)</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; &nbsp; @controller_class_name = File.<span style="color: rgb(153, 0, 204);">basename</span><span style="color: rgb(0, 102, 0); font-weight: bold;">(</span>filename, <span style="color: rgb(153, 102, 0);">"_test_abstract.rb"</span><span style="color: rgb(0, 102, 0); font-weight: bold;">)</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">super</span><span style="color: rgb(0, 102, 0); font-weight: bold;">(</span><span style="color: rgb(0, 102, 0); font-weight: bold;">)</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">end</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; private</div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">def</span> convert_classname</div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: rgb(0, 0, 255); font-weight: bold;">self</span>.<span style="color: rgb(153, 102, 204); font-weight: bold;">class</span>.<span style="color: rgb(153, 0, 204);">to_s</span>.<span style="color: rgb(153, 0, 204);">tabelize</span>.<span style="color: rgb(153, 0, 204);">singularize</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">end</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(153, 102, 204); font-weight: bold;">end</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(0, 128, 0); font-style: italic;"># in *_test_abstract.rb (* = typical_controller, etc</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(204, 0, 102); font-weight: bold;">require</span> 'test_help'</div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(153, 102, 204); font-weight: bold;">def</span> TypicalControllerAbstractTest &lt;MyControllerTest</div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; fixtures :typicals&nbsp; <span style="color: rgb(0, 128, 0); font-style: italic;"># subclasses fixtures definitions _add_ to this list, not replace</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">def</span> setup</div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">super</span><span style="color: rgb(0, 102, 0); font-weight: bold;">(</span><span style="color: rgb(0, 0, 255); font-weight: bold;">__FILE__</span><span style="color: rgb(0, 102, 0); font-weight: bold;">)</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: rgb(0, 128, 0); font-style: italic;"># if you need to setup a session variable that all subclasses use, here is a good spot:)</span></div>
+</li>
+<li style="font-weight: bold; color: rgb(38, 83, 106);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;">&nbsp; <span style="color: rgb(153, 102, 204); font-weight: bold;">end</span></div>
+</li>
+<li style="font-family: 'Courier New',Courier,monospace; font-weight: normal; font-style: normal; color: rgb(58, 106, 139);">
+<div style="font-family: 'Courier New',Courier,monospace; font-weight: normal;"><span style="color: rgb(153, 102, 204); font-weight: bold;">end</span> </div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p>
+Now your "real" test cases just extend this abstract case, make sure to call super before any other setup!</p>
+<p>I'm still not perfectly happy, I'd like to get rid of the
+super(__FILE__), possibly by climbing the class's inheritance
+hierarchy. The intermediate abstract class, can still be useful as
+shown by the fixture definition and/or adding controller test case wide
+custom assertions or session setup. I'll also look into overriding the
+built-in controller generator to create these abstract classes as well
+as the correct parent for the stock test case.</p>
+	
+					
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						 
+						on Saturday, June 17th, 2006 at 2:41 pm						and is filed under <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/category/web-development/ruby-on-rails/" title="View all posts in Ruby on Rails" rel="category tag">Ruby on Rails</a>,  <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/category/testing/" title="View all posts in Testing" rel="category tag">Testing</a>,  <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/category/refactoring/" title="View all posts in Refactoring" rel="category tag">Refactoring</a>.
+						You can follow any responses to this entry through the <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/feed/">RSS 2.0</a> feed. 
+						
+													You can <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/#respond">leave a response</a>, or <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/trackback/" rel="trackback">trackback</a> from your own site.
+						
+												
+					</small>
+				</p>
+	
+			</div>
+		</div>
+		
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">One Response to “Converting to using Test::Rails…”</h3> 
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-9">
+			<cite><a href="http://web.archive.org/web/20070922135128/http://blog.floehopper.org/" rel="external nofollow">jamesmead</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/#comment-9" title="">August 25th, 2006 at 4:49 pm</a> </small>
+
+			<p>I totally sympathise with you when you say…</p>
+<p>&gt;Personally, I’d prefer to be able to better mock/stub<br>
+&gt;out the ORM portion of the model elements when<br>
+&gt; testing controllers — thus their role as unit tests<br>
+&gt; would be even more explicity and less an near<br>
+&gt; end-to-end action test.</p>
+<p>This is exactly why we’ve developed <a href="http://web.archive.org/web/20070922135128/http://mocha.rubyforge.org/" rel="nofollow">Mocha</a> which allows you to mock class methods like ActiveRecord’s create, save, destroy. Take a look.
+</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+<p>You must be <a href="http://web.archive.org/web/20070922135128/http://www.verticalexpressionsoftware.com/blog/wp-login.php?redirect_to=http://www.verticalexpressionsoftware.com/blog/2006/06/17/converting-to-using-testrails/">logged in</a> to post a comment.</p>
+
+	
+		
+	</div>
+
+
+<hr>
+<div id="footer">
+	<p>
+		Eric’s Random Thoughts is proudly powered by 
+		<a href="http://web.archive.org/web/20070922135128/http://wordpress.org/">WordPress</a>
+		<br><a href="http://web.archive.org/web/20070922135128/feed://http//www.verticalexpressionsoftware.com/blog/feed/">Entries (RSS)</a>
+		and <a href="http://web.archive.org/web/20070922135128/feed://http//www.verticalexpressionsoftware.com/blog/comments/feed/">Comments (RSS)</a>.
+		<!-- 15 queries. 0.415 seconds. -->
+	</p>
+</div>
+</div>
+
+<!-- Gorgeous design by Michael Heilemann - http://binarybonsai.com/kubrick/ -->
+
+		<!-- SOME SCRIPT SRC'S ON THIS PAGE HAVE BEEN REWRITTEN BY THE WAYBACK MACHINE
+OF THE INTERNET ARCHIVE IN ORDER TO PRESERVE THE TEMPORAL INTEGRITY OF THE SESSION. -->
+
+
+<!-- SOME LINK HREF'S ON THIS PAGE HAVE BEEN REWRITTEN BY THE WAYBACK MACHINE
+OF THE INTERNET ARCHIVE IN ORDER TO PRESERVE THE TEMPORAL INTEGRITY OF THE SESSION. -->
+
+
+<script language="Javascript">
+<!--
+
+// FILE ARCHIVED ON 20070922135128 AND RETRIEVED FROM THE
+// INTERNET ARCHIVE ON 20090309183151.
+// JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+// ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+// SECTION 108(a)(3)).
+
+   var sWayBackCGI = "http://web.archive.org/web/20070922135128/";
+
+   function xResolveUrl(url) {
+      var image = new Image();
+      image.src = url;
+      return image.src;
+   }
+   function xLateUrl(aCollection, sProp) {
+      var i = 0;
+      for(i = 0; i < aCollection.length; i++) {
+         var url = aCollection[i][sProp];         if (typeof(url) == "string") { 
+          if (url.indexOf("mailto:") == -1 &&
+             url.indexOf("javascript:") == -1
+             && url.length > 0) {
+            if(url.indexOf("http") != 0) {
+                url = xResolveUrl(url);
+            }
+            url = url.replace('.way_back_stub','');
+            aCollection[i][sProp] = sWayBackCGI + url;
+         }
+         }
+      }
+   }
+
+   xLateUrl(document.getElementsByTagName("IMG"),"src");
+   xLateUrl(document.getElementsByTagName("A"),"href");
+   xLateUrl(document.getElementsByTagName("AREA"),"href");
+   xLateUrl(document.getElementsByTagName("OBJECT"),"codebase");
+   xLateUrl(document.getElementsByTagName("OBJECT"),"data");
+   xLateUrl(document.getElementsByTagName("APPLET"),"codebase");
+   xLateUrl(document.getElementsByTagName("APPLET"),"archive");
+   xLateUrl(document.getElementsByTagName("EMBED"),"src");
+   xLateUrl(document.getElementsByTagName("BODY"),"background");
+   xLateUrl(document.getElementsByTagName("TD"),"background");
+   xLateUrl(document.getElementsByTagName("INPUT"),"src");
+   var forms = document.getElementsByTagName("FORM");
+   if (forms) {
+       var j = 0;
+       for (j = 0; j < forms.length; j++) {
+              f = forms[j];
+              if (typeof(f.action)  == "string") {
+                 if(typeof(f.method)  == "string") {
+                     if(typeof(f.method) != "post") {
+                        f.action = sWayBackCGI + f.action;
+                     }
+                  }
+              }
+        }
+    }
+
+
+//-->
+</script>
+
+</body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="{lang:}" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+  
+<!-- base href="http://rspec.info.way_back_stub/documentation/test_unit.html" -->
+
+    <title>RSpec-1.1.2: Test::Unit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="RSpec, {title: }, BDD, behaviour driven development, behavior driven development, TDD, test driven development, Ruby, Rails, testing, watir, selenium">
+
+    <!--- Blueprint CSS Framework
+    <link rel="stylesheet" href="http://web.archive.org/web/20080116100532/http://rspec.info/css/blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="http://web.archive.org/web/20080116100532/http://rspec.info/css/blueprint/print.css" type="text/css" media="print" /-->
+
+    <!-- CodeRay syntax highlighting CSS -->
+    <link rel="stylesheet" href="test_unit_files/coderay.css" type="text/css">
+
+    <!-- Homepage CSS -->
+    <link rel="stylesheet" href="test_unit_files/breadcrumbs.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="test_unit_files/default.css" type="text/css" media="screen, projection">
+
+    <style><!--
+    div.breadcrumbs ul li {
+    	background-image: url(/images/arrow.gif);
+    }
+    --></style>
+  </head><body>
+
+<div id="container">
+  <div id="header">
+    <h1>RSpec 1.1.2</h1>
+  </div>
+
+  <div class="breadcrumb-menu">      <div class="breadcrumbs">
+        <ul>
+        
+          
+            <li><a href="http://web.archive.org/web/20080116100532/http://rspec.info/">Overview</a></li>
+          
+        
+          
+            <li><a href="http://web.archive.org/web/20080116100532/http://rspec.info/documentation">Documentation</a></li>
+          
+        
+          
+            <li class="selected"><span>Test::Unit</span></li>
+          
+        
+        </ul>
+      </div>
+      <div class="menu">
+        <ul>
+        
+        
+        </ul>
+      </div>
+</div>
+
+  <div id="content">
+    <h2>Coming from Test::Unit to RSpec</h2>
+
+
+	<p>RSpec’s expectation API is a superset of Test::Unit’s assertion API. Use this table to
+find the RSpec equivalent of Test::Unit’s asserts.</p>
+
+
+	<table>
+		<tbody><tr>
+			<td> Test::Unit                                           </td>
+			<td> RSpec                           </td>
+			<td> Comment                             </td>
+		</tr>
+		<tr>
+			<td> assert(object)                                       </td>
+			<td> N/A                             </td>
+		</tr>
+		<tr>
+			<td> assert_block {...}                                   </td>
+			<td> lambda {...}.call.should be_true</td>
+		</tr>
+		<tr>
+			<td> assert_equal(expected, actual)                       </td>
+			<td> actual.should == expected       </td>
+			<td> Uses <code>==</code> </td>
+		</tr>
+		<tr>
+			<td> ’’                                                   </td>
+			<td> actual.should eql(expected)      </td>
+			<td> Uses <code>Object.eql?</code> </td>
+		</tr>
+		<tr>
+			<td> assert_in_delta(expected_float, actual_float, delta) </td>
+			<td> actual_float.should be_close(expected_float, delta) </td>
+		</tr>
+		<tr>
+			<td> assert_instance_of(klass, object)                    </td>
+			<td> actual.should be_an_instance_of(klass) </td>
+		</tr>
+		<tr>
+			<td> assert_match(pattern, string)                        </td>
+			<td> string.should match(regexp)     </td>
+		</tr>
+		<tr>
+			<td> ’’                                                   </td>
+			<td> string.should =~ regexp         </td>
+		</tr>
+		<tr>
+			<td> assert_nil(object)                                   </td>
+			<td> actual.should be_nil   </td>
+		</tr>
+		<tr>
+			<td> assert_no_match(regexp, string)                      </td>
+			<td> string.should_not match(regexp) </td>
+		</tr>
+		<tr>
+			<td> assert_not_equal(expected, actual)                   </td>
+			<td> actual.should_not eql(expected)       </td>
+			<td> Uses <code>!Object.eql?</code> </td>
+		</tr>
+		<tr>
+			<td> assert_not_nil(object)                               </td>
+			<td> actual.should_not be_nil       </td>
+		</tr>
+		<tr>
+			<td> assert_not_same(expected, actual)                    </td>
+			<td> actual.should_not equal(nil)    </td>
+			<td> Uses <code>Object.equal?</code> </td>
+		</tr>
+		<tr>
+			<td> assert_nothing_raised(<strong>args) {...}                   </strong></td>
+			<td> lambda {...}.should_not raise_error(Exception=nil, message=nil) </td>
+		</tr>
+		<tr>
+			<td> assert_nothing_thrown {...}                          </td>
+			<td> lambda {...}.should_not throw_symbol(symbol=nil) </td>
+		</tr>
+		<tr>
+			<td> assert_operator(object1, operator, object2)          </td>
+			<td> N/A </td>
+		</tr>
+		<tr>
+			<td> assert_raise(args) {...}                            </td>
+			<td> lambda {...}.should raise_error(Exception=nil, message=nil) </td>
+		</tr>
+		<tr>
+			<td> assert_raises(*args) {...}                           </td>
+			<td> lambda {...}.should raise_error(Exception=nil, message=nil) </td>
+		</tr>
+		<tr>
+			<td> assert_respond_to(object, method)                    </td>
+			<td> actual.should respond_to(method) </td>
+		</tr>
+		<tr>
+			<td> assert_same(expected, actual)                        </td>
+			<td> actual.should equal(expected)         </td>
+			<td> Uses <code>!Object.equal?</code> </td>
+		</tr>
+		<tr>
+			<td> assert_send(send_array)                              </td>
+			<td> N/A </td>
+		</tr>
+		<tr>
+			<td> assert_throws(expected_symbol, &amp;proc)                </td>
+			<td> lambda {...}.should throw_symbol(symbol=nil) </td>
+		</tr>
+		<tr>
+			<td> flunk(message=”Flunked”)                             </td>
+			<td> violated(message=nil) </td>
+		</tr>
+		<tr>
+			<td> N/A                                                  </td>
+			<td> actual.should_be_something </td>
+			<td> Passes if object.something? is true </td>
+		</tr>
+	</tbody></table>
+
+
+
+
+	<h2>Regarding Equality</h2>
+
+
+	<p>RSpec lets you express equality the same way Ruby does. This is different from
+Test::Unit and other xUnit frameworks, and this may cause some confusion for those
+of you who are making a switch.</p>
+
+
+	<p>Consider this example:</p>
+
+
+
+<div class="CodeRay"><pre>words = <span class="s"><span class="dl">"</span><span class="k">the words</span><span class="dl">"</span></span>
+assert_equals(<span class="s"><span class="dl">"</span><span class="k">the words</span><span class="dl">"</span></span>, words) <span class="c">#passes</span>
+assert_same(<span class="s"><span class="dl">"</span><span class="k">the words</span><span class="dl">"</span></span>, words) <span class="c">#fails</span>
+</pre></div>
+
+
+	<p>xUnit frameworks traditionally use method names like <code>#assert_equals</code> to
+imply object equivalence (objects with the same values) and method names like <code>#assert_same</code> to
+imply object identity (actually the same object). For programmers who are used to this syntax,
+it makes perfect sense to see this in a unit testing framework for Ruby.</p>
+
+
+	<p>The problem that we found is that Ruby handles equality differently from other languages. In
+java, for example, we override <code>Object#equals(other)</code> to describe object equivalence,
+whereas we use <code>==</code> to describe object identity. In Ruby, we do just the opposite.
+In fact, Ruby provides us with four ways to express equality:</p>
+
+
+
+<div class="CodeRay"><pre>a == b
+a === b
+a.equal?(b)
+a.eql?(b)
+</pre></div>
+
+
+	<p>Each of these has its own semantics, which can (and often do) vary from class to class. In
+order to minimize the translation required to understand what an example might be expressing,
+we chose to express these directly in RSpec. If you understand Ruby equality, then you
+can understand what RSpec examples are describing:</p>
+
+
+
+<div class="CodeRay"><pre>a.should == b      <span class="c">#passes if a == b</span>
+a.should === b     <span class="c">#passes if a === b</span>
+a.should equal(b)  <span class="c">#passes if a.equal?(b)</span>
+a.should eql(b)    <span class="c">#passes if a.eql?(b)</span>
+</pre></div>
+
+
+	<p>See <a href="http://web.archive.org/web/20080116100532/http://www.ruby-doc.org/core/classes/Object.html#M001057">http://www.ruby-doc.org/core/classes/Object.html#M001057</a> for
+more information about equality in Ruby.</p>
+    
+    <div id="footer">
+      Webdesign by <a href="http://web.archive.org/web/20080116100532/http://www.oswd.org/user/profile/id/9462">JM</a>
+      <div style="float: right;">
+        <table padding="2" border="0">
+          <tbody><tr>
+            <td align="right" valign="top">
+              <a href="http://web.archive.org/web/20080116100532/http://engineyard.com/">Hosted by our<br>good friends at<br>Engine Yard</a>
+            </td>
+            <td>
+              <a href="http://web.archive.org/web/20080116100532/http://engineyard.com/"><img src="test_unit_files/eylogo.htm" border="0"></a>
+            </td>
+          </tr>
+        </tbody></table>
+      </div>
+      <script type="text/javascript" language="JavaScript" src="test_unit_files/4386"></script>
+    </div>
+  </div>
+</div>
+
+<script src="test_unit_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1889510-1";
+urchinTracker();
+</script>
+<!-- SOME SCRIPT SRC'S ON THIS PAGE HAVE BEEN REWRITTEN BY THE WAYBACK MACHINE
+OF THE INTERNET ARCHIVE IN ORDER TO PRESERVE THE TEMPORAL INTEGRITY OF THE SESSION. -->
+
+
+<!-- SOME LINK HREF'S ON THIS PAGE HAVE BEEN REWRITTEN BY THE WAYBACK MACHINE
+OF THE INTERNET ARCHIVE IN ORDER TO PRESERVE THE TEMPORAL INTEGRITY OF THE SESSION. -->
+
+
+<script language="Javascript">
+<!--
+
+// FILE ARCHIVED ON 20080116100532 AND RETRIEVED FROM THE
+// INTERNET ARCHIVE ON 20090309180350.
+// JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+// ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+// SECTION 108(a)(3)).
+
+   var sWayBackCGI = "http://web.archive.org/web/20080116100532/";
+
+   function xResolveUrl(url) {
+      var image = new Image();
+      image.src = url;
+      return image.src;
+   }
+   function xLateUrl(aCollection, sProp) {
+      var i = 0;
+      for(i = 0; i < aCollection.length; i++) {
+         var url = aCollection[i][sProp];         if (typeof(url) == "string") { 
+          if (url.indexOf("mailto:") == -1 &&
+             url.indexOf("javascript:") == -1
+             && url.length > 0) {
+            if(url.indexOf("http") != 0) {
+                url = xResolveUrl(url);
+            }
+            url = url.replace('.way_back_stub','');
+            aCollection[i][sProp] = sWayBackCGI + url;
+         }
+         }
+      }
+   }
+
+   xLateUrl(document.getElementsByTagName("IMG"),"src");
+   xLateUrl(document.getElementsByTagName("A"),"href");
+   xLateUrl(document.getElementsByTagName("AREA"),"href");
+   xLateUrl(document.getElementsByTagName("OBJECT"),"codebase");
+   xLateUrl(document.getElementsByTagName("OBJECT"),"data");
+   xLateUrl(document.getElementsByTagName("APPLET"),"codebase");
+   xLateUrl(document.getElementsByTagName("APPLET"),"archive");
+   xLateUrl(document.getElementsByTagName("EMBED"),"src");
+   xLateUrl(document.getElementsByTagName("BODY"),"background");
+   xLateUrl(document.getElementsByTagName("TD"),"background");
+   xLateUrl(document.getElementsByTagName("INPUT"),"src");
+   var forms = document.getElementsByTagName("FORM");
+   if (forms) {
+       var j = 0;
+       for (j = 0; j < forms.length; j++) {
+              f = forms[j];
+              if (typeof(f.action)  == "string") {
+                 if(typeof(f.method)  == "string") {
+                     if(typeof(f.method) != "post") {
+                        f.action = sWayBackCGI + f.action;
+                     }
+                  }
+              }
+        }
+    }
+
+
+//-->
+</script>
+
+</body></html>
