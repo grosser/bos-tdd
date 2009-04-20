@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-ca"><head>
+
+
+
+
+
+
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+    <meta name="dc.creator" content="Government of Canada, National Research Council Canada, Institute for Information Technology">
+    <meta name="owner" content="Lemay, Vincent">
+    <meta name="owner" content="Hartford, Natalie">
+    <meta name="dc.language" scheme="ISO639-2" content="eng">
+    <meta name="dc.date.created" content="2004-10-05">
+
+    <meta name="dc.title" content="On the Effectiveness of Test-first Approach to Programming | Publications | NRC-IIT">
+    <title>On the Effectiveness of Test-first Approach to Programming | Publications | NRC-IIT</title>
+    <link rel="StyleSheet" href="nrc-47445_e_files/nrc-cnrc.css" type="text/css">
+    <style type="text/css" media="all">@import url(/css/percent.css);</style>
+
+
+<style type="text/css">
+a:visited { color: #669966; }
+</style>
+<script type="text/javascript" src="nrc-47445_e_files/swoosh.js"></script>
+	<!-- Generated Thu Apr 17 11:10:28 2008 -->
+</head><body stats="1" bgcolor="#ffffff">  
+
+<!-- updated February 2006 -->
+<!-- Start of DeepMetrix (.NET) StatScript -->
+<script language="javascript">
+
+var DMNETdomain = "";
+var DMNETpage = window.location;
+var DMNETversion = "86";
+var DMNETsendTo = "//livestats.iit.nrc.ca/dm.gif?";
+var DMNETsession;
+
+function dmneterr(){return true;}
+
+window.onerror=dmneterr;
+var s = new Date();
+
+if (navigator.userAgent.indexOf('Mac') >= 0 && s.getTimezoneOffset() >= 720)
+  s.setTime (s.getTime() - 1440*60*1000);
+
+var dmnetURL = location.protocol + DMNETsendTo+"v="+DMNETversion+"&vst=1";
+var dmnetCookieString = document.cookie.toString();
+
+if(dmnetCookieString.indexOf("_dmnid") == -1)
+  {
+    DMNETsession = parseInt( Math.random()*1000000 ) + "_" + s.getTime();
+    var domStr = "";
+    if(DMNETdomain != "")
+    {
+      domStr = "domain="+ DMNETdomain +";";
+    }
+    document.cookie = "_dmnid=" + DMNETsession + ";expires=Mon, 31-Dec-2008 00:00:00 GMT;"+domStr+"path=/;";
+  }
+dmnetCookieString = document.cookie.toString();
+if(dmnetCookieString.indexOf('_dmnid') == -1)
+  {
+    DMNETsession = "";
+  }
+else
+  {
+    if(dmnetCookieString.indexOf(';') == -1)
+      dmnetCookieString = dmnetCookieString.replace(/_dm/g, ';_dm');
+
+    var start = dmnetCookieString.indexOf("_dmnid=") + 7;
+    var end = dmnetCookieString.indexOf(";",start);
+
+    if (end == -1)
+      end = dmnetCookieString.length;
+    DMNETsession = unescape(dmnetCookieString.substring(start,end));
+  }
+dmnetURL += "&id="+DMNETsession+"&url="+escape(DMNETpage) + "&ref="+escape(document.referrer)+"&lng=" + ((!document.all ||  navigator.userAgent.match('Opera')) ? navigator.language : navigator.userLanguage) + "&tz=" + (Math.round(new Date('dec 1, 2002').getTimezoneOffset()/60)*-1);
+if(screen)
+  dmnetURL += "&scr=" + escape( screen.width + "x" + screen.height + " " + screen.colorDepth + "bpp" );
+
+dmnetURL += "&rnd=" + new Date().getTime();
+
+if(document.layers)
+{
+  document.write("<la"+"yer name=\"DMStats\" visibility=hide><img src=\""+dmnetURL+"\" height=1 width=1></la"+"yer>");
+}
+else
+{
+  document.write("<di"+"v id=\"DMStats\" STYLE=\"position:absolute;visibility:hidden;\"><img src=\""+dmnetURL+"\" height=1 width=1></di"+"v>");
+}
+
+</script><div id="DMStats" style="position: absolute; visibility: hidden;"><img src="nrc-47445_e_files/dm.gif" width="1" height="1"></div>
+
+<!-- End of DeepMetrix (.NET) StatScript -->
+
+<!-- Start of DeepMetrix (.NET) StatScript Link Tracking Module -->
+<script language="javascript">
+var DMNETlinkImg;
+var DMNETLversion = 94;
+function LinkTrack(e)
+{
+	  if (!e) var e = window.event;
+
+	  var LinkObj, Target;
+
+	  if (e.target) Target = e.target;
+	  else if (e.srcElement) Target = e.srcElement;
+
+	  if (Target.nodeType == 3) // defeat Safari bug
+		  Target = Target.parentNode;
+
+	  var LinkObj = DMGetLinkObj( Target );
+
+	  if ( ! LinkObj )
+	    return;
+
+	  var OnClick = "";
+	  var URL     = "";
+
+	  if ( LinkObj.onclick )
+	  {
+	    OnClick = LinkObj.onclick.toString().toLowerCase();
+	    URL     = LinkObj.href;
+	  }
+	  else if ( LinkObj.getAttribute && LinkObj.getAttribute( "onclick" ) )
+	  {
+	      OnClick = LinkObj.getAttribute( "onclick" ).toString().toLowerCase();
+	      URL     = LinkObj.getAttribute( "href" ).toString();
+	  }
+	  if ( OnClick.indexOf( "dmnetclick" ) > -1 || OnClick.indexOf( "dmclick" ) > -1 )
+	  {
+
+        var __DMSID;
+
+        try
+        { __DMSID = DMsession; }
+        catch(e)
+        { __DMSID = DMNETsession; }
+
+        var __DMSENTTO;
+        try
+        { __DMSENTTO = DMsendTo; }
+        catch(e)
+        { __DMSENTTO = DMNETsendTo; }
+
+
+        if(URL.indexOf('http') > 0)
+        {
+          var mat = URL.match(/http[^"'()]*/);
+          if(mat != "" )
+            URL = mat;
+        }
+
+        var n = new Date();
+        DMNETlinkImg = new Image();
+        DMNETlinkImg.src = location.protocol+__DMSENTTO+"v="+DMNETLversion+"&id=" + __DMSID+ "&lnk=" + escape(URL) + "&rnd="  +  n.getTime();
+        Hold();
+  	}
+
+    return true;
+};
+
+function DMGetLinkObj( Obj )
+{
+
+    while( Obj && Obj.nodeName.toLowerCase() != "a" )
+    {
+        if (Obj.parentNode)
+          Obj = Obj.parentNode;
+	      else if (Obj.parentElement)
+	        Obj = Obj.parentElement;
+	      else
+	        Obj = null;
+    }
+
+    return Obj;
+}
+
+
+function Hold()
+{
+  if(DMNETlinkImg.readyState)
+    {
+      var secureCount = 0;
+      while(DMNETlinkImg.readyState != 'complete')
+        {
+          if(secureCount > 10000)
+            break;
+          secureCount++;
+        }
+    }
+  else
+    {
+      var endAt = new Date().getTime() + 250;
+      var rightNow;
+      while(true)
+        {
+          rightNow = new Date();
+          if(rightNow.getTime() >= endAt)
+            break;
+        }
+    }
+};
+if(document.layers || (!document.layers && !document.all))
+  {
+    if(document.layers)
+      {document.captureEvents(Event.MOUSEDOWN);}
+    document.onmousedown=LinkTrack;
+  }
+else
+  {document.onmouseup=LinkTrack;}
+
+</script>
+
+<!-- End of DeepMetrix (.NET) StatScript Link Tracking Module -->
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="600"><!-- noindex -->
+
+    <tbody><tr>
+        <td class="imgcell" width="150"><img src="nrc-47445_e_files/spacer.gif" alt="" width="150" height="1"></td>
+        <td class="imgcell" width="450"><img src="nrc-47445_e_files/spacer.gif" alt="" width="450" height="1"></td>
+    </tr>
+
+    <tr>
+        <td class="imgcell" align="left" valign="top" width="150">
+            <a name="top" id="top"></a><img src="nrc-47445_e_files/mainFIP1_e.gif" alt="National Research Council Canada" width="132" height="44"><a href="#content"><img src="nrc-47445_e_files/spacer.gif" alt="Skip all menus" border="0" width="1" height="1"></a><a href="#skipnav"><img src="nrc-47445_e_files/spacer.gif" alt="Skip first menu" border="0" width="1" height="1"></a><a href="#menu">
+          <img src="nrc-47445_e_files/spacer.gif" alt="Menu" border="0" width="1" height="1"></a>
+        <img src="nrc-47445_e_files/spacer.gif" alt="" border="0" width="1" height="1"></td><td class="imgcell" align="right">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr><td align="left"><img src="nrc-47445_e_files/mainFIP2_e.gif" alt="National Research Council Canada" width="231" height="44"></td><td align="right" width="93"><img src="nrc-47445_e_files/mainWordmark.gif" alt="Government of Canada" width="93" height="44"></td></tr></tbody></table>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="imgcell" width="150">
+
+        <img src="nrc-47445_e_files/iit_sidenav_graphictop_e.gif" alt="NRC-IIT - Institute for Information Technology" height="54"></td>
+
+        <td>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+    <tbody><tr>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="87" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="87" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="97" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="87" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+            <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="87" height="1"></td>
+        </tr>
+
+
+
+    <tr>
+        <td class="menuBlack"><a name="menu" hreflang="fr" href="http://iit-iti.nrc-cnrc.gc.ca/publications/nrc-47445_f.html" lang="fr-ca">Français</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuBlack"><a href="http://iit-iti.nrc-cnrc.gc.ca/contact_e.html">Contact Us</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuBlack"><a href="http://iit-iti.nrc-cnrc.gc.ca/help-aide_e.html">Help</a></td>
+
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuBlack"><a href="http://iit-iti.nrc-cnrc.gc.ca/search-recherche_e.html">Search</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuBlack"><a href="http://canada.gc.ca/main_e.html">Canada Site</a></td>
+    </tr>
+
+    <tr>
+        <td class="imgcell" colspan="9"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="2"></td>
+    </tr>
+
+    <tr>
+        <td class="menuColoured"><a href="http://iit-iti.nrc-cnrc.gc.ca/index_e.html">Home</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuColoured"><a href="http://iit-iti.nrc-cnrc.gc.ca/about-sujet/index_e.html">About Us</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuColoured"><a href="http://iit-iti.nrc-cnrc.gc.ca/iit-publications-iti/index_e.html">Publications</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+
+        <td class="menuColoured"><a href="http://iit-iti.nrc-cnrc.gc.ca/careers-carrieres/index_e.html">Careers</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuColoured"><a href="http://www.nrc-cnrc.gc.ca/main_e.html">NRC Site</a></td>
+    </tr>
+
+    <tr>
+        <td class="imgcell" colspan="9"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+    </tr>
+
+    <tr>
+
+        <td class="menuColoured2nd"><a href="http://iit-iti.nrc-cnrc.gc.ca/r-d/index_e.html">Research</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuColoured2nd"><a href="http://iit-iti.nrc-cnrc.gc.ca/iit-personnel-iti/index_e.html">People</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuColoured2nd"><a href="http://iit-iti.nrc-cnrc.gc.ca/business-affaire/index_e.html">Doing Business</a></td>
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuColoured2nd"><a href="http://iit-iti.nrc-cnrc.gc.ca/locations-bureaux/index_e.html">Locations</a></td>
+
+        <td class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+        <td class="menuColoured2nd"><a href="http://iit-iti.nrc-cnrc.gc.ca/new-neuf/index_e.html">What's New</a></td>
+    </tr>
+
+    <tr>
+        <td class="imgcell" colspan="9"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="1"></td>
+    </tr>
+
+</tbody></table>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td class="imgcell" valign="top" width="150">
+            <div class="ibpident"><a name="skipnav" id="skipnav"><img src="nrc-47445_e_files/iit_sidenav_graphicbottom_e.gif" alt="NRC-IIT - Institute for Information Technology"></a></div>
+
+<a name="skipnav" id="skipnav">      
+    <!-- quick search -->
+        </a><form name="navSearch" action="http://index.nrc-cnrc.gc.ca/cgi-bin/search-recherche.cgi" method="get">
+<a name="skipnav" id="skipnav">        <input name="collection" value="nrc_exnet" type="hidden">
+        <input name="form" value="iit_e" type="hidden">
+        <input name="simple" value="true" type="hidden">
+        </a><table border="0" cellpadding="0" cellspacing="0" width="132">
+        <tbody><tr><td colspan="2" align="left"><span style="font-size: 80%; font-family: verdana,univers,arial,helvetica,sans-serif; font-weight: bold; line-height: 100%; text-decoration: none; color: rgb(51, 102, 102);">&nbsp;&nbsp;<label for="navQuery">Search</label></span></td></tr>
+        <tr><td colspan="2" align="right"><input size="10" name="query" id="navQuery" value="" style="width: 125px; height: 20px; font-size: 75%;" type="text"></td></tr>
+        <tr><td class="small"><span class="small"><input value="" name="scope" id="n_nrc" checked="checked" type="radio"><label for="n_nrc">All NRC</label></span></td>
+        	<td align="right"><input value="Go" title="Go" style="width: 25px; height: 20px; font-size: 75%;" type="submit"></td></tr>
+        <tr><td class="small" colspan="2"><span class="small"><input value="iit-iti.nrc-cnrc.gc.ca" name="scope" id="n_ibp" type="radio"><label for="n_ibp">This site</label></span></td></tr>
+        </tbody></table>
+<a name="skipnav" id="skipnav">        </a></form>
+<a name="skipnav" id="skipnav">      
+
+        </a><table border="0" cellpadding="0" cellspacing="0" width="132">
+            <tbody><tr><td class="imgcell" colspan="3"><img src="nrc-47445_e_files/spacer.gif" alt="" width="132" height="8"></td></tr>
+            <tr><td class="imgcell" colspan="3"><img src="nrc-47445_e_files/sidenav_line.gif" alt="" width="132" height="1"></td></tr>
+
+<tr><td class="imgcell" width="5"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="26"></td><td align="right" valign="middle" width="115"><a class="sidenavlevel1" href="http://iit-iti.nrc-cnrc.gc.ca/publications/year-annee/index_e.html">List by Year</a></td><td width="12"><img src="nrc-47445_e_files/arrow_black.gif" alt="" width="10" height="10"></td></tr>
+<tr><td class="imgcell" colspan="3"><img src="nrc-47445_e_files/sidenav_line.gif" alt="" width="132" height="1"></td></tr>
+
+<tr><td class="imgcell" width="5"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="26"></td><td align="right" valign="middle" width="115"><a class="sidenavlevel1" href="http://iit-iti.nrc-cnrc.gc.ca/publications/groups-groupes/index_e.html">List by Group</a></td><td width="12"><img src="nrc-47445_e_files/arrow_black.gif" alt="" width="10" height="10"></td></tr>
+<tr><td class="imgcell" colspan="3"><img src="nrc-47445_e_files/sidenav_line.gif" alt="" width="132" height="1"></td></tr>
+
+<tr><td class="imgcell" width="5"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="26"></td><td align="right" valign="middle" width="115"><a class="sidenavlevel1" href="http://iit-iti.nrc-cnrc.gc.ca/publications/author-auteur/index_e.html">List by Author</a></td><td width="12"><img src="nrc-47445_e_files/arrow_black.gif" alt="" width="10" height="10"></td></tr>
+<tr><td class="imgcell" colspan="3"><img src="nrc-47445_e_files/sidenav_line.gif" alt="" width="132" height="1"></td></tr>
+
+<tr><td class="imgcell" width="5"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="26"></td><td align="right" valign="middle" width="115"><a class="sidenavlevel1" href="http://iit-iti.nrc-cnrc.gc.ca/publications/project-projet/index_e.html">List by Project</a></td><td width="12"><img src="nrc-47445_e_files/arrow_black.gif" alt="" width="10" height="10"></td></tr>
+<tr><td class="imgcell" colspan="3"><img src="nrc-47445_e_files/sidenav_line.gif" alt="" width="132" height="1"></td></tr>
+
+<tr><td class="imgcell" width="5"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="26"></td><td align="right" valign="middle" width="115"><a class="sidenavlevel1" href="http://iit-iti.nrc-cnrc.gc.ca/iit-publications-iti/patents-brevets/index_e.html">Patents</a></td><td width="12"><img src="nrc-47445_e_files/arrow_black.gif" alt="" width="10" height="10"></td></tr>
+
+<tr><td class="imgcell" colspan="3"><img src="nrc-47445_e_files/sidenav_line.gif" alt="" width="132" height="1"></td></tr>
+        </tbody></table>
+
+<a name="skipnav" id="skipnav">        </a><table class="featureBox" border="0" cellpadding="5" cellspacing="0" width="132">
+                  <tbody><tr class="featureBoxHeader">
+                    <td><label for="query1">Search Publications</label></td>
+                  </tr>
+                  <tr valign="top">
+                    <td><form name="simpleSearch" action="http://index.nrc-cnrc.gc.ca/cgi-bin/search-recherche.cgi" method="get">
+						<input value="nrc_exnet" name="collection" type="hidden">
+						<input value="iit_e" name="form" type="hidden">
+						<input name="simple" value="true" type="hidden">
+						<input value="true" name="sub" type="hidden">
+                        <input value="iit-iti.nrc-cnrc.gc.ca/publications" name="scope" type="hidden">
+                        <input name="scope" id="scope3" value="iit-iti.nrc-cnrc.gc.ca/iit-publications-iti/docs" type="checkbox"><label for="scope3"><span class="smaller">Also Search PDFs</span></label><br>
+                        <div align="right"><input name="query" id="query1" size="7" style="width: 115px;" value="" type="text">
+                        <input value="Go" type="submit"></div></form>
+                    </td>
+                  </tr>
+        </tbody></table>
+
+<a name="skipnav" id="skipnav">        
+
+        </a><table style="margin-left: 10px; margin-top: 15px;" border="0" cellpadding="0" cellspacing="0" width="122">
+            <tbody><tr valign="top">
+                <td width="30"><a href="http://iit-iti.nrc-cnrc.gc.ca/publications/nrc-47445-print_e.html"><img src="nrc-47445_e_files/print.gif" alt="Printable version" border="0" width="26" height="20"></a></td>
+                <td width="95"><a class="smaller_noline_bold" style="text-align: left;" href="http://iit-iti.nrc-cnrc.gc.ca/publications/nrc-47445-print_e.html"><strong>Printable <br>version</strong></a></td>
+            </tr>
+        </tbody></table>
+
+<a name="skipnav" id="skipnav">        </a></td>
+<!-- endnoindex -->
+
+
+        <!-- start main content -->
+        <td valign="top">
+
+
+            <div style="margin-left: 5px;">
+            <a class="breadcrumb" href="http://iit-iti.nrc-cnrc.gc.ca/index_e.html">Home</a><span class="smaller">&nbsp;|&nbsp;</span><a class="breadcrumb" href="http://iit-iti.nrc-cnrc.gc.ca/iit-publications-iti/index_e.html">Publications</a>
+
+
+
+
+            <a name="content" id="content"></a>
+            <h1>Publications</h1>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody><tr>
+	<td valign="top" width="100%">
+<h2><strong>On the Effectiveness of Test-first Approach to Programming</strong></h2>
+<p><strong>Author:</strong> <a href="http://iit-iti.nrc-cnrc.gc.ca/personnel/erdogmus_hakan_e.html">Erdogmus, H.</a> <br>
+<strong>Source:</strong> Proceedings of the IEEE Transactions on Software Engineering, 31(1). January 2005.<br>
+<strong>NRC Publication Number:</strong> NRC 47445.</p>
+<h4>Abstract</h4>
+<p>Test-Driven Development (TDD) is based on formalizing a piece of
+functionality as a test, implementing the functionality such that the
+test passes, and iterating the process. This paper describes a
+controlled experiment for evaluating an important aspect of TDD: In
+TDD, programmers write functional tests before the corresponding
+implementation code. The experiment was conducted with undergraduate
+students. While the experiment group applied a test-first strategy, the
+control group applied a more conventional development technique,
+writing tests after the implementation. Both groups followed an
+incremental process, adding new features one at a time and regression
+testing them. We found that test-first students on average wrote more
+tests and, in turn, students who wrote more tests tended to be more
+productive. We also observed that the minimum quality increased
+linearly with the number of programmer tests, independent of the
+development strategy employed.</p>
+<p><strong>Keywords:</strong> general programming techniques, coding
+tools and techniques, testing and debugging, testing strategies,
+productivity, Software Quality/SQA, software engineering process,
+programming paradigms</p>
+<p><a href="http://iit-iti.nrc-cnrc.gc.ca/iit-publications-iti/docs/NRC-47445.pdf" onclick="dmnetclick=1;"><strong>Download NRC-IIT's publication NRC-47445.pdf (557 KB) in PDF format.</strong></a><br><br></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+							<tbody><tr><td class="featureBoxHeader">Disclaimer</td></tr><tr>
+							<td class="featureBox"><p>Please
+note that all downloadable files in this section of the Web site are
+provided in their original language and in PDF format.</p>
+							<p>If you do not have <a href="http://www.adobe.com/products/acrobat/readstep2.html">Adobe Acrobat Reader installed on your computer, you may also download it from this page</a>, or you may convert the file to HTML or ASCII text by using one of the <a href="http://access.adobe.com/">access services provided by Adobe</a>. </p></td>
+							</tr></tbody></table></td></tr></tbody></table>
+
+
+
+        </div>
+        </td>
+
+<!-- end main content -->
+
+    </tr>
+<!-- noindex -->
+
+    <tr>
+        <td class="imgcell" valign="top" width="150"><img src="nrc-47445_e_files/spacer.gif" alt="" width="132" height="6"><img src="nrc-47445_e_files/spacer.gif" alt="" border="0" width="132" height="65"></td>
+
+
+
+        <td class="imgcell" valign="top"><hr style="margin-top: 24px; height: 0px; color: rgb(0, 0, 0);"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody><tr><td colspan="3" class="imgcell"><img src="nrc-47445_e_files/spacer.gif" alt="" width="1" height="5"></td></tr>
+                <tr>
+                    <td valign="top"><div class="smaller">This database is updated continuously.</div></td>
+                    <td class="smaller" valign="top"><a href="#top" class="nofade">Top of Page</a></td>
+                    <td valign="top"><div class="smaller" align="right"><a href="http://iit-iti.nrc-cnrc.gc.ca/notices-avis_e.html">Important Notices</a></div></td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+<!-- endnoindex -->
+
+</tbody></table>
+</body></html>

@@ -1,0 +1,684 @@
+/* NRC-IIT Style sheet */
+body, div, p, a { 
+  	font-size: 12pt;
+  	color: #000000; 
+  	font-family: arial, helvetica, sans-serif;
+}
+
+body {
+	margin: 0 0 0 0;
+  	background: #FFFFFF;
+}
+
+p {
+	font-size: 12pt;
+	font-family: arial, helvetica, sans-serif;
+}
+
+.normalText {
+	font-size: 12pt;
+	font-family: arial, helvetica, sans-serif;
+}
+
+td { font-family: arial, helvetica, sans-serif;
+font-size:  12pt; }
+
+
+img { border-style: none; }
+
+
+ul {
+	list-style: square;
+	font-family: arial, helvetica, sans-serif;
+}
+
+li {
+	font-size: 12pt;
+	font-family: arial, helvetica, sans-serif;
+}
+
+h1 {
+	font-size: 15pt;
+	font-family: verdana, geneva, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #336666;
+	border-bottom: 2px solid #000000;
+	/* margin-bottom: 0%; */
+	padding-bottom: 0.25%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 2px solid #669966;
+	padding-top: 0.25%;
+}
+
+h2 {
+	font-size: 13pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	color: #339999;
+	margin-bottom : -15px;
+}
+
+h3 {
+	font-size: 12pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	margin-bottom : -15px;
+	color: #669966;
+}
+
+h4 {
+	font-size: 12pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	margin-bottom: 0%;
+	color: #336666;
+	margin-bottom : 10px;
+	border-bottom : 1px solid #336666;
+}
+h5 {
+	font-size: 12pt;
+	font-family: Times New Roman, Times, serif;
+	font-weight : bolder;
+	margin-bottom: 0%;
+	color: #336666;
+	border-bottom : 1px solid #336666;
+}
+
+/* Link Styles */
+a:link { color: #336666;  }
+a:visited { color: #669966; }
+a:hover { color: #336666;  text-decoration: underline;}
+a:active { color: #336666; }
+a.noline { text-decoration: none; }
+a.bold { font-weight : bold; }
+a.bold_noline { font-weight : bold; text-decoration: none; font-size:  8pt;  }
+a.bold_noline:hover {text-decoration: underline;}
+
+a.small { font-size:  10pt; }
+a.small_bold { font-weight : bold; 	font-size:  10pt; }
+a.small_noline { font-size:  10pt; text-decoration: none; }
+a.small_noline:hover { text-decoration: underline;}
+a.small_noline_bold { font-weight : bold; font-size:  10pt; text-decoration: none; }
+a.small_noline_bold:hover { text-decoration: underline;}
+
+
+a.smaller { font-size:  8pt; }
+a.smaller_bold { font-weight : bold; 	font-size:  8pt; }
+a.smaller_noline { font-size:  8pt; text-decoration: none; }
+a.smaller_noline:hover { text-decoration: underline;}
+a.smaller_noline_bold { font-weight : bold; font-size:  8pt; text-decoration: none; }
+a.smaller_noline_bold:hover { text-decoration: underline;}
+
+a.features { 
+	color: #336666; 
+	font-size: 8pt; 
+	text-decoration:  none; 
+}
+a.viewFullSize { 
+	color: #336666;
+	font-size: 8pt;
+	text-decoration: none;
+	text-align: center;
+}
+a.people {
+	color: #336666;
+	text-decoration:  none;
+	font-weight : bold;
+}
+a.achievers {
+	color: #000000;
+	text-decoration:  none;
+	font-weight : bold;
+	font-size:  8pt;
+}
+a.header2 {
+	font-size: 13pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	color: #339999;
+	margin-bottom : -15px;
+}
+a.highlight {
+	font-weight : bold;
+	color: #993366;
+}
+a.highlight:visited { color: gray; }
+
+a.highlight:link { color: #993366; }
+
+a.highlight:hover { color: gray; }
+
+/* Breadcrumb link styles */
+
+.breadcrumb { font-size: 8pt; font-family: arial, helvetica, sans-serif; font-weight: bold;}
+a.breadcrumb:link { color: #669966; }
+a.breadcrumb:visited {	color: #669966; }
+a.breadcrumb:hover { text-decoration: none; }
+a.breadcrumb:active { color: #669966; }
+
+
+/* Side-navigation button link styles */
+a.sidenavlevel1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	line-height: 100%;
+	color: #000000;
+	text-decoration: none;
+	text-align: right;
+	display: block; /* Make clickable area fill the button */
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+a.sidenavlevel1 { color: #000000; }
+a.sidenavlevel1:visited { color: #000000; }
+a.sidenavlevel1:active { color: #000000; }
+a.sidenavlevel1:hover {
+	color: #993300;
+}
+
+a.sidenavlevel1act {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	line-height: 100%;
+	color: #ff0000;
+	text-decoration: none;
+	text-align: right;
+	display: block;
+	/* Make clickable area fill the button */
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+/* Specify that sidenav shouldn't fade to grey when visited */
+a.sidenavlevel1act { color: #993300; }
+a.sidenavlevel1act:visited { color: #993300; }
+a.sidenavlevel1act:active { color: #993300; }
+a.sidenavlevel1act:hover { color: #993300; }
+
+/* Side-navigation SECOND LEVEL button link styles */
+a.sidenavlevel2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	line-height: 100%;
+	color: #000000;
+	text-decoration: none;
+	text-align: right;
+	display: block;
+	/* Make clickable area fill the button */
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color : #669966;
+}
+
+/* Specify that sidenav SECOND LEVEL shouldn't fade to grey when visited */
+a.sidenavlevel2 { color: #000000; }
+a.sidenavlevel2:visited { color: #000000; }
+a.sidenavlevel2:active { color: #FFFFFF; }
+a.sidenavlevel2:hover { color: #CCCC66; }
+
+a.sidenavlevel2act {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	line-height: 100%;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-align: right;
+	display: block;
+	/* Make clickable area fill the button */
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color : #669966;
+}
+
+/* Specify that sidenav SECOND LEVEL shouldn't fade to grey when visited */
+a.sidenavlevel2act { color: #FFFFFF; }
+a.sidenavlevel2act:visited { color: #FFFFFF; }
+a.sidenavlevel2act:active { color: #FFFFFF; }
+a.sidenavlevel2act:hover { color: #FFFFFF; }
+
+.sidenavlevel2 {
+	background : #9999CC;
+}
+
+/* Side-navigation THIRD LEVEL button link styles */
+a.sidenavlevel3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	line-height: 100%;
+	color: #000000;
+	text-decoration: none;
+	text-align: right;
+	display: block; /* Make clickable area fill the button */
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color : #CCCC66;
+}
+
+/* Specify that sidenav THIRD LEVEL shouldn't fade to grey when visited */
+a.sidenavlevel3 { color: #000000; }
+a.sidenavlevel3:visited { color: #000000; }
+a.sidenavlevel3:active { color: #000000; }
+a.sidenavlevel3:hover { color: #336666; }
+
+a.sidenavlevel3act {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	line-height: 100%;
+	color: #336666;
+	text-decoration: none;
+	text-align: right;
+	display: block; /* Make clickable area fill the button */
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color : #CCCC66;
+}
+
+/* Specify that sidenav THIRD LEVEL shouldn't fade to grey when visited */
+a.sidenavlevel3act { color: #336666; }
+a.sidenavlevel3act:visited { color: #336666; }
+a.sidenavlevel3act:active { color: #336666; }
+a.sidenavlevel3act:hover { color: #336666; }
+
+
+.sidenavlevel3 {
+	background : Silver;
+}
+
+/* Top-navigation link styles */
+/* menuBlack and menuColoured are classes applied to the <td> tags that contain the top-nav links
+   The <a> tags that inherit from them are also styled to look as good as possible in all browsers
+   The menuColouredDoubleWidth class is for horizontally-joined buttons */
+
+.menuBlack {
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 9pt;
+	color : #999999;
+	background-color : #000000;
+	padding: 0px 2px 0px 3px;
+	width : 20%;
+}
+
+.menuBlack a {
+	padding: 1px;
+	margin: 0px;
+	color: #ffffff;
+	background-color: #000000;
+	text-decoration: none;
+	display: block;
+	width: 95%;
+}
+.menuBlack a:visited { color: #ffffff; }
+.menuBlack a:active { color: #ffffff; }
+.menuBlack a:hover { color: #ffffff; }
+
+/* this is for the online licensing application in order to be able to gray out the language button */
+.menuGray {
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 9pt;
+	color : #ffffff;
+	background-color : #CCCCCC;
+	padding: 0px 2px 0px 3px;
+	width : 20%;
+}
+
+.menuGray a {
+	padding: 1px;
+	margin: 0px;
+	color: #ffffff;
+	background-color: #CCCCCC;
+	text-decoration: none;
+	display: block;
+	width: 95%;
+}
+.menuGray a:visited { color: #ffffff; }
+.menuGray a:active { color: #ffffff; }
+.menuGray a:hover { color: #ffffff; }
+
+/* Institutional Menu Bar 1rst Level navigation link styles  - aka dark purple bar*/
+
+.menuColoured {
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 9pt;
+	color : #FFFFFF;
+	background-color : #336666;
+	padding: 0px 2px 0px 3px;
+	width : 20%;
+}
+
+.menuColoured a {
+	color: #FFFFFF;					/* Foreground colour of inst menu bar links */
+	background-color: #336666;		/* Background colour of inst menu bar links */
+	text-decoration: none;
+	padding: 1px;
+	margin: 0;
+	display: block;
+	width: 95%;
+}
+.menuColoured a:visited 	{ color: #FFFFFF; }
+.menuColoured a:active 	{ color: #FFFFFF; }
+.menuColoured a:hover 	{ color: #FFFFFF; }
+
+	
+/* Institutional Menu Bar 2nd Level navigation link styles  - aka light purple bar*/
+
+.menuColoured2nd {
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 9pt;
+	color : #FFFFFF;
+	background-color : #336666;
+	padding: 0px 2px 0px 3px;
+	width : 20%;
+}
+
+.menuColouredDoubleWidth2nd {
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 9pt;
+	color : #FFFFFF;
+	background-color : #336666;
+	padding: 0px 2px 0px 3px;
+	width : 40%;
+}
+
+.menuColoured2nd a {
+	color: #FFFFFF;					/* Foreground colour of inst menu bar links */
+	background-color: #336666;		/* Background colour of inst menu bar links */
+	text-decoration: none;
+	padding: 1px;
+	margin: 0;
+	display: block;
+	width: 95%;
+}
+.menuColoured2nd a:visited 	{ color: #FFFFFF; }
+.menuColoured2nd a:active 	{ color: #FFFFFF; }
+.menuColoured2nd a:hover 	{ color: #FFFFFF; }
+
+	
+.menuColouredDoubleWidth2nd a {
+	color: #FFFFFF;					/* Foreground colour of inst menu bar links */
+	background-color: #9999CC;		/* Background colour of inst menu bar links */
+	text-decoration: none;
+	padding: 1px;
+	margin: 0;
+	display: block;
+	width: 95%;
+}
+.menuColouredDoubleWidth2nd a:visited 	{ color: #FFFFFF; }
+.menuColouredDoubleWidth2nd a:active 	{ color: #FFFFFF; }
+.menuColouredDoubleWidth2nd a:hover 	{ color: #FFFFFF; }
+
+/* Text Formatting Styles */
+.news_headings {
+	font-size: 8pt;
+	font-weight:  bold;
+	color:  #336666;
+}
+
+.purple { 
+	color: #336666;
+	font-weight: bold;
+	font-size:  11pt;
+	text-decoration:  none;
+}
+
+.red { color: #FF0000;}
+.red_bold { 
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.small { font-size:  10pt; }
+.small_bold { font-weight : bold; 	font-size:  10pt; }
+
+.smaller { font-size:  8pt; }
+.smaller_bold { font-weight : bold; 	font-size:  8pt; }
+
+.quote {
+	font-size: 8pt;
+	color: #336666;
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	text-align : justify;
+}
+.quoteCenter {
+	font-size: 8pt;
+	color: #336666;
+	font-family : Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	text-align : center;
+}
+.returnToCentered{
+	text-align : center;
+	font-size: 8pt;
+}
+.header2 {
+	font-size: 13pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	margin-bottom : -15px;
+	color: #339999;
+}
+.header3 {
+	font-size: 12pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	margin-bottom : -15px;
+	color: #CCCC66;
+}
+.caption {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #993366;
+}
+/* Table Formatting Styles */
+/* Light Green msgBox */
+.msgBox {
+	border : 1px solid #C9C966;
+	margin-bottom : 5px;
+	margin-left : 8px;
+}
+.msgBoxTop {
+	border-top : 1px solid #C9C966;
+}
+.msgBoxBottom {
+	border-bottom : 1px solid #C9C966;
+}
+.msgBoxHeader{
+	background-color : #C9C966;
+	border-bottom : 1px solid #C9C966;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: white;
+	font-weight: bold;
+	padding-left : 2px;
+}
+
+/* Front and Centre msgBox */
+.msgBoxRed {
+	border : 1px solid #CCCC66;
+	background-color: #ecedc3;
+
+}
+.msgBoxBottomRed {
+	border-bottom : 1px solid #CCCC66;
+}
+.msgBoxHeaderRed{
+	background-color : #CCCC66;
+	border-bottom : 1px solid #CCCC66;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: white;
+	font-weight: bold;
+	background-image: url(/images/light-green-bg-msgBox.gif);
+	background-position: right;
+	background-repeat: repeat-y;
+}
+/* Righ-hand Nav (homepage) msgBox */
+.msgBoxYellow {
+	border : 1px solid #339999;
+	background-color: #d4eeee;
+	margin-left : 2px;
+
+}
+.msgBoxYellowBottom {
+	border-bottom : 1px solid #339999;
+}
+.msgBoxHeaderYellow{
+	background-color : #339999;
+	border-bottom : 1px solid #339999;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: white;
+	font-weight: bold;
+	padding-left : 10px;
+
+}
+/* Mid-Green msgBox - USE THE MOST*/
+.featureBox {
+	border : 1px solid #669966;
+
+}
+.featureBoxHome {
+	border : 1px solid #669966;
+	background-color: #ECEDC3;
+}
+.featureBoxBottom {
+	border-bottom : 1px solid #669966;
+}
+.featureBoxBottomThick {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	color: #336666;
+	border-bottom : 2px solid #669966;
+}
+.featureBoxTop {
+	border-top : 1px solid #669966;
+}
+.featureBoxHeader{
+	background-color : #669966;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: white;
+	font-weight: bold;
+	padding-left : 2px;
+	background-image: url(/images/mid-green-bg-msgBox.gif);
+	background-position: right;
+	background-repeat: repeat-y;
+}
+.featureBoxHeaderSmall{
+	background-color : #669966;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: white;
+	font-weight: bold;
+	padding-left : 2px;
+}
+
+.fbox_99ccff, .fbox_ccffff, .fbox_ccccff, .fbox_ccff99, .fbox_ccffcc, .fbox_ffff99, .fbox_ffffcc,
+.fbox_cccc99, .fbox_cccccc, .fbox_ff9999, .fbox_ffcccc, .fbox_ffccff, .fbox_ffcc99, .fbox_cc9999,
+.fbox_ffcc33, .fbox_ffffff, .fbox_6699ff, .fbox_cccc66, .fbox_99cc99, .fbox_99cc66, .fbox_99cccc {
+    font-size: 9pt;
+    font-family: arial, helvetica, sans-serif;
+    font-weight: normal;
+    margin-top: 0.5em;
+    margin-bottom: 0.25em;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 1px solid #000000;
+}
+
+/* row styles */
+.light{background-color : #CCCC66;}
+.verylight{background-color : #ECEDC3;}
+.lightRight{
+	background-color : #CCCC66;
+	text-align: right;
+}
+.lightRightSmall{
+	background-color : #CCCC66;
+	font-size: 8pt;
+	text-align : right;
+}
+.lightSmall{
+	background-color : #CCCC66;
+	font-size: 8pt;
+}
+.whiteRight{text-align: right;}
+.whiteRightSmall{
+	font-size: 8pt;
+	text-align : right;
+}
+.whiteSmall{font-size: 8pt;}
+
+@media print {
+
+ page { margin: 10% }
+
+ h1, h2, h3 { page-break-after: avoid; page-break-inside: avoid }
+
+ blockquote, 
+
+ ul, ol, dl { page-break-before: avoid } }
+
+
+
+@media aural {
+
+ h1, h2, h3, 
+
+ h4, h5, h6 { voice-family: paul, male; stress: 20; richness: 90 }
+
+ h2 { pitch: x-low; pitch-range: 80 }
+
+ h3 { pitch: low; pitch-range: 70 }
+
+ h4 { pitch: medium; pitch-range: 60 }
+
+ h5 { pitch: medium; pitch-range: 50 }
+
+ h6 { pitch: medium; pitch-range: 40 }
+
+ li, dt, dd { pitch: medium; richness: 60 }
+
+ dt { stress: 80 }
+
+ b, strong { pitch: medium; pitch-range: 60; stress: 90; richness: 90 }
+
+ i { pitch: medium; pitch-range: 60; stress: 60; richness: 50 }
+
+ u { richness: 0 }
+
+ a:link { voice-family: harry, male }
+
+ a:visited { voice-family: betty, female }
+
+ a:active { voice-family: betty, female; pitch-range: 80; pitch: x-high } }
+
+/* This style is for XHTML users only */
+
+.imgcell img, .imgcell a { 
+        display: block; 
+        margin: 0; 
+        border: 0; 
+        padding: 0; 
+} 
+
